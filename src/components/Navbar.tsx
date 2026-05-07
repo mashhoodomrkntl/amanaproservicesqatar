@@ -52,7 +52,7 @@ export default function Navbar() {
   return (
     <>
       {/* Top Bar */}
-      <div className="hidden lg:block bg-[#0A1628] text-white/60 text-[10px] font-bold tracking-[0.1em] uppercase border-b border-white/5">
+      {/* <div className="hidden lg:block bg-dark text-white/60 text-[10px] font-bold tracking-[0.1em] uppercase border-b border-white/5">
         <div className="container mx-auto py-3 flex items-center justify-between">
           <div className="flex items-center gap-10">
             <a href={`tel:${siteConfig.phone}`} className="flex items-center gap-2.5 hover:text-accent transition-colors">
@@ -72,15 +72,14 @@ export default function Navbar() {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Main Navbar */}
       <motion.nav
-        className={`sticky top-0 z-50 transition-all duration-300 ${
-          isScrolled
+        className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled
             ? "bg-white/90 backdrop-blur-md shadow-2xl shadow-primary/10 border-b border-primary/5 py-2"
             : "bg-white border-b border-border/50 py-4"
-        }`}
+          }`}
       >
         <div className="container mx-auto">
           <div className="flex items-center justify-between h-14">
@@ -161,7 +160,7 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center gap-4 shrink-0">
               <Link
                 href="/contact"
-                className="px-7 py-3.5 bg-[#0047AB] text-white text-[13px] font-black rounded-2xl shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:-translate-y-1 transition-all duration-300 uppercase tracking-wider"
+                className="px-7 py-3.5 bg-primary text-white text-[13px] font-black rounded-2xl shadow-lg shadow-primary/20 hover:shadow-[0_15px_40px_rgba(197,160,89,0.2)] hover:-translate-y-1 transition-all duration-300 uppercase tracking-wider"
               >
                 Free Consultation
               </Link>

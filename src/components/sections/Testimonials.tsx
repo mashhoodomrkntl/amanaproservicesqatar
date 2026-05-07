@@ -32,7 +32,8 @@ export default function Testimonials() {
   if (!mounted) return null;
 
   return (
-    <section className="py-24 lg:py-32 bg-slate-50 relative overflow-hidden" ref={ref}>
+    <section className="py-24 lg:py-32 bg-surface relative overflow-hidden" ref={ref}>
+      <div className="absolute inset-0 dot-pattern opacity-[0.4]" />
       <div className="container mx-auto relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div className="max-w-2xl">
@@ -51,14 +52,14 @@ export default function Testimonials() {
           <div className="flex gap-4">
             <button
               onClick={prev}
-              className="w-14 h-14 rounded-2xl bg-white border border-border flex items-center justify-center text-dark hover:bg-primary hover:text-white hover:border-primary hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="w-14 h-14 rounded-2xl bg-white border border-border flex items-center justify-center text-dark hover:bg-accent hover:text-white hover:border-accent hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               aria-label="Previous testimonials"
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
               onClick={next}
-              className="w-14 h-14 rounded-2xl bg-white border border-border flex items-center justify-center text-dark hover:bg-primary hover:text-white hover:border-primary hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="w-14 h-14 rounded-2xl bg-white border border-border flex items-center justify-center text-dark hover:bg-accent hover:text-white hover:border-accent hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
               aria-label="Next testimonials"
             >
               <ChevronRight className="w-6 h-6" />
@@ -79,7 +80,7 @@ export default function Testimonials() {
                 style={{ width: `calc(${100 / itemsPerPage}% - ${(24 * (itemsPerPage - 1)) / itemsPerPage}px)` }}
               >
                 <div className="bg-white p-8 rounded-3xl border border-border h-full flex flex-col hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500">
-                  <div className="flex gap-1 mb-6 text-yellow-400">
+                  <div className="flex gap-1 mb-6 text-accent">
                     {[...Array(5)].map((_, star) => (
                       <Star
                         key={star}
@@ -114,7 +115,7 @@ export default function Testimonials() {
               key={i}
               onClick={() => setIndex(i)}
               className={`h-2.5 rounded-full transition-all duration-300 ${
-                index === i ? "w-10 bg-primary" : "w-2.5 bg-border hover:bg-primary/30"
+                index === i ? "w-10 bg-accent" : "w-2.5 bg-border hover:bg-accent/30"
               }`}
               aria-label={`Go to slide ${i + 1}`}
             />

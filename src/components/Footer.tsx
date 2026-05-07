@@ -18,7 +18,7 @@ export default function Footer() {
     <footer className="bg-[#050B16] text-white/80" role="contentinfo">
       {/* CTA Banner */}
       <div className="relative overflow-hidden">
-        <div className="bg-[#0047AB] py-20 lg:py-24">
+        <div className="bg-primary py-20 lg:py-24">
           <div className="absolute inset-0 hero-grid opacity-20" />
           <div className="container relative mx-auto text-center">
             <h2 className="text-3xl lg:text-5xl font-black text-white mb-6 leading-tight">
@@ -32,7 +32,7 @@ export default function Footer() {
             <div className="flex flex-wrap items-center justify-center gap-5">
               <Link
                 href="/contact"
-                className="px-10 py-5 bg-white text-primary font-black rounded-2xl hover:bg-accent hover:text-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest"
+                className="px-10 py-5 bg-accent text-dark font-black rounded-2xl hover:bg-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest"
               >
                 Schedule Consultation
               </Link>
@@ -54,17 +54,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Company Info */}
           <div className="lg:col-span-4">
-            <Link href="/" className="flex items-center gap-4 mb-8 group shrink-0">
-              <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center text-white font-black text-xl shadow-xl group-hover:rotate-6 transition-transform">
-                A
-              </div>
-              <div className="flex flex-col">
-                <span className="text-xl font-black text-white tracking-tight">
-                  AMANAH
-                </span>
-                <span className="text-[9px] text-white/40 font-bold tracking-[0.2em] uppercase -mt-1">
-                  Business Services
-                </span>
+            <Link href="/" className="flex items-center group mb-8" aria-label="Amanah Business Services Home">
+              <div className="relative w-56 h-20 transition-transform duration-500 group-hover:scale-105 brightness-0 invert opacity-80 group-hover:opacity-100">
+                <img
+                  src="/amanahqatartlogo-Photoroom.png"
+                  alt="Amanah Business Services"
+                  className="w-full h-full object-contain"
+                />
               </div>
             </Link>
             <p className="text-white/50 text-base leading-relaxed mb-8 max-w-sm">

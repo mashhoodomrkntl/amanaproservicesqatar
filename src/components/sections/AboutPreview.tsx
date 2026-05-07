@@ -31,9 +31,9 @@ export default function AboutPreview() {
           >
             <div className="relative">
               {/* Main Card */}
-              <div className="bg-gradient-to-br from-[#001a3f] to-[#0047AB] rounded-[2.5rem] p-10 lg:p-14 text-white relative overflow-hidden shadow-2xl">
+              <div className="bg-primary rounded-[2.5rem] p-10 lg:p-14 text-white relative overflow-hidden shadow-2xl">
                 <div className="absolute inset-0 hero-grid opacity-10" />
-                <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
+                <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
                 
                 <div className="relative z-10">
                   <h3 className="text-2xl lg:text-4xl font-black mb-6 leading-tight">
@@ -66,12 +66,12 @@ export default function AboutPreview() {
                 className="absolute -bottom-8 right-0 lg:-right-8 bg-white rounded-3xl shadow-2xl p-8 border border-border hidden md:block"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-primary-50 flex items-center justify-center">
-                    <Award className="w-8 h-8 text-primary" />
+                  <div className="w-14 h-14 rounded-2xl bg-accent-light flex items-center justify-center">
+                    <Award className="w-8 h-8 text-accent" />
                   </div>
                   <div>
                     <div className="text-xs text-text-secondary uppercase tracking-widest font-bold mb-1">Success Rate</div>
-                    <div className="text-2xl font-black text-dark">99.9%</div>
+                    <div className="text-2xl font-black text-primary">99.9%</div>
                   </div>
                 </div>
               </motion.div>
@@ -88,7 +88,7 @@ export default function AboutPreview() {
               Who We Are
             </span>
             <h2 className="text-3xl lg:text-5xl font-black text-dark mb-8 leading-tight">
-              Your Reliable Partner in <br />
+              Trusted Experts in <br />
               <span className="text-primary">Qatari Expansion</span>
             </h2>
             <p className="text-base lg:text-lg text-text-secondary leading-relaxed mb-6">
@@ -109,7 +109,7 @@ export default function AboutPreview() {
                   key={i}
                   className="flex items-start gap-4 p-2"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center flex-shrink-0 text-primary">
+                  <div className="w-12 h-12 rounded-xl bg-accent-light flex items-center justify-center flex-shrink-0 text-accent">
                     <item.icon className="w-6 h-6" />
                   </div>
                   <div>
@@ -122,10 +122,10 @@ export default function AboutPreview() {
 
             <Link
               href="/about"
-              className="inline-flex items-center gap-3 px-10 py-5 bg-primary text-white font-black rounded-2xl hover:bg-primary-dark hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-primary text-white font-black rounded-2xl hover:bg-accent hover:text-dark hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest"
             >
-              Learn Our Story
-              <ArrowRight className="w-5 h-5" />
+              Discover Our Story
+              <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>
         </div>

@@ -48,8 +48,8 @@ export default function Services() {
             Our Services
           </span>
           <h2 className="text-3xl lg:text-5xl font-extrabold text-dark mb-6 leading-tight">
-            Comprehensive Business Solutions in{" "}
-            <span className="gradient-text">Qatar</span>
+            Bespoke Business <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Solutions in Qatar</span>
           </h2>
           <p className="text-base lg:text-lg text-text-secondary leading-relaxed">
             From company formation to ongoing compliance, we provide end-to-end
@@ -72,8 +72,8 @@ export default function Services() {
                   href={`/services/${service.id}`}
                   className="group flex flex-col h-full p-8 rounded-2xl bg-white border border-border hover:border-primary/20 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2 transition-all duration-500"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary-50 to-primary-100 flex items-center justify-center mb-6 group-hover:from-primary group-hover:to-primary-dark transition-all duration-500">
-                    <Icon className="w-7 h-7 text-primary group-hover:text-white transition-colors duration-500" />
+                  <div className="w-16 h-16 rounded-2xl bg-accent-light flex items-center justify-center mb-6 group-hover:bg-primary transition-all duration-500 shadow-sm">
+                    <Icon className="w-8 h-8 text-accent group-hover:text-white transition-colors duration-500" />
                   </div>
 
                   <h3 className="text-xl font-bold text-dark mb-4 group-hover:text-primary transition-colors">
@@ -103,10 +103,10 @@ export default function Services() {
         >
           <Link
             href="/services"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-primary-dark text-white font-semibold rounded-xl hover:shadow-xl hover:shadow-primary/25 hover:-translate-y-1 transition-all duration-300"
+            className="inline-flex items-center gap-2 px-10 py-5 bg-primary text-white font-black rounded-2xl hover:bg-accent hover:text-dark hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest"
           >
-            View All Services
-            <ArrowRight className="w-5 h-5" />
+            Explore All Solutions
+            <ArrowRight className="w-4 h-4" />
           </Link>
         </motion.div>
       </div>
