@@ -6,122 +6,107 @@ import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { testimonials } from "@/lib/data";
 
 export default function Testimonials() {
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [index, setIndex] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(3);
-  const [mounted, setMounted] = useState(false);
+  const [constraints, setConstraints] = useState({ left: 0, right: 0 });
 
   useEffect(() => {
-    setMounted(true);
-    const handleResize = () => {
-      if (window.innerWidth < 768) setItemsPerPage(1);
-      else if (window.innerWidth < 1024) setItemsPerPage(2);
-      else setItemsPerPage(3);
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    if (scrollRef.current) {
+      const scrollWidth = scrollRef.current.scrollWidth;
+      const clientWidth = scrollRef.current.offsetWidth;
+      setConstraints({ left: -(scrollWidth - clientWidth), right: 0 });
+    }
   }, []);
 
-  const maxIndex = Math.ceil(testimonials.length / itemsPerPage) - 1;
-
-  const next = () => setIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
-  const prev = () => setIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
-
-  if (!mounted) return null;
-
   return (
-    <section className="py-24 lg:py-32 bg-surface relative overflow-hidden" ref={ref}>
-      <div className="absolute inset-0 dot-pattern opacity-[0.4]" />
-      <div className="container mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-          <div className="max-w-2xl">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-50 text-primary text-[10px] font-bold uppercase tracking-[0.2em] mb-4">
-              Testimonials
-            </span>
-            <h2 className="text-3xl lg:text-5xl font-black text-dark mb-6 leading-tight">
-              Trusted by Hundreds of <span className="text-primary">Businesses</span>
-            </h2>
-            <p className="text-base lg:text-lg text-text-secondary leading-relaxed">
-              Don&apos;t just take our word for it. Here&apos;s what our clients have
-              to say about their experience with Amanah Business Services.
-            </p>
-          </div>
+    <section id="testimonials" className="py-16 lg:py-20 bg-[#F9F6F1] relative overflow-hidden" ref={ref}>
+      <div className="container relative z-10 mx-auto px-6">
 
-          <div className="flex gap-4">
-            <button
-              onClick={prev}
-              className="w-14 h-14 rounded-2xl bg-white border border-border flex items-center justify-center text-dark hover:bg-accent hover:text-white hover:border-accent hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-              aria-label="Previous testimonials"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={next}
-              className="w-14 h-14 rounded-2xl bg-white border border-border flex items-center justify-center text-dark hover:bg-accent hover:text-white hover:border-accent hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-              aria-label="Next testimonials"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-          </div>
-        </div>
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-3xl mx-auto mb-12"
+        >
+          <span className="inline-block px-4 py-1 rounded-lg border border-accent/60 bg-white text-accent text-[9px] font-black uppercase tracking-[0.2em] mb-4">
+            Testimonials
+          </span>
+          <h2 className="text-4xl lg:text-5xl font-black text-[#0A2647] tracking-tight">
+            Our trusted clients
+          </h2>
+        </motion.div>
 
-        <div className="relative overflow-hidden">
+        {/* Draggable Horizontal Container */}
+        <div className="relative cursor-grab active:cursor-grabbing overflow-visible">
           <motion.div
-            className="flex gap-6"
-            animate={{ x: `-${index * 100}%` }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            ref={scrollRef}
+            drag="x"
+            dragConstraints={constraints}
+            className="flex gap-5 overflow-visible"
+            style={{ touchAction: "none" }}
           >
             {testimonials.map((testimonial, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="w-full shrink-0"
-                style={{ width: `calc(${100 / itemsPerPage}% - ${(24 * (itemsPerPage - 1)) / itemsPerPage}px)` }}
+                className="min-w-[280px] md:min-w-[340px] bg-white rounded-[2rem] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.03)] border border-slate-100 flex flex-col h-[300px] transition-all duration-500"
               >
-                <div className="bg-white p-8 rounded-3xl border border-border h-full flex flex-col hover:shadow-2xl hover:shadow-primary/5 transition-all duration-500">
-                  <div className="flex gap-1 mb-6 text-accent">
-                    {[...Array(5)].map((_, star) => (
-                      <Star
-                        key={star}
-                        className="w-4 h-4 fill-current"
-                      />
-                    ))}
+                {/* Compact Quote Icon */}
+                <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center mb-4">
+                  <svg width="16" height="11" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.71429 0C2.55714 0 0 2.55714 0 5.71429C0 8.87143 2.55714 11.4286 5.71429 11.4286H6.28571V15.2857L10.1429 11.4286H11.4286V5.71429C11.4286 2.55714 8.87143 0 5.71429 0ZM17.1429 0C13.9857 0 11.4286 2.55714 11.4286 5.71429C11.4286 8.87143 13.9857 11.4286 17.1429 11.4286H17.7143V15.2857L21.5714 11.4286H22.8571V5.71429C22.8571 2.55714 20.3 0 17.1429 0Z" fill="#3B82F6" opacity="0.3" />
+                  </svg>
+                </div>
+
+                {/* Minimal Testimonial Text */}
+                <p className="text-[14px] text-slate-600 leading-relaxed mb-4 flex-grow line-clamp-3">
+                  {testimonial.text}
+                </p>
+
+                {/* Subtle Divider */}
+                <div className="w-full h-[1px] bg-slate-50 mb-5" />
+
+                {/* Compact Profile */}
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-slate-100 overflow-hidden border border-slate-100 flex-shrink-0">
+                    <img
+                      src={`https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=random`}
+                      alt={testimonial.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <p className="text-text-primary italic leading-relaxed mb-8 flex-grow">
-                    &quot;{testimonial.text}&quot;
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center text-primary font-bold">
-                      {testimonial.name.charAt(0)}
-                    </div>
-                    <div>
-                      <div className="font-bold text-dark">{testimonial.name}</div>
-                      <div className="text-xs text-text-secondary">
-                        {testimonial.role}
-                      </div>
-                    </div>
+                  <div className="overflow-hidden">
+                    <h4 className="font-bold text-[#0A2647] text-[12px] leading-none mb-1 truncate">
+                      {testimonial.name}
+                    </h4>
+                    <p className="text-[9px] text-slate-400 font-medium truncate uppercase tracking-tighter">
+                      {testimonial.role.toLowerCase().replace(/\s+/g, '_')}_{Math.floor(Math.random() * 99)}
+                    </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </motion.div>
         </div>
 
-        {/* Pagination Dots */}
-        <div className="flex justify-center mt-12 gap-3">
-          {[...Array(maxIndex + 1)].map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setIndex(i)}
-              className={`h-2.5 rounded-full transition-all duration-300 ${
-                index === i ? "w-10 bg-accent" : "w-2.5 bg-border hover:bg-accent/30"
-              }`}
-              aria-label={`Go to slide ${i + 1}`}
+        {/* Minimal Interaction Indicator */}
+        <div className="flex justify-center mt-8">
+          <div className="w-8 h-[3px] bg-slate-200 rounded-full overflow-hidden">
+            <motion.div
+              animate={{ x: [-16, 16, -16] }}
+              transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+              className="w-4 h-full bg-accent"
             />
-          ))}
+          </div>
         </div>
+
       </div>
+
+      <style jsx>{`
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
     </section>
   );
 }

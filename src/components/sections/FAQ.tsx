@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, MessageCircleQuestion, HelpCircle } from "lucide-react";
 import { faqs } from "@/lib/data";
 
 export default function FAQ() {
@@ -11,82 +11,121 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 lg:py-32 bg-white relative overflow-hidden" ref={ref}>
-      <div className="absolute top-0 left-0 w-96 h-96 bg-primary-50 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 opacity-60" />
+    <section
+      className="relative overflow-hidden py-24 lg:py-32 bg-white text-[#0A2647]"
+      ref={ref}
+      id="faq"
+    >
+      {/* Background visual elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] opacity-20" />
+        <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] opacity-20" />
+      </div>
 
-      <div className="container mx-auto relative z-10">
+      <div className="container mx-auto relative z-10 px-4">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-3xl mx-auto mb-20"
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-3xl mx-auto mb-16 lg:mb-24"
         >
-          <span className="inline-block px-4 py-1.5 rounded-full bg-primary-50 text-primary text-[10px] font-bold uppercase tracking-[0.2em] mb-5">
-            Knowledge Base
-          </span>
-          <h2 className="text-3xl lg:text-5xl font-black text-dark mb-6 leading-tight">
-            Frequently Asked <span className="text-primary">Questions</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-semibold uppercase tracking-widest mb-6">
+            <HelpCircle className="w-4 h-4" />
+            Knowledge Hub
+          </div>
+          <h2 className="text-4xl lg:text-6xl font-extrabold mb-8 tracking-tight text-[#0A2647]">
+            Frequently Asked <span className="text-accent">Questions</span>
           </h2>
-          <p className="text-base lg:text-lg text-text-secondary leading-relaxed">
-            Find answers to common questions about starting and operating a
-            business in Qatar.
+          <p className="text-gray-500 text-lg leading-relaxed">
+            Everything you need to know about setting up and growing your business in Qatar. Can't find what you're looking for? Reach out to our consultants.
           </p>
         </motion.div>
 
-        {/* FAQ Items */}
-        <div className="space-y-5 max-w-4xl mx-auto">
-          {faqs.map((faq, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-            >
-              <div
-                className={`bg-white rounded-2xl border transition-all duration-300 ${
-                  openIndex === index
-                    ? "border-primary/20 shadow-lg shadow-primary/5"
-                    : "border-border hover:border-primary/10"
-                }`}
-              >
-                <button
-                  onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                  className="w-full flex items-center justify-between gap-6 p-6 lg:p-8 text-left group/btn"
-                  aria-expanded={openIndex === index}
-                >
-                  <h3 className={`text-base lg:text-lg font-bold transition-colors ${
-                    openIndex === index ? "text-primary" : "text-dark group-hover/btn:text-primary"
-                  }`}>
-                    {faq.question}
-                  </h3>
-                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
-                    openIndex === index ? "bg-primary text-white rotate-180 shadow-lg shadow-primary/20" : "bg-primary-50 text-primary group-hover/btn:bg-primary/10"
-                  }`}>
-                    <ChevronDown className="w-5 h-5" />
-                  </div>
-                </button>
-
+        {/* FAQ Grid/List */}
+        <div className="max-w-4xl mx-auto">
+          <div className="grid gap-4">
+            {faqs.map((faq, index) => {
+              const isOpen = openIndex === index;
+              return (
                 <motion.div
-                  initial={false}
-                  animate={{
-                    height: openIndex === index ? "auto" : 0,
-                    opacity: openIndex === index ? 1 : 0,
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className="overflow-hidden"
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <div className="px-6 pb-6 lg:px-8 lg:pb-8">
-                    <p className="text-text-secondary leading-relaxed text-sm lg:text-base border-t border-border/50 pt-4">
-                      {faq.answer}
-                    </p>
+                  <div
+                    className={`group transition-all duration-500 rounded-2xl border ${isOpen
+                        ? "bg-white border-accent shadow-[0_20px_50px_rgba(197,160,89,0.15)]"
+                        : "bg-gray-50 border-gray-100 hover:border-accent/30 hover:bg-white"
+                      } overflow-hidden`}
+                  >
+                    <button
+                      onClick={() => setOpenIndex(isOpen ? null : index)}
+                      className="w-full flex items-center justify-between gap-6 p-6 lg:p-8 text-left transition-all"
+                    >
+                      <div className="flex items-center gap-4">
+                        <span className={`text-lg font-mono transition-colors duration-300 ${isOpen ? "text-accent" : "text-gray-500"}`}>
+                          {(index + 1).toString().padStart(2, '0')}
+                        </span>
+                        <h3 className={`text-lg lg:text-xl font-bold transition-colors duration-300 ${isOpen ? "text-[#0A2647]" : "text-gray-600 group-hover:text-[#0A2647]"
+                          }`}>
+                          {faq.question}
+                        </h3>
+                      </div>
+
+                      <div className={`flex-shrink-0 w-8 h-8 rounded-full border flex items-center justify-center transition-all duration-500 ${isOpen
+                          ? "bg-accent border-accent text-white rotate-180"
+                          : "bg-transparent border-gray-200 text-gray-400 group-hover:border-accent group-hover:text-accent"
+                        }`}>
+                        <ChevronDown className="w-4 h-4" />
+                      </div>
+                    </button>
+
+                    <AnimatePresence>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.4, ease: "easeInOut" }}
+                        >
+                          <div className="px-6 pb-6 lg:px-8 lg:pb-8 lg:pl-20">
+                            <div className="h-px w-full bg-gradient-to-r from-accent/30 to-transparent mb-6" />
+                            <p className="text-gray-600 leading-relaxed text-base lg:text-lg">
+                              {faq.answer}
+                            </p>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 </motion.div>
-              </div>
-            </motion.div>
-          ))}
+              );
+            })}
+          </div>
+
+          {/* CTA Footer */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.8 }}
+            className="mt-16 text-center"
+          >
+            <p className="text-gray-500 mb-6 flex items-center justify-center gap-2">
+              <MessageCircleQuestion className="w-5 h-5 text-accent" />
+              Still have more questions?
+            </p>
+            <a
+              href="#contact-form"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#001a3f] text-white font-black rounded-full hover:bg-accent hover:text-[#001a3f] transition-all shadow-xl shadow-blue-900/10 uppercase text-xs tracking-widest"
+            >
+              Contact Our Experts
+            </a>
+          </motion.div>
         </div>
       </div>
     </section>
   );
 }
+

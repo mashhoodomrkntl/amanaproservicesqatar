@@ -13,42 +13,94 @@ export default function WhyQatarPreview() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 lg:py-32 bg-white relative overflow-hidden" ref={ref}>
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent-light rounded-full blur-3xl translate-x-1/2 translate-y-1/2 opacity-40" />
-      <div className="relative max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          <motion.div initial={{ opacity: 0, x: -40 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7 }}>
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-50 text-primary text-xs font-bold mb-5 tracking-widest uppercase">Why Qatar</span>
-            <h2 className="text-3xl lg:text-5xl font-extrabold text-dark mb-6 leading-tight">
-              Why Invest in <span className="gradient-text">Qatar?</span>
+    <section className="py-24 lg:py-32 bg-[#0A2647] relative overflow-hidden" ref={ref}>
+      {/* Background Visuals */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/qatar_night_skyline_premium_1778507387676.png"
+          alt="Doha Night Skyline"
+          className="w-full h-full object-cover opacity-20 scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0A2647] via-[#0A2647]/95 to-[#0A2647]" />
+        <div className="absolute inset-0 hero-grid opacity-[0.03]" />
+      </div>
+
+      <div className="container relative z-10 mx-auto">
+        <div className="grid lg:grid-cols-12 gap-16 items-center">
+
+          {/* Left Side: Strategic Narrative */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-5"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-[1px] bg-accent" />
+              <span className="text-xs font-black text-accent uppercase tracking-[0.4em]">Strategic Market Insights</span>
+            </div>
+
+            <h2 className="text-4xl lg:text-6xl font-black text-white mb-8 leading-[1.1] tracking-tight">
+              Why Invest In <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent-light to-accent">Modern Qatar?</span>
             </h2>
-            <p className="text-base lg:text-lg text-text-secondary leading-relaxed mb-6">
-              Qatar is one of the fastest-growing business hubs in the Middle East, powered by its long-term national vision, world-class infrastructure, tax-friendly policies, and a legal framework that welcomes global investors.
-            </p>
-            <p className="text-base text-text-secondary leading-relaxed mb-8">
-              Whether you&apos;re looking to establish in energy, hospitality, technology, trading, construction, or emerging sectors, Qatar offers a stable business landscape with high returns and minimal barriers.
-            </p>
-            <Link href="/why-qatar" className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary-dark hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-              Learn More About Qatar <ArrowRight className="w-5 h-5" />
+
+            <div className="space-y-6 mb-10">
+              <p className="text-lg text-slate-300 leading-relaxed font-medium">
+                Qatar is the fastest-growing business hub in the Middle East, powered by a visionary national strategy and world-class infrastructure.
+              </p>
+              <p className="text-base text-slate-400 leading-relaxed">
+                Whether you&apos;re looking to establish in energy, tech, or hospitality, Qatar offers a stable business landscape with high returns and minimal barriers.
+              </p>
+            </div>
+
+            <Link href="/why-qatar" className="group inline-flex items-center gap-3 px-10 py-5 bg-white text-[#0A2647] font-black rounded-2xl hover:bg-accent hover:text-white transition-all duration-500 uppercase text-[10px] tracking-widest shadow-2xl">
+              Why Invest In Qatar <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
             </Link>
           </motion.div>
 
-          <motion.div initial={{ opacity: 0, x: 40 }} animate={isInView ? { opacity: 1, x: 0 } : {}} transition={{ duration: 0.7, delay: 0.2 }} className="grid grid-cols-2 gap-5">
-            {whyQatar.map((item, index) => {
-              const Icon = iconMap[item.icon];
-              return (
-                <motion.div key={index} initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                  className={`p-6 rounded-2xl border border-border hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 transition-all duration-500 bg-white group ${index === 0 ? "col-span-2" : ""}`}
-                >
-                  <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center mb-5 group-hover:bg-primary transition-all duration-500">
-                    <Icon className="w-6 h-6 text-primary group-hover:text-white transition-colors" />
-                  </div>
-                  <h3 className="text-base font-extrabold text-dark mb-3 group-hover:text-primary transition-colors">{item.title}</h3>
-                  <p className="text-sm text-text-secondary leading-relaxed">{item.description}</p>
-                </motion.div>
-              );
-            })}
+          {/* Right Side: The Bento Vision Matrix */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:col-span-7"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {whyQatar.slice(0, 4).map((item, index) => {
+                const Icon = iconMap[item.icon];
+                const isLarge = index === 0 || index === 3;
+
+                return (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={isInView ? { opacity: 1, y: 0 } : {}}
+                    transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+                    className={`group relative p-8 rounded-[2rem] border border-white/10 bg-white/[0.03] backdrop-blur-xl hover:bg-white/[0.08] hover:border-accent/30 transition-all duration-700 overflow-hidden ${isLarge ? "md:col-span-2" : ""}`}
+                  >
+                    {/* Glowing Accent */}
+                    <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+
+                    <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
+                      <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center border border-accent/20 group-hover:bg-accent group-hover:border-accent transition-all duration-500 shrink-0">
+                        <Icon className="w-6 h-6 text-accent group-hover:text-white transition-colors" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-black text-white mb-2 group-hover:text-accent transition-colors tracking-tight">
+                          {item.title}
+                        </h3>
+                        <p className="text-sm text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              })}
+            </div>
           </motion.div>
+
         </div>
       </div>
     </section>

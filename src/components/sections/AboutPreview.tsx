@@ -37,7 +37,7 @@ export default function AboutPreview() {
             className="max-w-sm lg:text-right"
           >
             <p className="text-sm text-slate-600 leading-relaxed italic">
-              Where strategic expertise meets unparalleled local knowledge. 
+              Where strategic expertise meets unparalleled local knowledge.
               We specialize in bridging the gap between global vision and local success.
             </p>
           </motion.div>
@@ -45,7 +45,7 @@ export default function AboutPreview() {
 
         {/* Main Bento Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:h-[520px]">
-          
+
           {/* Left - Large Image Block */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -53,9 +53,9 @@ export default function AboutPreview() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-6 relative h-full rounded-[2rem] overflow-hidden shadow-xl group min-h-[400px] lg:min-h-0"
           >
-            <img 
-              src="https://images.unsplash.com/photo-1550350505-553196f2a527?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
-              alt="Qatar Business Office" 
+            <img
+              src="https://images.unsplash.com/photo-1550350505-553196f2a527?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Qatar Business Office"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
@@ -63,7 +63,7 @@ export default function AboutPreview() {
 
           {/* Right Column - Modular Cards */}
           <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-rows-2 gap-6 h-full">
-            
+
             {/* Top Left Card - Expertise */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
@@ -112,14 +112,14 @@ export default function AboutPreview() {
               <div className="relative z-10 max-w-md">
                 <h3 className="text-2xl font-black text-accent mb-4">Business Growth</h3>
                 <p className="text-xs text-white/50 leading-relaxed mb-6">
-                  We focus on scaling your operations through strategic governmental compliance 
+                  We focus on scaling your operations through strategic governmental compliance
                   and operational efficiency. Our dedicated team ensures you remain competitive.
                 </p>
                 <Link href="/contact" className="inline-flex items-center gap-2 text-accent font-black uppercase text-[9px] tracking-widest group">
                   Start Your Journey <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
-              
+
               <div className="flex gap-3 relative z-10">
                 <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group cursor-pointer hover:bg-white/5 transition-colors">
                   <ArrowRight className="w-5 h-5 text-white -rotate-45" />
