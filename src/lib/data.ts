@@ -7,7 +7,7 @@ export const siteConfig = {
   phone: "+974 5000 0000",
   email: "info@amanahbusiness.qa",
   whatsapp: "+97450000000",
-  address: "Doha, Qatar",
+  address: "Office 6, 2nd Floor, Building No. 67, Opposite Liverpool John Moores University | Oryx University, Doha, Qatar",
   foundedYear: 2015,
   socialLinks: {
     facebook: "https://facebook.com/amanahbusiness",
@@ -99,6 +99,44 @@ export const services = [
     },
   },
   {
+    id: "translation-attestation",
+    title: "Translation & Attestation",
+    shortTitle: "Translation",
+    subtitle: "Certified Document Translation & Attestation",
+    description:
+      "Accurate, certified document translation and attestation services are essential for business operations in Qatar. Our in-house team provides fast, precise translations in multiple languages and handles all attestation requirements across government ministries.",
+    icon: "Languages",
+    features: [
+      "Certified Legal Translation (Arabic ↔ English)",
+      "Multi-Language Translation Services",
+      "Document Attestation & Legalization",
+      "Embassy & Consulate Attestations",
+      "MOFA Attestation Services",
+      "Educational Certificate Attestation",
+      "Commercial Document Translation",
+      "Marriage & Birth Certificate Attestation",
+    ],
+    benefits: [
+      "In-house certified translators",
+      "Fast turnaround times",
+      "Accepted by all government ministries",
+      "Competitive pricing",
+    ],
+    seo: {
+      title: "Translation & Attestation Services in Qatar | Certified Translators | Amanah Business Services",
+      description:
+        "Certified translation and document attestation services in Qatar. Amanah Business Services offers legal translation, MOFA attestation, embassy attestation, and certificate legalization. Fast and accurate.",
+      keywords: [
+        "translation services qatar",
+        "document attestation qatar",
+        "certified translation qatar",
+        "MOFA attestation qatar",
+        "legal translation qatar",
+        "certificate attestation qatar",
+      ],
+    },
+  },
+  {
     id: "local-sponsorship",
     title: "Local Sponsorship",
     shortTitle: "Sponsorship",
@@ -170,44 +208,7 @@ export const services = [
       ],
     },
   },
-  {
-    id: "translation-attestation",
-    title: "Translation & Attestation",
-    shortTitle: "Translation",
-    subtitle: "Certified Document Translation & Attestation",
-    description:
-      "Accurate, certified document translation and attestation services are essential for business operations in Qatar. Our in-house team provides fast, precise translations in multiple languages and handles all attestation requirements across government ministries.",
-    icon: "Languages",
-    features: [
-      "Certified Legal Translation (Arabic ↔ English)",
-      "Multi-Language Translation Services",
-      "Document Attestation & Legalization",
-      "Embassy & Consulate Attestations",
-      "MOFA Attestation Services",
-      "Educational Certificate Attestation",
-      "Commercial Document Translation",
-      "Marriage & Birth Certificate Attestation",
-    ],
-    benefits: [
-      "In-house certified translators",
-      "Fast turnaround times",
-      "Accepted by all government ministries",
-      "Competitive pricing",
-    ],
-    seo: {
-      title: "Translation & Attestation Services in Qatar | Certified Translators | Amanah Business Services",
-      description:
-        "Certified translation and document attestation services in Qatar. Amanah Business Services offers legal translation, MOFA attestation, embassy attestation, and certificate legalization. Fast and accurate.",
-      keywords: [
-        "translation services qatar",
-        "document attestation qatar",
-        "certified translation qatar",
-        "MOFA attestation qatar",
-        "legal translation qatar",
-        "certificate attestation qatar",
-      ],
-    },
-  },
+
   {
     id: "business-consultation",
     title: "Business Consultation",

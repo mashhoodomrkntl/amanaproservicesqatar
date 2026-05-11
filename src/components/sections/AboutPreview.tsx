@@ -3,131 +3,137 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
-import { ArrowRight, Award, Users, Clock, Shield } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 export default function AboutPreview() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const highlights = [
-    { icon: Award, label: "Licensed & Certified", desc: "Fully accredited by Qatar authorities" },
-    { icon: Users, label: "150+ Expert Team", desc: "Dedicated professionals at your service" },
-    { icon: Clock, label: "Since 2015", desc: "Over a decade of trusted expertise" },
-    { icon: Shield, label: "100% Compliant", desc: "Full regulatory compliance guaranteed" },
-  ];
-
   return (
-    <section className="py-24 lg:py-32 bg-white relative overflow-hidden" ref={ref}>
-      <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(circle_at_70%_30%,rgba(0,71,171,0.03),transparent_70%)]" />
-      
+    <section className="py-16 lg:py-20 bg-[#F9F6F1] relative overflow-hidden" ref={ref}>
       <div className="container mx-auto">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Left - Visual */}
+        {/* Top Header Row */}
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-12">
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7 }}
-            className="relative"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="max-w-2xl"
           >
-            <div className="relative">
-              {/* Main Card */}
-              <div className="bg-primary rounded-[2.5rem] p-10 lg:p-14 text-white relative overflow-hidden shadow-2xl">
-                <div className="absolute inset-0 hero-grid opacity-10" />
-                <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
-                
-                <div className="relative z-10">
-                  <h3 className="text-2xl lg:text-4xl font-black mb-6 leading-tight">
-                    Qatar&apos;s Premier <br />
-                    <span className="text-accent">Business Setup</span> Consultancy
-                  </h3>
-                  <p className="text-white/70 text-base lg:text-lg leading-relaxed mb-10 max-w-lg">
-                    We simplify the complexity of doing business in Qatar. From legal structures to government relations, our experts ensure your journey is seamless and compliant.
-                  </p>
-                  
-                  <div className="flex flex-wrap items-center gap-10">
-                    <div className="flex flex-col">
-                      <div className="text-4xl lg:text-5xl font-black text-accent">5000+</div>
-                      <div className="text-[10px] text-white/50 mt-1 uppercase tracking-[0.2em] font-bold">Projects Done</div>
-                    </div>
-                    <div className="w-px h-12 bg-white/10 hidden sm:block" />
-                    <div className="flex flex-col">
-                      <div className="text-4xl lg:text-5xl font-black text-accent">10+</div>
-                      <div className="text-[10px] text-white/50 mt-1 uppercase tracking-[0.2em] font-bold">Years Exp.</div>
-                    </div>
-                  </div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-6 h-[2px] bg-primary" />
+              <span className="text-xs font-bold text-primary uppercase tracking-widest">About Our Agency</span>
+            </div>
+            <h2 className="text-3xl lg:text-5xl font-black text-[#0A2647] leading-[1.1] tracking-tight">
+              Premium PRO & Business <br />
+              Solutions For Growth
+            </h2>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="max-w-sm lg:text-right"
+          >
+            <p className="text-sm text-slate-600 leading-relaxed italic">
+              Where strategic expertise meets unparalleled local knowledge. 
+              We specialize in bridging the gap between global vision and local success.
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Main Bento Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:h-[520px]">
+          
+          {/* Left - Large Image Block */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-6 relative h-full rounded-[2rem] overflow-hidden shadow-xl group min-h-[400px] lg:min-h-0"
+          >
+            <img 
+              src="https://images.unsplash.com/photo-1550350505-553196f2a527?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+              alt="Qatar Business Office" 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+          </motion.div>
+
+          {/* Right Column - Modular Cards */}
+          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-rows-2 gap-6 h-full">
+            
+            {/* Top Left Card - Expertise */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="bg-white rounded-[1.5rem] p-6 lg:p-8 flex flex-col justify-between shadow-sm border border-slate-100"
+            >
+              <div>
+                <h3 className="text-xl font-black text-primary mb-3 leading-tight">
+                  Strategic <br />Expert Guidance
+                </h3>
+                <p className="text-xs text-slate-500 leading-relaxed mb-4">
+                  We specialize in connecting businesses with efficient pathways in the Qatari region.
+                </p>
+              </div>
+              <Link href="/services" className="inline-flex items-center gap-2 text-primary font-black uppercase text-[9px] tracking-widest group">
+                Learn More <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
+
+            {/* Top Right Card - Stats */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="bg-[#F0EEE9] rounded-[1.5rem] p-6 lg:p-8 flex flex-col justify-center items-center text-center gap-4 shadow-sm border border-slate-200/20"
+            >
+              <div className="space-y-1">
+                <div className="text-3xl font-black text-primary tracking-tighter">5,000<span className="text-accent">+</span></div>
+                <div className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Projects Completed</div>
+              </div>
+              <div className="w-10 h-[1px] bg-slate-300/50" />
+              <div className="space-y-1">
+                <div className="text-3xl font-black text-primary tracking-tighter">10<span className="text-accent">+</span></div>
+                <div className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Years Experience</div>
+              </div>
+            </motion.div>
+
+            {/* Bottom Wide Card - Business Growth */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="sm:col-span-2 bg-[#0A2647] rounded-[1.5rem] p-8 lg:p-10 flex flex-col sm:flex-row justify-between items-end gap-6 text-white relative overflow-hidden shadow-xl"
+            >
+              <div className="relative z-10 max-w-md">
+                <h3 className="text-2xl font-black text-accent mb-4">Business Growth</h3>
+                <p className="text-xs text-white/50 leading-relaxed mb-6">
+                  We focus on scaling your operations through strategic governmental compliance 
+                  and operational efficiency. Our dedicated team ensures you remain competitive.
+                </p>
+                <Link href="/contact" className="inline-flex items-center gap-2 text-accent font-black uppercase text-[9px] tracking-widest group">
+                  Start Your Journey <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+              
+              <div className="flex gap-3 relative z-10">
+                <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group cursor-pointer hover:bg-white/5 transition-colors">
+                  <ArrowRight className="w-5 h-5 text-white -rotate-45" />
+                </div>
+                <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center group cursor-pointer hover:bg-accent-light transition-colors">
+                  <ArrowRight className="w-5 h-5 text-[#0A2647]" />
                 </div>
               </div>
 
-              {/* Floating Badge */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 0.5, duration: 0.5 }}
-                className="absolute -bottom-8 right-0 lg:-right-8 bg-white rounded-3xl shadow-2xl p-8 border border-border hidden md:block"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-accent-light flex items-center justify-center">
-                    <Award className="w-8 h-8 text-accent" />
-                  </div>
-                  <div>
-                    <div className="text-xs text-text-secondary uppercase tracking-widest font-bold mb-1">Success Rate</div>
-                    <div className="text-2xl font-black text-primary">99.9%</div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
+              {/* Decorative Subtle Grid */}
+              <div className="absolute inset-0 hero-grid opacity-[0.02] pointer-events-none" />
+            </motion.div>
 
-          {/* Right - Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
-          >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-primary-50 text-primary text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
-              Who We Are
-            </span>
-            <h2 className="text-3xl lg:text-5xl font-black text-dark mb-8 leading-tight">
-              Trusted Experts in <br />
-              <span className="text-primary">Qatari Expansion</span>
-            </h2>
-            <p className="text-base lg:text-lg text-text-secondary leading-relaxed mb-6">
-              Welcome to Amanah Business Services — Qatar&apos;s leading consultancy for 
-              PRO services and company formation. We don&apos;t just provide services; 
-              we build the foundation for your success in the region.
-            </p>
-            <p className="text-base text-text-secondary leading-relaxed mb-10">
-              Our deep understanding of local regulations and strong government relations 
-              allow us to expedite processes that others find challenging. Whether you&apos;re 
-              a small startup or a global corporation, we scale our solutions to meet your needs.
-            </p>
-
-            {/* Highlights Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-              {highlights.map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-4 p-2"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-accent-light flex items-center justify-center flex-shrink-0 text-accent">
-                    <item.icon className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <div className="text-base font-bold text-dark mb-1">{item.label}</div>
-                    <div className="text-xs text-text-secondary leading-relaxed">{item.desc}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <Link
-              href="/about"
-              className="inline-flex items-center gap-3 px-10 py-5 bg-primary text-white font-black rounded-2xl hover:bg-accent hover:text-dark hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest"
-            >
-              Discover Our Story
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -11,7 +11,7 @@ interface PageHeaderProps {
 
 export default function PageHeader({ title, subtitle, breadcrumbs }: PageHeaderProps) {
   return (
-    <section className="relative py-20 lg:py-28 overflow-hidden">
+    <section className="relative pt-32 pb-20 lg:pt-44 lg:py-28 overflow-hidden">
       <div className="absolute inset-0 gradient-hero" />
       <div className="absolute inset-0 hero-grid opacity-30" />
       <div className="absolute top-10 right-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl" />
