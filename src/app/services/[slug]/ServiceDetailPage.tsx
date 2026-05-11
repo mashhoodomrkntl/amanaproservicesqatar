@@ -4,11 +4,22 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
-import ContactForm from "@/components/sections/ContactForm";
-import { services } from "@/lib/data";
-import { CheckCircle, ArrowRight, Building2, FileCheck, Handshake, Scale, Languages, TrendingUp, Calculator } from "lucide-react";
+import { services, siteConfig } from "@/lib/data";
+import {
+  CheckCircle, ArrowRight, Building2, FileCheck, Handshake,
+  Scale, Languages, TrendingUp, Calculator, ShieldCheck,
+  Clock, Zap, MessageSquare, Phone
+} from "lucide-react";
 
-const iconMap: Record<string, React.ElementType> = { Building2, FileCheck, Handshake, Scale, Languages, TrendingUp, Calculator };
+const iconMap: Record<string, React.ElementType> = {
+  Building2,
+  FileCheck,
+  Handshake,
+  Scale,
+  Languages,
+  TrendingUp,
+  Calculator
+};
 
 interface ServiceDetailPageProps {
   service: (typeof services)[0];
@@ -16,7 +27,9 @@ interface ServiceDetailPageProps {
 
 export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const sidebarRef = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+
   const otherServices = services.filter((s) => s.id !== service.id);
   const Icon = iconMap[service.icon];
 
@@ -34,7 +47,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
   };
 
   return (
-    <>
+    <div className="bg-[#FAFAFA]">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <PageHeader
@@ -47,57 +60,82 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
         ]}
       />
 
-      <section className="py-20 lg:py-28 bg-white" ref={ref}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid lg:grid-cols-3 gap-12">
-            {/* Main Content */}
-            <div className="lg:col-span-2">
-              <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }}>
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary-dark flex items-center justify-center">
-                    <Icon className="w-8 h-8 text-white" />
+      <section className="py-24 lg:py-32 relative overflow-hidden" ref={ref}>
+        {/* Subtle Background Pattern */}
+        <div className="absolute top-0 left-0 w-full h-full bg-[#001a3f]/[0.01] pointer-events-none" />
+        <div className="absolute top-1/2 right-0 w-72 h-72 bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-16">
+            {/* Main Content Area */}
+            <div className="lg:col-span-8">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.8 }}
+              >
+                {/* Intro Section */}
+                <div className="mb-16">
+                  <div className="flex items-center gap-6 mb-10">
+                    <div className="w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-2xl md:rounded-[2rem] bg-[#001a3f] flex items-center justify-center shadow-2xl shadow-blue-900/20 group">
+                      <Icon className="w-8 h-8 md:w-10 md:h-10 text-accent transition-transform group-hover:scale-110" />
+                    </div>
+                    <div>
+                      <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em] mb-2 block">Premium Service</span>
+                      <h2 className="text-3xl lg:text-5xl font-black text-[#0A2647] tracking-tight uppercase">{service.title}</h2>
+                    </div>
                   </div>
-                  <div>
-                    <h2 className="text-2xl font-bold text-dark">{service.title}</h2>
-                    <p className="text-sm text-text-secondary">{service.subtitle}</p>
+
+                  <div className="prose prose-lg max-w-none text-slate-500 leading-relaxed mb-12 border-l-4 border-accent/20 pl-8 py-2">
+                    <p className="text-lg">{service.description}</p>
                   </div>
                 </div>
 
-                <div className="prose prose-lg max-w-none mb-12">
-                  <p className="text-text-secondary leading-relaxed text-base">{service.description}</p>
-                </div>
+                {/* Key Features / Offerings */}
+                <div className="mb-20">
+                  <div className="flex items-center gap-3 mb-10">
+                    <div className="w-10 h-[1px] bg-accent" />
+                    <h3 className="text-xl font-black text-[#0A2647] uppercase tracking-tighter">Core Offerings</h3>
+                  </div>
 
-                {/* Features */}
-                <div className="mb-12">
-                  <h3 className="text-xl font-bold text-dark mb-6">What We Offer</h3>
-                  <div className="grid sm:grid-cols-2 gap-3">
+                  <div className="grid sm:grid-cols-2 gap-6">
                     {service.features.map((feature, i) => (
                       <motion.div
                         key={i}
                         initial={{ opacity: 0, x: -20 }}
-                        animate={isInView ? { opacity: 1, x: 0 } : {}}
-                        transition={{ duration: 0.4, delay: i * 0.05 }}
-                        className="flex items-start gap-3 p-3 rounded-xl hover:bg-primary-50 transition-colors"
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: i * 0.05 }}
+                        className="flex items-start gap-4 p-5 rounded-2xl bg-white border border-slate-100 shadow-sm hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 transition-all duration-300 group"
                       >
-                        <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-text-primary font-medium">{feature}</span>
+                        <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-accent transition-colors">
+                          <CheckCircle className="w-4 h-4 text-accent group-hover:text-white" />
+                        </div>
+                        <span className="text-sm text-slate-600 font-bold uppercase tracking-wide group-hover:text-[#0A2647] transition-colors">{feature}</span>
                       </motion.div>
                     ))}
                   </div>
                 </div>
 
-                {/* Benefits */}
-                <div className="bg-gradient-to-br from-primary to-primary-dark rounded-2xl p-8 text-white relative overflow-hidden">
-                  <div className="absolute inset-0 hero-grid opacity-20" />
-                  <div className="relative">
-                    <h3 className="text-xl font-bold mb-6">Why Choose Us for {service.shortTitle}</h3>
-                    <div className="space-y-4">
+                {/* Value Proposition Banner */}
+                <div className="relative rounded-[3rem] overflow-hidden bg-[#001a3f] p-12 lg:p-16 text-white group">
+                  <div className="absolute inset-0 hero-grid opacity-10" />
+                  <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-[100px] -z-0 translate-x-1/3 -translate-y-1/3" />
+
+                  <div className="relative z-10">
+                    <h3 className="text-2xl lg:text-3xl font-black mb-10 tracking-tight uppercase">
+                      The Amanah Advantage for <span className="text-accent">{service.shortTitle}</span>
+                    </h3>
+
+                    <div className="grid sm:grid-cols-2 gap-x-12 gap-y-8">
                       {service.benefits.map((benefit, i) => (
-                        <div key={i} className="flex items-start gap-3">
-                          <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <CheckCircle className="w-4 h-4 text-accent" />
+                        <div key={i} className="flex items-start gap-4 group/item">
+                          <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-accent transition-colors">
+                            <ShieldCheck className="w-5 h-5 text-accent group-hover/item:text-[#001a3f]" />
                           </div>
-                          <span className="text-white/80 text-sm">{benefit}</span>
+                          <span className="text-white/70 text-sm font-medium leading-relaxed group-hover/item:text-white transition-colors">
+                            {benefit}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -106,55 +144,77 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
               </motion.div>
             </div>
 
-            {/* Sidebar */}
-            <div className="lg:col-span-1">
+            {/* Sidebar Controls */}
+            <div className="lg:col-span-4" ref={sidebarRef}>
               <motion.div
                 initial={{ opacity: 0, x: 30 }}
                 animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="sticky top-24 space-y-6"
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="sticky top-32 space-y-8"
               >
-                {/* Quick Contact */}
-                <div className="bg-primary-50 rounded-2xl p-6 border border-primary/10">
-                  <h3 className="text-lg font-bold text-dark mb-3">Need Help?</h3>
-                  <p className="text-sm text-text-secondary mb-4">
-                    Get a free consultation from our {service.shortTitle} experts.
-                  </p>
-                  <Link
-                    href="/contact"
-                    className="block text-center py-3 bg-gradient-to-r from-primary to-primary-dark text-white font-semibold rounded-xl hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
-                  >
-                    Free Consultation
-                  </Link>
-                  <a
-                    href="https://wa.me/97450000000"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-center py-3 mt-3 bg-white text-primary font-semibold rounded-xl border border-primary/20 hover:bg-primary-50 transition-all duration-300"
-                  >
-                    WhatsApp Us
-                  </a>
+                {/* Premium Contact Widget */}
+                <div className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-2xl shadow-slate-200/50 relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+
+                  <div className="relative z-10">
+                    <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center mb-6">
+                      <Zap className="w-6 h-6 text-accent" />
+                    </div>
+                    <h3 className="text-xl font-black text-[#0A2647] mb-4 uppercase tracking-tighter">Fast-Track Setup</h3>
+                    <p className="text-slate-500 text-sm mb-8 leading-relaxed">
+                      Consult with our {service.shortTitle} experts today and skip the bureaucratic delays.
+                    </p>
+
+                    <div className="space-y-4">
+                      <Link
+                        href="/contact"
+                        className="flex items-center justify-center gap-3 w-full py-4 bg-[#001a3f] text-white font-black rounded-2xl hover:bg-accent transition-all duration-300 uppercase text-[10px] tracking-widest shadow-xl shadow-blue-900/10"
+                      >
+                        Free Consultation <ArrowRight className="w-4 h-4" />
+                      </Link>
+
+                      <div className="grid grid-cols-2 gap-3">
+                        <a
+                          href={`https://wa.me/${siteConfig.whatsapp.replace("+", "")}`}
+                          target="_blank"
+                          className="flex items-center justify-center gap-2 py-3 bg-[#FAFAFA] text-[#0A2647] font-bold rounded-xl border border-slate-100 hover:border-accent/30 transition-all text-[10px] tracking-wide"
+                        >
+                          <MessageSquare className="w-3.5 h-3.5 text-accent" /> WhatsApp
+                        </a>
+                        <a
+                          href={`tel:${siteConfig.phone}`}
+                          className="flex items-center justify-center gap-2 py-3 bg-[#FAFAFA] text-[#0A2647] font-bold rounded-xl border border-slate-100 hover:border-accent/30 transition-all text-[10px] tracking-wide"
+                        >
+                          <Phone className="w-3.5 h-3.5 text-accent" /> Call Us
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Other Services */}
-                <div className="bg-white rounded-2xl p-6 border border-border">
-                  <h3 className="text-lg font-bold text-dark mb-4">Other Services</h3>
-                  <div className="space-y-2">
+                {/* Vertical Service Navigation */}
+                <div className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-xl shadow-slate-200/40">
+                  <div className="flex items-center gap-3 mb-8">
+                    <div className="w-8 h-[2px] bg-accent" />
+                    <h3 className="text-sm font-black text-[#0A2647] uppercase tracking-widest">More Solutions</h3>
+                  </div>
+
+                  <div className="space-y-3">
                     {otherServices.map((s) => {
                       const SIcon = iconMap[s.icon];
                       return (
                         <Link
                           key={s.id}
                           href={`/services/${s.id}`}
-                          className="flex items-center gap-3 p-3 rounded-xl hover:bg-primary-50 transition-colors group"
+                          className="flex items-center gap-4 p-4 rounded-2xl bg-[#FAFAFA] border border-transparent hover:border-accent/20 hover:bg-white hover:shadow-xl hover:shadow-accent/5 transition-all duration-500 group"
                         >
-                          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary transition-colors">
-                            <SIcon className="w-4 h-4 text-primary group-hover:text-white transition-colors" />
+                          <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center group-hover:bg-[#001a3f] transition-all">
+                            <SIcon className="w-5 h-5 text-accent group-hover:text-white transition-colors" />
                           </div>
-                          <span className="text-sm font-medium text-text-primary group-hover:text-primary transition-colors">
+                          <span className="text-xs font-black text-[#0A2647] uppercase tracking-tighter group-hover:text-accent transition-colors">
                             {s.shortTitle}
                           </span>
-                          <ArrowRight className="w-3 h-3 text-text-muted ml-auto opacity-0 group-hover:opacity-100 transition-opacity" />
+                          <ArrowRight className="w-3.5 h-3.5 text-accent ml-auto opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
                         </Link>
                       );
                     })}
@@ -165,8 +225,6 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
           </div>
         </div>
       </section>
-
-      <ContactForm />
-    </>
+    </div>
   );
 }

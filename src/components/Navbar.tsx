@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Menu,
@@ -30,6 +31,7 @@ const serviceIcons: Record<string, React.ReactNode> = {
 };
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
@@ -74,81 +76,102 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-2">
-            {navLinks.map((link) => (
-              <div key={link.href} className="relative">
-                {link.hasDropdown ? (
-                  <div
-                    className="relative"
-                    onMouseEnter={() => setServicesOpen(true)}
-                    onMouseLeave={() => setServicesOpen(false)}
-                  >
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+              
+              return (
+                <div key={link.href} className="relative">
+                  {link.hasDropdown ? (
+                    <div
+                      className="relative"
+                      onMouseEnter={() => setServicesOpen(true)}
+                      onMouseLeave={() => setServicesOpen(false)}
+                    >
+                      <Link
+                        href={link.href}
+                        className={`px-4 py-2 text-[13px] font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 rounded-xl hover:bg-white/10 relative ${
+                          isActive || servicesOpen ? "text-accent bg-white/10" : "text-white"
+                        }`}
+                      >
+                        {link.label}
+                        <ChevronDown
+                          className={`w-3.5 h-3.5 transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""
+                            }`}
+                        />
+                        {isActive && (
+                          <motion.div
+                            layoutId="nav-underline"
+                            className="absolute bottom-1 left-4 right-4 h-0.5 bg-accent rounded-full"
+                            transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
+                          />
+                        )}
+                      </Link>
+
+                      <AnimatePresence>
+                        {servicesOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: 10, scale: 0.98 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 10, scale: 0.98 }}
+                            transition={{ duration: 0.25, ease: "circOut" }}
+                            className="absolute top-full left-1/2 -translate-x-1/2 w-[560px] pt-4 z-[60]"
+                          >
+                            <div className="bg-[#0A2647]/95 backdrop-blur-3xl rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.4)] border border-white/10 p-6 overflow-hidden">
+                              <div className="grid grid-cols-2 gap-3">
+                                {services.map((service) => (
+                                  <Link
+                                    key={service.id}
+                                    href={`/services/${service.id}`}
+                                    className="flex items-start gap-4 p-4 rounded-3xl hover:bg-white/5 transition-all duration-500 group/item"
+                                  >
+                                    <div className="w-12 h-12 shrink-0 rounded-2xl bg-white/5 flex items-center justify-center text-accent group-hover/item:bg-accent group-hover/item:text-primary transition-all duration-500 shadow-sm">
+                                      {serviceIcons[service.id]}
+                                    </div>
+                                    <div className="flex flex-col gap-1 mt-0.5">
+                                      <span className="text-[14px] font-bold text-white group-hover/item:text-accent transition-colors leading-none">
+                                        {service.shortTitle}
+                                      </span>
+                                      <p className="text-[11px] text-white/50 leading-tight line-clamp-2 mt-1">
+                                        {service.subtitle}
+                                      </p>
+                                    </div>
+                                  </Link>
+                                ))}
+                              </div>
+                              <div className="mt-5 pt-5 border-t border-white/5">
+                                <Link
+                                  href="/services"
+                                  className="group/btn flex items-center justify-between px-6 py-3.5 bg-white/5 hover:bg-accent hover:text-primary rounded-2xl text-white text-[12px] font-bold transition-all duration-500"
+                                >
+                                  <span className="group-hover/btn:text-primary">Discover all our specialized business services</span>
+                                  <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                                </Link>
+                              </div>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
                     <Link
                       href={link.href}
-                      className={`px-4 py-2 text-[13px] font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 rounded-xl hover:bg-white/10 ${servicesOpen ? "text-accent bg-white/10" : "text-white"
-                        }`}
+                      className={`px-4 py-2 text-[13px] font-bold uppercase tracking-wider transition-all rounded-xl relative ${
+                        isActive ? "text-accent bg-white/10" : "text-white hover:text-accent hover:bg-white/10"
+                      }`}
                     >
                       {link.label}
-                      <ChevronDown
-                        className={`w-3.5 h-3.5 transition-transform duration-300 ${servicesOpen ? "rotate-180" : ""
-                          }`}
-                      />
-                    </Link>
-
-                    <AnimatePresence>
-                      {servicesOpen && (
+                      {isActive && (
                         <motion.div
-                          initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                          animate={{ opacity: 1, y: 0, scale: 1 }}
-                          exit={{ opacity: 0, y: 10, scale: 0.98 }}
-                          transition={{ duration: 0.25, ease: "circOut" }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 w-[560px] pt-4 z-[60]"
-                        >
-                          <div className="bg-[#0A2647]/95 backdrop-blur-3xl rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.4)] border border-white/10 p-6 overflow-hidden">
-                            <div className="grid grid-cols-2 gap-3">
-                              {services.map((service) => (
-                                <Link
-                                  key={service.id}
-                                  href={`/services/${service.id}`}
-                                  className="flex items-start gap-4 p-4 rounded-3xl hover:bg-white/5 transition-all duration-500 group/item"
-                                >
-                                  <div className="w-12 h-12 shrink-0 rounded-2xl bg-white/5 flex items-center justify-center text-accent group-hover/item:bg-accent group-hover/item:text-primary transition-all duration-500 shadow-sm">
-                                    {serviceIcons[service.id]}
-                                  </div>
-                                  <div className="flex flex-col gap-1 mt-0.5">
-                                    <span className="text-[14px] font-bold text-white group-hover/item:text-accent transition-colors leading-none">
-                                      {service.shortTitle}
-                                    </span>
-                                    <p className="text-[11px] text-white/50 leading-tight line-clamp-2 mt-1">
-                                      {service.subtitle}
-                                    </p>
-                                  </div>
-                                </Link>
-                              ))}
-                            </div>
-                            <div className="mt-5 pt-5 border-t border-white/5">
-                              <Link
-                                href="/services"
-                                className="group/btn flex items-center justify-between px-6 py-3.5 bg-white/5 hover:bg-accent hover:text-primary rounded-2xl text-white text-[12px] font-bold transition-all duration-500"
-                              >
-                                <span className="group-hover/btn:text-primary">Discover all our specialized business services</span>
-                                <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
-                              </Link>
-                            </div>
-                          </div>
-                        </motion.div>
+                          layoutId="nav-underline"
+                          className="absolute bottom-1 left-4 right-4 h-0.5 bg-accent rounded-full"
+                          transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
+                        />
                       )}
-                    </AnimatePresence>
-                  </div>
-                ) : (
-                  <Link
-                    href={link.href}
-                    className="px-4 py-2 text-[13px] font-bold uppercase tracking-wider text-white hover:text-accent hover:bg-white/10 transition-all rounded-xl"
-                  >
-                    {link.label}
-                  </Link>
-                )}
-              </div>
-            ))}
+                    </Link>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
           {/* CTA Button */}
