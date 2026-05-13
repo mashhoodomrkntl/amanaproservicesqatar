@@ -42,6 +42,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/about", label: "About Us" },
@@ -203,7 +214,7 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden border-t border-white/10 overflow-hidden bg-[#0A2647]/98 backdrop-blur-2xl"
+            className="lg:hidden border-t border-white/10 overflow-y-auto max-h-[calc(100dvh-5rem)] bg-[#0A2647]/98 backdrop-blur-2xl scrollbar-premium"
           >
             <div className="px-6 py-8 space-y-2">
               {navLinks.map((link) => (
