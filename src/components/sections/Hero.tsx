@@ -6,7 +6,7 @@ import { ArrowRight, PlayCircle, CheckCircle2 } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-40 pb-20 lg:pt-35 lg:pb-32 overflow-hidden bg-[#001a3f]">
+    <section className="relative min-h-[90vh] flex items-center pt-31 pb-20 lg:pt-35 lg:pb-32 overflow-hidden bg-[#001a3f]">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-[#001a3f] via-[#003380] to-[#001a3f] opacity-90" />

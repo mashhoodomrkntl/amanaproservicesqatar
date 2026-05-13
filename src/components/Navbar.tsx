@@ -72,7 +72,7 @@ export default function Navbar() {
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link href="/" className="relative flex items-center shrink-0 group" aria-label="Amanah Business Services Home">
+          <Link href="/" className="relative flex items-center shrink-0 group -ml-4 lg:-ml-5" aria-label="Amanah Business Services Home">
             <div className={`relative transition-all duration-500 group-hover:scale-105 ${isScrolled ? "w-[265px] h-[85px]" : "w-[280px] h-[90px]"
               }`}>
               <Image
