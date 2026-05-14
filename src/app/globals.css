@@ -282,3 +282,13 @@ body {
   background-image: radial-gradient(rgba(0, 71, 171, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }
+
+/* === Scrollbar Hide === */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}

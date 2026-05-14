@@ -92,7 +92,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                 </div>
 
                 {/* Key Features / Offerings */}
-                <div className="mb-20">
+                <div className="mb-8">
                   <div className="flex items-center gap-3 mb-10">
                     <div className="w-10 h-[1px] bg-accent" />
                     <h3 className="text-xl font-black text-[#0A2647] uppercase tracking-tighter">Core Offerings</h3>
@@ -118,7 +118,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                 </div>
 
                 {/* Value Proposition Banner */}
-                <div className="relative rounded-[3rem] overflow-hidden bg-[#001a3f] p-12 lg:p-16 text-white group">
+                <div className="relative rounded-[3rem] overflow-hidden bg-[#001a3f] p-12 lg:p-16 text-white group mb-8">
                   <div className="absolute inset-0 hero-grid opacity-10" />
                   <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-[100px] -z-0 translate-x-1/3 -translate-y-1/3" />
 
@@ -141,6 +141,44 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                     </div>
                   </div>
                 </div>
+
+                {/* Security Spotlight (Conditional for Translation) - MOBILE ONLY */}
+                {service.id === "translation-attestation" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="p-8 rounded-[2.5rem] bg-accent/5 border border-accent/20 relative overflow-hidden lg:hidden"
+                  >
+                    <div className="absolute top-0 right-0 p-8 opacity-10">
+                      <ShieldCheck className="w-32 h-32 text-accent" />
+                    </div>
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-3 mb-6">
+                        <div className="p-2 rounded-lg bg-accent text-white">
+                          <ShieldCheck className="w-5 h-5" />
+                        </div>
+                        <h4 className="text-lg font-black text-[#0A2647] uppercase tracking-tighter">Secure Document Protocol</h4>
+                      </div>
+                      <p className="text-slate-600 mb-6 leading-relaxed">
+                        At Amanah, we understand that your documents often contain sensitive corporate or personal data. Our translation process is governed by strict **ISO-standard confidentiality protocols**. Every digital file is encrypted, and physical documents are handled within a secure, monitored environment.
+                      </p>
+                      <ul className="grid sm:grid-cols-2 gap-4">
+                        {[
+                          "Non-Disclosure Agreements (NDA) with all linguists",
+                          "End-to-end encryption for all digital transmissions",
+                          "Secure data deletion post-project completion",
+                          "Restricted access to sensitive legal documents"
+                        ].map((item, idx) => (
+                          <li key={idx} className="flex items-center gap-3 text-sm font-bold text-[#0A2647]">
+                            <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                )}
               </motion.div>
             </div>
 
@@ -223,6 +261,44 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
               </motion.div>
             </div>
           </div>
+
+          {/* Security Spotlight (Conditional for Translation) - DESKTOP ONLY */}
+          {service.id === "translation-attestation" && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="mt-16 p-8 lg:p-12 rounded-[2.5rem] bg-accent/5 border border-accent/20 relative overflow-hidden max-w-4xl mx-auto hidden lg:block"
+            >
+              <div className="absolute top-0 right-0 p-8 opacity-10">
+                <ShieldCheck className="w-32 h-32 text-accent" />
+              </div>
+              <div className="relative z-10">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-2 rounded-lg bg-accent text-white">
+                    <ShieldCheck className="w-5 h-5" />
+                  </div>
+                  <h4 className="text-lg font-black text-[#0A2647] uppercase tracking-tighter">Secure Document Protocol</h4>
+                </div>
+                <p className="text-slate-600 mb-6 leading-relaxed">
+                  At Amanah, we understand that your documents often contain sensitive corporate or personal data. Our translation process is governed by strict **ISO-standard confidentiality protocols**. Every digital file is encrypted, and physical documents are handled within a secure, monitored environment.
+                </p>
+                <ul className="grid sm:grid-cols-2 gap-4">
+                  {[
+                    "Non-Disclosure Agreements (NDA) with all linguists",
+                    "End-to-end encryption for all digital transmissions",
+                    "Secure data deletion post-project completion",
+                    "Restricted access to sensitive legal documents"
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-3 text-sm font-bold text-[#0A2647]">
+                      <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+          )}
         </div>
       </section>
     </div>
