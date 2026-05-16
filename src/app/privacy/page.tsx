@@ -1,4 +1,5 @@
 import PageHeader from "@/components/PageHeader";
+import { siteConfig } from "@/lib/data";
 
 export default function PrivacyPage() {
   return (
@@ -17,7 +18,7 @@ export default function PrivacyPage() {
             <h2>4. Sharing Your Information</h2>
             <p>We only share information with your consent, to comply with laws, to provide you with services, to protect your rights, or to fulfill business obligations.</p>
             <h2>5. Contact Us</h2>
-            <p>If you have questions or comments about this policy, you may email us at info@amanahbusiness.qa.</p>
+            <p>If you have questions or comments about this policy, you may email us at {siteConfig.email}.</p>
           </div>
         </div>
       </section>

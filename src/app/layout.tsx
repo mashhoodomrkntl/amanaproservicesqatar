@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import { siteConfig } from "@/lib/data";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -69,8 +70,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     name: "Amanah Business Services",
     description: "Qatar's premier PRO services and business setup consultancy.",
     url: "https://amanahbusiness.qa",
-    telephone: "+974 5000 0000",
-    email: "info@amanahbusiness.qa",
+    telephone: siteConfig.phone,
+    email: siteConfig.email,
     address: { "@type": "PostalAddress", addressLocality: "Doha", addressCountry: "QA" },
     openingHours: "Su-Th 08:00-18:00",
     sameAs: [

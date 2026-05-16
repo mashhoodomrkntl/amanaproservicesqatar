@@ -37,7 +37,7 @@ export default function Footer() {
                 Schedule Consultation
               </Link>
               <a
-                href={`https://wa.me/${siteConfig.whatsapp}`}
+                href={`https://wa.me/${siteConfig.whatsapp.replace("+", "")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-10 py-5 bg-white/5 text-white font-black rounded-2xl border border-white/20 hover:bg-white/10 transition-all duration-300 uppercase text-xs tracking-widest"
@@ -139,18 +139,19 @@ export default function Footer() {
               Office
             </h3>
             <div className="space-y-6">
-              <a
-                href={`tel:${siteConfig.phone}`}
-                className="flex items-start gap-4 text-sm text-white/50 hover:text-accent transition-colors group"
-              >
+              <div className="flex items-start gap-4 text-sm text-white/50 group">
                 <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/20 transition-colors">
                   <Phone className="w-4 h-4 text-accent" />
                 </div>
                 <div className="flex flex-col">
                   <span className="text-white/30 text-[10px] font-bold uppercase tracking-widest mb-1">Call Us</span>
-                  <span className="font-bold">{siteConfig.phone}</span>
+                  {siteConfig.allPhones.map((phone, idx) => (
+                    <a key={idx} href={`tel:${phone.replace(/\s/g, "")}`} className="font-bold hover:text-accent transition-colors">
+                      {phone}
+                    </a>
+                  ))}
                 </div>
-              </a>
+              </div>
               <a
                 href={`mailto:${siteConfig.email}`}
                 className="flex items-start gap-4 text-sm text-white/50 hover:text-accent transition-colors group"

@@ -8,7 +8,7 @@ import Image from "next/image";
 export default function WhatsAppButton() {
   return (
     <motion.a
-      href={`https://wa.me/${siteConfig.whatsapp}?text=Hello%20Amanah%20Business%20Services,%20I%20would%20like%20to%20inquire%20about%20your%20services.`}
+      href={`https://wa.me/${siteConfig.whatsapp.replace("+", "")}?text=Hello%20Amanah%20Business%20Services,%20I%20would%20like%20to%20inquire%20about%20your%20services.`}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-3 right-4 z-50 w-10 h-10 hover:scale-110 transition-all duration-300 cursor-pointer"

@@ -7,34 +7,34 @@ import FAQ from "@/components/sections/FAQ";
 import { Phone, Mail, MapPin, Clock, MessageSquare, ExternalLink } from "lucide-react";
 import { siteConfig } from "@/lib/data";
 
-const contactCards = [
-  {
-    icon: Phone,
-    title: "Call Our Experts",
-    value: siteConfig.phone,
-    desc: "Available Sun-Thu, 8AM-6PM",
-    href: `tel:${siteConfig.phone}`,
-    color: "bg-blue-500"
-  },
-  {
-    icon: MessageSquare,
-    title: "WhatsApp Us",
-    value: "Chat Now",
-    desc: "Quick response for inquiries",
-    href: `https://wa.me/${siteConfig.whatsapp.replace("+", "")}`,
-    color: "bg-green-500"
-  },
-  {
-    icon: Mail,
-    title: "Email Support",
-    value: siteConfig.email,
-    desc: "We reply within 2 hours",
-    href: `mailto:${siteConfig.email}`,
-    color: "bg-accent"
-  }
-];
-
 export default function ContactPage() {
+  const contactCards = [
+    {
+      icon: Phone,
+      title: "Call Our Experts",
+      value: siteConfig.allPhones.join(" / "),
+      desc: "Available Sun-Thu, 8AM-6PM",
+      href: `tel:${siteConfig.phone.replace(/\s/g, "")}`,
+      color: "bg-blue-500",
+    },
+    {
+      icon: MessageSquare,
+      title: "WhatsApp Us",
+      value: "Chat Now",
+      desc: "Quick response for inquiries",
+      href: `https://wa.me/${siteConfig.whatsapp.replace("+", "")}`,
+      color: "bg-green-500",
+    },
+    {
+      icon: Mail,
+      title: "Email Support",
+      value: siteConfig.email,
+      desc: "We reply within 2 hours",
+      href: `mailto:${siteConfig.email}`,
+      color: "bg-accent",
+    },
+  ];
+
   return (
     <div className="bg-[#FAFAFA]">
       <PageHeader
