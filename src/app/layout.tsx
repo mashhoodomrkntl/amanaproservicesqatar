@@ -15,13 +15,16 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL("https://amanahbusiness.qa"),
   title: {
-    default: "Amanah Business Services | PRO Services & Company Formation in Qatar",
+    default: "Qatar's Best PRO Services & Company Formation | Amanah Business Services",
     template: "%s | Amanah Business Services",
   },
   description:
-    "Amanah Business Services is Qatar's premier PRO services and business setup consultancy. Company formation, local sponsorship, legal consultation, translation & attestation, accounting services. 100% foreign ownership support.",
+    "Amanah Business Services is recognized as Qatar's best PRO services provider and business setup consultancy. We specialize in company formation, local sponsorship, and legal consultation.",
   keywords: [
+    "best pro services in qatar",
     "pro services qatar",
+    "qatar best pro service",
+    "top pro services qatar",
     "company formation qatar",
     "business setup qatar",
     "qatar company registration",
@@ -31,7 +34,9 @@ export const metadata: Metadata = {
     "translation services qatar",
     "legal consultation qatar",
     "business consultancy qatar",
-    "accounting services qatar",
+    "translation and attestation qatar",
+    "business setup services in qatar",
+    "trados certified translation qatar"
   ],
   authors: [{ name: "Amanah Business Services" }],
   creator: "Amanah Business Services",
@@ -40,15 +45,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://amanahbusiness.qa",
     siteName: "Amanah Business Services",
-    title: "Amanah Business Services | PRO Services & Company Formation in Qatar",
+    title: "Qatar's Best PRO Services & Company Formation | Amanah",
     description:
-      "Qatar's premier PRO services and business setup consultancy. Company formation with 100% foreign ownership, local sponsorship, legal consultation, and more.",
+      "Recognized as Qatar's best PRO services and business setup consultancy. Expert company formation with 100% foreign ownership and reliable corporate sponsorship.",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "Amanah Business Services" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Amanah Business Services | PRO Services & Company Formation in Qatar",
-    description: "Qatar's premier PRO services and business setup consultancy.",
+    title: "Qatar's Best PRO Services & Company Formation | Amanah",
+    description: "Recognized as Qatar's best PRO services and business setup consultancy.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -72,7 +77,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     url: "https://amanahbusiness.qa",
     telephone: siteConfig.phone,
     email: siteConfig.email,
-    address: { "@type": "PostalAddress", addressLocality: "Doha", addressCountry: "QA" },
+    address: { "@type": "PostalAddress", addressLocality: "Doha", addressCountry: "QA", streetAddress: "Office 6, 2nd Floor, Building No. 67, Opposite Liverpool John Moores University" },
     openingHours: "Su-Th 08:00-18:00",
     sameAs: [
       "https://facebook.com/amanahbusiness",
@@ -81,6 +86,20 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     ],
     priceRange: "$$",
     areaServed: { "@type": "Country", name: "Qatar" },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "128"
+    },
+    serviceArea: {
+      "@type": "GeoCircle",
+      geoMidpoint: {
+        "@type": "GeoCoordinates",
+        latitude: 25.2854,
+        longitude: 51.5310
+      },
+      geoRadius: "50000"
+    }
   };
 
   return (

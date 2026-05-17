@@ -86,15 +86,15 @@ export const services = [
       "Regular status updates and transparency",
     ],
     seo: {
-      title: "PRO Services in Qatar | Visa Processing & Government Relations | Amanah Business Services",
+      title: "Qatar's Best PRO Services | Visa & Government Relations | Amanah",
       description:
-        "Professional PRO services in Qatar by Amanah Business Services. Expert visa processing, work permits, government document clearances, and ministry liaison. Fast, reliable, and compliant.",
+        "Looking for the best PRO services in Qatar? Amanah Business Services provides expert visa processing, work permits, and government relations. Fast, reliable, and 100% compliant.",
       keywords: [
+        "best pro services in qatar",
+        "top pro services qatar",
         "PRO services qatar",
         "visa processing qatar",
         "government relations qatar",
-        "work permit qatar",
-        "residence permit qatar",
         "mandoob services qatar",
       ],
     },

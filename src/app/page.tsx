@@ -1,4 +1,13 @@
+import { Metadata } from "next";
 import Hero from "@/components/sections/Hero";
+
+export const metadata: Metadata = {
+  title: "Qatar's Best PRO Services & Company Formation | Amanah",
+  description: "Looking for the best PRO services in Qatar? Amanah Business Services provides expert company formation, visa processing, and corporate sponsorship. 100% foreign ownership support.",
+  alternates: {
+    canonical: "https://amanahbusiness.qa/",
+  },
+};
 import Services from "@/components/sections/Services";
 import AboutPreview from "@/components/sections/AboutPreview";
 import Process from "@/components/sections/Process";
@@ -17,8 +26,8 @@ export default function Home() {
       <Process />
       <WhyQatarPreview />
       <Testimonials />
-      <BlogPreview />
       <ContactForm />
+      <BlogPreview />
       <FAQ />
     </>
   );
