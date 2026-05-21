@@ -54,10 +54,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Company Info */}
           <div className="lg:col-span-4">
-            <Link href="/" className="flex items-center group mb-4 -ml-4 lg:-ml-5 -mt-5" aria-label="Amanah Business Services Home">
-              <div className="relative w-59 h-22 transition-transform duration-500 group-hover:scale-105 brightness-0 invert opacity-80 group-hover:opacity-100">
+            <Link href="/" className="flex items-center group mb-4 -mt-5" aria-label="Amanah Business Services Home">
+              <div className="relative w-56 h-26 transition-transform duration-500 scale-105 ">
                 <img
-                  src="/amanahqatartlogo-Photoroom.png"
+                  src="/Amanah (H-light).png"
                   alt="Amanah Business Services"
                   className="w-full h-full object-contain object-left"
                 />

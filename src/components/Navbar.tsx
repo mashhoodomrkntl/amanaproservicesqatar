@@ -72,14 +72,14 @@ export default function Navbar() {
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link href="/" className="relative flex items-center shrink-0 group -ml-4 lg:-ml-5" aria-label="Amanah Business Services Home">
-            <div className={`relative transition-all duration-500 group-hover:scale-105 ${isScrolled ? "w-[265px] h-[85px]" : "w-[280px] h-[90px]"
+          <Link href="/" className="relative flex items-center shrink-0 group " aria-label="Amanah Business Services Home">
+            <div className={`relative transition-all duration-500 scale-105 ${isScrolled ? "w-[275px] h-[95px]" : "w-[290px] h-[100px]"
               }`}>
               <Image
-                src="/amanahqatartlogo-Photoroom.png"
+                src="/Amanah (H-light).png"
                 alt="Amanah Business Services Logo"
                 fill
-                className="object-contain object-left brightness-0 invert"
+                className="object-contain object-left"
                 priority
               />
             </div>
@@ -89,7 +89,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-2">
             {navLinks.map((link) => {
               const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
-              
+
               return (
                 <div key={link.href} className="relative">
                   {link.hasDropdown ? (
@@ -100,9 +100,8 @@ export default function Navbar() {
                     >
                       <Link
                         href={link.href}
-                        className={`px-4 py-2 text-[13px] font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 rounded-xl hover:bg-white/10 relative ${
-                          isActive || servicesOpen ? "text-accent bg-white/10" : "text-white"
-                        }`}
+                        className={`px-4 py-2 text-[13px] font-bold uppercase tracking-wider transition-all flex items-center gap-1.5 rounded-xl hover:bg-white/10 relative ${isActive || servicesOpen ? "text-accent bg-white/10" : "text-white"
+                          }`}
                       >
                         {link.label}
                         <ChevronDown
@@ -166,9 +165,8 @@ export default function Navbar() {
                   ) : (
                     <Link
                       href={link.href}
-                      className={`px-4 py-2 text-[13px] font-bold uppercase tracking-wider transition-all rounded-xl relative ${
-                        isActive ? "text-accent bg-white/10" : "text-white hover:text-accent hover:bg-white/10"
-                      }`}
+                      className={`px-4 py-2 text-[13px] font-bold uppercase tracking-wider transition-all rounded-xl relative ${isActive ? "text-accent bg-white/10" : "text-white hover:text-accent hover:bg-white/10"
+                        }`}
                     >
                       {link.label}
                       {isActive && (

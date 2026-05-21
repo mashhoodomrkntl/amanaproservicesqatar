@@ -65,8 +65,11 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: "https://amanahbusiness.qa" },
   icons: {
-    icon: "/icon.png",
-    apple: "/icon.png",
+    icon: [
+      { url: "/Amanah Icon.png", media: "(prefers-color-scheme: light)" },
+      { url: "/Amanah Icon (light).png", media: "(prefers-color-scheme: dark)" },
+    ],
+    apple: "/Amanah Icon.png",
   },
 };
 
