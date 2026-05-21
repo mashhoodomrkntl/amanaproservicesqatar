@@ -326,40 +326,32 @@ export const processSteps = [
 
 export const testimonials = [
   {
-    name: "Ahmad Al-Rashid",
-    role: "CEO, Al-Rashid Trading",
-    text: "Amanah Business Services made our company formation in Qatar incredibly simple and stress-free. Their team was professional, responsive, and guided us through every step. I wholeheartedly recommend them for anyone looking to start a business in Qatar.",
+    name: "Dr Mohamed Jaseel Kalpakanchery",
+    role: "CEO, Vaiga Consultancy Services",
+    text: "Amanah Pro has been an invaluable partner for our business in Qatar. From company formation to ongoing PRO services, their team is highly professional, efficient, and reliable. They understand the local landscape deeply and ensure everything is handled seamlessly. Their guidance and support have been instrumental to our success here. Highly recommended for anyone starting or growing a business in Qatar.",
     rating: 5,
+    image: "/Dr _jaseel_vaiga.jpeg",
   },
   {
-    name: "Sarah Mitchell",
-    role: "Founder, Gulf Tech Solutions",
+    name: "Rashid Pk",
+    role: "Director, Peak Logistics",
     text: "I had an outstanding experience setting up my business with Amanah. Their highly knowledgeable team guided me through the process with expertise, making it seamless and simpler than expected. The best pro services in Qatar.",
     rating: 5,
+    image: "/rashid_pk_peak_logistics.jpeg",
   },
   {
-    name: "Mohammed Hassan",
-    role: "Director, Horizon Consulting",
+    name: "Habeeb RP Madathil",
+    role: "CEO, Afourkon Contracting",
     text: "Professional, trustworthy, and reliable. The team has consistently demonstrated exceptional expertise in handling our PRO services. Their attention to detail and proactive approach set them apart. I have relied on their services for over two years now.",
     rating: 5,
+    image: "/Habeeb_RP_Afourkon_contracting.jpeg",
   },
   {
-    name: "David Chen",
-    role: "Managing Partner, Asia-Gulf Ventures",
+    name: "Muhammad Anees",
+    role: "Managing Director, Grand Olive Real Estate",
     text: "I cannot understate the professionalism, efficiency, and high standards I experienced working with Amanah. They have been simply outstanding throughout the formation process of my new company. Highly recommended for navigating the Qatar startup process.",
     rating: 5,
-  },
-  {
-    name: "Fatima Al-Sulaiti",
-    role: "Owner, Doha Design Studio",
-    text: "From PRO services to legal translation, Amanah has been our one-stop solution. Their team is simple, professional, and incredibly helpful. Right from the management to every team member, they are committed to excellence.",
-    rating: 5,
-  },
-  {
-    name: "James Parker",
-    role: "CFO, Parker International",
-    text: "We had an amazing experience with Amanah Business Services. With their professional attitude, they never fall short of their promises. Our queries were promptly responded to, and prices are highly competitive.",
-    rating: 5,
+    image: "/anees_grand_olive.jpeg",
   },
 ];
 

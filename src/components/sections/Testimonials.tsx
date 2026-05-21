@@ -71,7 +71,7 @@ export default function Testimonials() {
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-slate-100 overflow-hidden border border-slate-100 flex-shrink-0">
                     <img
-                      src={`https://ui-avatars.com/api/?name=${encodeURIComponent(testimonial.name)}&background=random`}
+                      src={testimonial.image}
                       alt={testimonial.name}
                       className="w-full h-full object-cover"
                     />
@@ -81,7 +81,7 @@ export default function Testimonials() {
                       {testimonial.name}
                     </h4>
                     <p className="text-[9px] text-slate-400 font-medium truncate uppercase tracking-tighter">
-                      {testimonial.role.toLowerCase().replace(/\s+/g, '_')}_{Math.floor(Math.random() * 99)}
+                      {testimonial.role}
                     </p>
                   </div>
                 </div>
