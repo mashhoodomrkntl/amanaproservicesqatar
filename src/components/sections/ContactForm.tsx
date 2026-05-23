@@ -1,8 +1,8 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { Send, Phone, Mail, MapPin, Clock } from "lucide-react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import { Send, Phone, Mail, MapPin, Clock, ChevronDown, CheckCircle2 } from "lucide-react";
 import { siteConfig } from "@/lib/data";
 
 export default function ContactForm() {
@@ -16,13 +16,69 @@ export default function ContactForm() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  const services = [
+    { value: "", label: "Select a service" },
+    { value: "company-formation", label: "Company Formation" },
+    { value: "pro-services", label: "PRO Services" },
+    { value: "local-sponsorship", label: "Local Sponsorship" },
+    { value: "legal-consultation", label: "Legal Consultation" },
+    { value: "translation", label: "Translation & Attestation" },
+    { value: "business-consultation", label: "Business Consultation" },
+    { value: "others", label: "Others" },
+  ];
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    // Simulate async send
-    setTimeout(() => setSubmitted(false), 4000);
-    setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      const submissionData = new FormData();
+      submissionData.append("access_key", "d62f2e2c-1eb4-432a-b457-148980230813");
+      submissionData.append("name", formData.name);
+      submissionData.append("email", formData.email);
+      if (formData.phone) submissionData.append("phone", formData.phone);
+      
+      const serviceLabel = services.find(s => s.value === formData.service)?.label;
+      if (serviceLabel && formData.service !== "") {
+        submissionData.append("service", serviceLabel);
+      }
+      
+      submissionData.append("message", formData.message);
+
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: submissionData
+      });
+
+      const data = await response.json();
+      
+      if (data.success) {
+        setSubmitted(true);
+        setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+      } else {
+        setErrorMessage(data.message || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      setErrorMessage("Something went wrong. Please check your connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -82,18 +138,59 @@ export default function ContactForm() {
 
           {/* Right Side – Form */}
           <div className="bg-white rounded-2xl border border-gray-200 p-8 lg:p-10 shadow-[0_20px_50px_rgba(0,0,0,0.05)]">
-            {submitted ? (
-              <div className="text-center py-12 space-y-4">
-                <div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-green-500/20">
-                  <Send className="w-8 h-8 text-green-400" />
-                </div>
-                <h3 className="text-2xl font-bold text-[#0A2647]">Thank You!</h3>
-                <p className="text-gray-600">
-                  We have received your request and will get back to you within 2 business hours.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
+            <AnimatePresence mode="wait">
+              {submitted ? (
+                <motion.div
+                  key="success"
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.95 }}
+                  transition={{ duration: 0.4 }}
+                  className="text-center py-16 px-6 h-full flex flex-col items-center justify-center"
+                >
+                  <motion.div 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
+                    className="flex items-center justify-center w-24 h-24 mx-auto mb-8 rounded-full bg-green-50 text-green-500 shadow-[0_0_40px_rgba(34,197,94,0.2)]"
+                  >
+                    <CheckCircle2 className="w-12 h-12" />
+                  </motion.div>
+                  <motion.h3 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="text-3xl font-extrabold text-[#0A2647] mb-4"
+                  >
+                    Thank You!
+                  </motion.h3>
+                  <motion.p 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-gray-600 mb-8 max-w-sm mx-auto leading-relaxed"
+                  >
+                    We have received your request and will get back to you within 2 business hours.
+                  </motion.p>
+                  <motion.button
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    onClick={() => setSubmitted(false)}
+                    className="px-8 py-3 rounded-full border-2 border-gray-100 text-gray-600 font-semibold hover:border-accent hover:text-accent hover:bg-accent/5 transition-all active:scale-95"
+                  >
+                    Send Another Message
+                  </motion.button>
+                </motion.div>
+              ) : (
+                <motion.form 
+                  key="form"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  onSubmit={handleSubmit} 
+                  className="space-y-6"
+                >
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-600 mb-1">
@@ -143,21 +240,52 @@ export default function ContactForm() {
                     <label htmlFor="service" className="block text-sm font-medium text-gray-600 mb-1">
                       Service Needed
                     </label>
-                    <select
-                      id="service"
-                      value={formData.service}
-                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#0A2647] transition"
-                    >
-                      <option value="">Select a service</option>
-                      <option value="company-formation">Company Formation</option>
-                      <option value="pro-services">PRO Services</option>
-                      <option value="local-sponsorship">Local Sponsorship</option>
-                      <option value="legal-consultation">Legal Consultation</option>
-                      <option value="translation">Translation & Attestation</option>
-                      <option value="business-consultation">Business Consultation</option>
-                      <option value="accounting">Accounting & Bookkeeping</option>
-                    </select>
+                    <div className="relative" ref={dropdownRef}>
+                      <button
+                        type="button"
+                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        className={`w-full px-4 py-2 flex items-center justify-between rounded-xl bg-gray-50 border transition cursor-pointer text-left outline-none ${
+                          isDropdownOpen 
+                            ? "border-accent ring-2 ring-accent/20 bg-white" 
+                            : "border-gray-200 hover:bg-white hover:border-accent/50"
+                        }`}
+                      >
+                        <span className={formData.service ? "text-[#0A2647]" : "text-gray-400"}>
+                          {services.find(s => s.value === formData.service)?.label || "Select a service"}
+                        </span>
+                        <ChevronDown className={`w-4 h-4 text-accent transition-transform duration-300 ${isDropdownOpen ? "rotate-180" : ""}`} />
+                      </button>
+
+                      <AnimatePresence>
+                        {isDropdownOpen && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute z-50 w-full mt-2 py-2 bg-white rounded-xl border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.08)] overflow-hidden"
+                          >
+                            {services.slice(1).map((service) => (
+                              <button
+                                type="button"
+                                key={service.value}
+                                onClick={() => {
+                                  setFormData({ ...formData, service: service.value });
+                                  setIsDropdownOpen(false);
+                                }}
+                                className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
+                                  formData.service === service.value
+                                    ? "bg-accent/10 text-accent font-medium"
+                                    : "text-gray-600 hover:bg-gray-50 hover:text-[#0A2647]"
+                                }`}
+                              >
+                                {service.label}
+                              </button>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
                   </div>
                 </div>
 
@@ -176,17 +304,23 @@ export default function ContactForm() {
                   />
                 </div>
 
+                {errorMessage && (
+                  <p className="text-sm text-red-500 font-medium text-center">{errorMessage}</p>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 py-4 bg-accent text-[#001a3f] font-black rounded-xl hover:bg-white hover:shadow-[0_20px_50px_rgba(197,160,89,0.3)] hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest"
+                  disabled={isSubmitting}
+                  className="w-full flex items-center justify-center gap-2 py-4 bg-accent text-[#001a3f] font-black rounded-xl hover:bg-white hover:shadow-[0_20px_50px_rgba(197,160,89,0.3)] hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:bg-accent disabled:hover:shadow-none"
                 >
-                  Send Message <Send className="w-4 h-4" />
+                  {isSubmitting ? "Sending..." : <>Send Message <Send className="w-4 h-4" /></>}
                 </button>
                 <p className="text-xs text-gray-500 text-center mt-2">
                   ✓ Free consultation • ✓ 100% Confidential • ✓ Response within 2 hours
                 </p>
-              </form>
-            )}
+                </motion.form>
+              )}
+            </AnimatePresence>
           </div>
         </motion.div>
       </div>

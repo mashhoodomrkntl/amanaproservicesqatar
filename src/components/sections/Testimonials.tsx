@@ -1,9 +1,8 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { testimonials } from "@/lib/data";
+import { motion, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 export default function Testimonials() {
   const ref = useRef<HTMLDivElement>(null);
