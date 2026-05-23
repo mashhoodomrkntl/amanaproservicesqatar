@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/Amanah Icon.png", media: "(prefers-color-scheme: light)" },
-      { url: "/Amanah Icon (light).png", media: "(prefers-color-scheme: dark)" },
+      { url: "/Amanah Icon.png", media: "(prefers-color-scheme: dark)" },
     ],
     apple: "/Amanah Icon.png",
   },

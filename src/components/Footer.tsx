@@ -57,7 +57,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center group mb-4 -mt-5" aria-label="Amanah Business Services Home">
               <div className="relative w-56 h-26 transition-transform duration-500 scale-105 ">
                 <img
-                  src="/Amanah (H-light).png"
+                  src="/Amanah_logo_abv.png"
                   alt="Amanah Business Services"
                   className="w-full h-full object-contain object-left"
                 />

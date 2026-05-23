@@ -73,13 +73,14 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <Link href="/" className="relative flex items-center shrink-0 group " aria-label="Amanah Business Services Home">
-            <div className={`relative transition-all duration-500 scale-105 ${isScrolled ? "w-[275px] h-[95px]" : "w-[290px] h-[100px]"
-              }`}>
+            <div className={`relative transition-all duration-500 scale-105 -ml-4`}>
               <Image
-                src="/Amanah (H-light).png"
+                src="/Amanah-logo.png"
                 alt="Amanah Business Services Logo"
-                fill
-                className="object-contain object-left"
+                width={150}
+                height={50}
+                className={`transition-all duration-500 object-contain ${isScrolled ? "w-[140px]" : "w-[145px]"
+                  } h-auto`}
                 priority
               />
             </div>
