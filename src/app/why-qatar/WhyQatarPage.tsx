@@ -52,7 +52,7 @@ export default function WhyQatarPage() {
             className="text-center max-w-3xl mx-auto mb-20"
           >
             <span className="text-accent text-xs font-black uppercase tracking-[0.4em] mb-4 block">Strategic Edge</span>
-            <h2 className="text-4xl lg:text-5xl font-black text-[#0A2647] mb-6">The Qatar <span className="text-accent italic">Advantage</span></h2>
+            <h2 className="text-4xl lg:text-5xl font-black text-[#003366] mb-6">The Qatar <span className="text-accent italic">Advantage</span></h2>
             <p className="text-slate-500 text-lg">Position your business in a thriving economy with world-class infrastructure and investor-friendly policies.</p>
           </motion.div>
 
@@ -70,11 +70,11 @@ export default function WhyQatarPage() {
                   <div className="w-16 h-16 rounded-2xl bg-[#FAFAFA] flex items-center justify-center mb-6 group-hover:bg-accent transition-all duration-500">
                     <Icon className="w-8 h-8 text-accent group-hover:text-white transition-colors" />
                   </div>
-                  <h3 className="text-xl font-extrabold text-[#0A2647] mb-4 group-hover:text-accent transition-colors">{item.title}</h3>
+                  <h3 className="text-xl font-extrabold text-[#003366] mb-4 group-hover:text-accent transition-colors">{item.title}</h3>
                   <p className="text-slate-500 leading-relaxed text-sm">{item.description}</p>
 
                   {/* Decorative background number */}
-                  <div className="absolute -bottom-4 -right-4 text-8xl font-black text-[#0A2647]/[0.03] select-none">
+                  <div className="absolute -bottom-4 -right-4 text-8xl font-black text-[#003366]/[0.03] select-none">
                     0{i + 1}
                   </div>
                 </motion.div>
@@ -85,7 +85,7 @@ export default function WhyQatarPage() {
       </section>
 
       {/* 100% Ownership Hero Section */}
-      <section className="py-24 lg:py-40 bg-[#001a3f] relative overflow-hidden" ref={ownershipRef}>
+      <section className="py-24 lg:py-40 bg-[#002244] relative overflow-hidden" ref={ownershipRef}>
         <div className="absolute inset-0 hero-grid opacity-10" />
         <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
           <img
@@ -93,7 +93,7 @@ export default function WhyQatarPage() {
             alt="Doha Skyline"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#001a3f] via-[#001a3f]/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#002244] via-[#002244]/40 to-transparent" />
         </div>
 
         <div className="container mx-auto px-6 relative z-10">
@@ -133,7 +133,7 @@ export default function WhyQatarPage() {
 
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-4 px-10 py-5 bg-accent text-[#001a3f] font-black rounded-full hover:bg-white hover:shadow-[0_20px_50px_rgba(197,160,89,0.3)] hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest"
+                className="inline-flex items-center gap-4 px-10 py-5 bg-accent text-[#002244] font-black rounded-full hover:bg-white hover:shadow-[0_20px_50px_rgba(204,153,51,0.3)] hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest"
               >
                 Get Expert Guidance <ArrowRight className="w-4 h-4" />
               </Link>
@@ -159,7 +159,7 @@ export default function WhyQatarPage() {
                 transition={{ delay: i * 0.1 }}
                 className="flex flex-col items-center text-center group"
               >
-                <div className="text-4xl font-black text-[#0A2647] mb-2 group-hover:text-accent transition-colors">{stat.value}</div>
+                <div className="text-4xl font-black text-[#003366] mb-2 group-hover:text-accent transition-colors">{stat.value}</div>
                 <div className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em]">{stat.label}</div>
               </motion.div>
             ))}
@@ -176,7 +176,7 @@ export default function WhyQatarPage() {
             className="text-center max-w-3xl mx-auto mb-20"
           >
             <span className="text-accent text-xs font-black uppercase tracking-[0.4em] mb-4 block">Opportunities</span>
-            <h2 className="text-4xl lg:text-5xl font-black text-[#0A2647] mb-6 tracking-tight">Thriving <span className="text-accent">Industries</span></h2>
+            <h2 className="text-4xl lg:text-5xl font-black text-[#003366] mb-6 tracking-tight">Thriving <span className="text-accent">Industries</span></h2>
             <p className="text-slate-500 text-lg">Qatar's National Vision 2030 is driving massive growth across multiple sectors.</p>
           </motion.div>
 
@@ -187,16 +187,16 @@ export default function WhyQatarPage() {
                 initial={{ opacity: 0, y: 40 }}
                 animate={isSectorsInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="group relative h-[400px] rounded-[2.5rem] overflow-hidden bg-[#001a3f]"
+                className="group relative h-[400px] rounded-[2.5rem] overflow-hidden bg-[#002244]"
               >
                 <img
                   src={sector.image}
                   alt={sector.name}
                   className="w-full h-full object-cover opacity-60 group-hover:scale-110 group-hover:opacity-40 transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#001a3f] via-[#001a3f]/20 to-transparent p-8 flex flex-col justify-end">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#002244] via-[#002244]/20 to-transparent p-8 flex flex-col justify-end">
                   <div className="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center mb-6 -translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                    <sector.icon className="w-6 h-6 text-[#001a3f]" />
+                    <sector.icon className="w-6 h-6 text-[#002244]" />
                   </div>
                   <h3 className="text-2xl font-black text-white mb-3">{sector.name}</h3>
                   <p className="text-white/60 text-sm leading-relaxed max-w-[240px] translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
@@ -212,7 +212,7 @@ export default function WhyQatarPage() {
       {/* Map Section */}
       <section className="py-24 bg-white relative overflow-hidden">
         <div className="container mx-auto px-6">
-          <div className="bg-[#001a3f] rounded-[3rem] p-12 lg:p-20 relative overflow-hidden">
+          <div className="bg-[#002244] rounded-[3rem] p-12 lg:p-20 relative overflow-hidden">
             <div className="absolute inset-0 opacity-10">
               <img
                 src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1200"
@@ -229,7 +229,7 @@ export default function WhyQatarPage() {
                 <div className="flex flex-col sm:flex-row gap-6">
                   <Link
                     href="/contact"
-                    className="px-10 py-5 bg-accent text-[#001a3f] font-black rounded-full hover:bg-white transition-all text-center uppercase text-xs tracking-widest"
+                    className="px-10 py-5 bg-accent text-[#002244] font-black rounded-full hover:bg-white transition-all text-center uppercase text-xs tracking-widest"
                   >
                     Speak with a Consultant
                   </Link>

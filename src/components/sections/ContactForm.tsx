@@ -27,7 +27,7 @@ export default function ContactForm() {
 
   return (
     <section
-      className="relative overflow-hidden py-24 bg-[#F9F6F1] text-[#0A2647]"
+      className="relative overflow-hidden py-24 bg-[#F9F6F1] text-[#003366]"
       ref={ref}
       id="contact-form"
     >
@@ -49,7 +49,7 @@ export default function ContactForm() {
             <span className="inline-block px-4 py-1.5 rounded-full bg-accent/10 text-accent text-sm font-semibold tracking-wider uppercase">
               Get In Touch
             </span>
-            <h2 className="text-4xl font-extrabold text-[#0A2647]">
+            <h2 className="text-4xl font-extrabold text-[#003366]">
               Book Your Free Consultation
             </h2>
             <p className="text-gray-600 max-w-md">
@@ -72,7 +72,7 @@ export default function ContactForm() {
                   </div>
                   <div>
                     <div className="text-xs text-gray-500 uppercase tracking-wide">{item.label}</div>
-                    <div className="text-sm font-semibold text-[#0A2647]">{item.value}</div>
+                    <div className="text-sm font-semibold text-[#003366]">{item.value}</div>
                   </div>
                 </a>
               ))}
@@ -87,7 +87,7 @@ export default function ContactForm() {
                 <div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-green-500/20">
                   <Send className="w-8 h-8 text-green-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-[#0A2647]">Thank You!</h3>
+                <h3 className="text-2xl font-bold text-[#003366]">Thank You!</h3>
                 <p className="text-gray-600">
                   We have received your request and will get back to you within 2 business hours.
                 </p>
@@ -105,7 +105,7 @@ export default function ContactForm() {
                       required
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#0A2647] placeholder-gray-400 transition"
+                      className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#003366] placeholder-gray-400 transition"
                       placeholder="Your full name"
                     />
                   </div>
@@ -119,7 +119,7 @@ export default function ContactForm() {
                       required
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#0A2647] placeholder-gray-400 transition"
+                      className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#003366] placeholder-gray-400 transition"
                       placeholder="you@example.com"
                     />
                   </div>
@@ -135,7 +135,7 @@ export default function ContactForm() {
                       type="tel"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#0A2647] placeholder-gray-400 transition"
+                      className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#003366] placeholder-gray-400 transition"
                       placeholder="+974 XXXX XXXX"
                     />
                   </div>
@@ -147,7 +147,7 @@ export default function ContactForm() {
                       id="service"
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#0A2647] transition"
+                      className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#003366] transition"
                     >
                       <option value="">Select a service</option>
                       <option value="company-formation">Company Formation</option>
@@ -171,14 +171,14 @@ export default function ContactForm() {
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#0A2647] placeholder-gray-400 transition resize-none"
+                    className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#003366] placeholder-gray-400 transition resize-none"
                     placeholder="Tell us about your requirements..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 py-4 bg-accent text-[#001a3f] font-black rounded-xl hover:bg-white hover:shadow-[0_20px_50px_rgba(197,160,89,0.3)] hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest"
+                  className="w-full flex items-center justify-center gap-2 py-4 bg-accent text-[#002244] font-black rounded-xl hover:bg-white hover:shadow-[0_20px_50px_rgba(204,153,51,0.3)] hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest"
                 >
                   Send Message <Send className="w-4 h-4" />
                 </button>

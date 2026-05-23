@@ -61,7 +61,7 @@ export default function Services() {
             <span className="text-[10px] font-bold text-primary uppercase tracking-[0.3em]">Services & Solutions</span>
             <div className="w-6 h-[1px] bg-primary/20" />
           </div>
-          <h2 className="text-3xl lg:text-5xl font-black text-[#0A2647] leading-[1.1] tracking-tight">
+          <h2 className="text-3xl lg:text-5xl font-black text-[#003366] leading-[1.1] tracking-tight">
             Comprehensive Support For <br />
             <span className="text-primary italic text-2xl lg:text-4xl block mt-2">Every Business Milestone.</span>
           </h2>
@@ -93,7 +93,7 @@ export default function Services() {
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                     />
                     {isHighlighted && (
-                      <div className="absolute top-3 left-3 bg-[#0A2647] text-white text-[8px] font-black px-3 py-1 rounded-full uppercase tracking-widest">
+                      <div className="absolute top-3 left-3 bg-[#003366] text-white text-[8px] font-black px-3 py-1 rounded-full uppercase tracking-widest">
                         Most Requested
                       </div>
                     )}
@@ -102,18 +102,18 @@ export default function Services() {
                   {/* Card Content */}
                   <div className="pt-6 pb-2 px-2">
                     <div className="flex items-center gap-2 mb-3">
-                      <Icon className={`w-4 h-4 ${isHighlighted ? "text-[#0A2647]" : "text-primary"}`} />
-                      <span className={`text-[9px] font-black uppercase tracking-[0.2em] ${isHighlighted ? "text-[#0A2647]/60" : "text-slate-400"}`}>
+                      <Icon className={`w-4 h-4 ${isHighlighted ? "text-[#003366]" : "text-primary"}`} />
+                      <span className={`text-[9px] font-black uppercase tracking-[0.2em] ${isHighlighted ? "text-[#003366]/60" : "text-slate-400"}`}>
                         {index % 2 === 0 ? "Corporate" : "Operations"}
                       </span>
                     </div>
 
-                    <h3 className={`text-xl font-black mb-6 leading-tight ${isHighlighted ? "text-[#0A2647]" : "text-[#0A2647]"}`}>
+                    <h3 className={`text-xl font-black mb-6 leading-tight ${isHighlighted ? "text-[#003366]" : "text-[#003366]"}`}>
                       {service.shortTitle}
                     </h3>
 
                     <div className="flex items-center justify-between pt-4 border-t border-slate-100/10">
-                      <span className={`text-[9px] font-black uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all ${isHighlighted ? "text-[#0A2647]" : "text-primary"}`}>
+                      <span className={`text-[9px] font-black uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all ${isHighlighted ? "text-[#003366]" : "text-primary"}`}>
                         Learn More <ArrowRight className="w-3.5 h-3.5" />
                       </span>
                     </div>

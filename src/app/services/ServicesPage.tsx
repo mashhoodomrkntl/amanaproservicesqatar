@@ -47,7 +47,7 @@ export default function ServicesPage() {
 
       <section className="py-24 lg:py-32 relative overflow-hidden" ref={ref}>
         {/* Decorative Background */}
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-[#001a3f]/[0.02] -skew-x-12" />
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-[#002244]/[0.02] -skew-x-12" />
         
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -72,16 +72,16 @@ export default function ServicesPage() {
                         alt={service.shortTitle}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-[#001a3f]/10 group-hover:bg-transparent transition-colors duration-500" />
+                      <div className="absolute inset-0 bg-[#002244]/10 group-hover:bg-transparent transition-colors duration-500" />
                       
                       {/* Floating Icon */}
-                      <div className="absolute -bottom-7 left-8 w-14 h-14 rounded-2xl bg-[#001a3f] flex items-center justify-center shadow-2xl group-hover:bg-accent group-hover:scale-110 transition-all duration-500 z-20">
+                      <div className="absolute -bottom-7 left-8 w-14 h-14 rounded-2xl bg-[#002244] flex items-center justify-center shadow-2xl group-hover:bg-accent group-hover:scale-110 transition-all duration-500 z-20">
                         <Icon className="w-7 h-7 text-white" />
                       </div>
                     </div>
 
                     <div className="p-8 pt-12 flex flex-col h-full relative z-10">
-                      <h3 className="text-lg font-black text-[#0A2647] mb-2 group-hover:text-accent transition-colors leading-tight uppercase tracking-tighter">
+                      <h3 className="text-lg font-black text-[#003366] mb-2 group-hover:text-accent transition-colors leading-tight uppercase tracking-tighter">
                         {service.shortTitle}
                       </h3>
 
@@ -89,7 +89,7 @@ export default function ServicesPage() {
                         {service.subtitle}
                       </p>
 
-                      <div className="mt-auto flex items-center gap-2 text-[#0A2647] text-[10px] font-black uppercase tracking-[0.2em]">
+                      <div className="mt-auto flex items-center gap-2 text-[#003366] text-[10px] font-black uppercase tracking-[0.2em]">
                         <span className="relative overflow-hidden">
                           <span className="inline-block transition-transform duration-500 group-hover:-translate-y-full font-bold">Explore Service</span>
                           <span className="absolute top-0 left-0 inline-block transition-transform duration-500 translate-y-full group-hover:translate-y-0 text-accent font-bold">Go To Details</span>
@@ -99,7 +99,7 @@ export default function ServicesPage() {
                     </div>
 
                     {/* Background Index */}
-                    <div className="absolute top-4 right-8 text-5xl font-black text-[#0A2647]/[0.05] italic select-none group-hover:text-accent/[0.1] transition-colors">
+                    <div className="absolute top-4 right-8 text-5xl font-black text-[#003366]/[0.05] italic select-none group-hover:text-accent/[0.1] transition-colors">
                       0{i + 1}
                     </div>
                   </Link>
@@ -119,7 +119,7 @@ export default function ServicesPage() {
               animate={isWhyInView ? { opacity: 1, x: 0 } : {}}
             >
               <span className="text-accent text-xs font-black uppercase tracking-[0.4em] mb-4 block">Our Standard</span>
-              <h2 className="text-4xl lg:text-5xl font-black text-[#0A2647] mb-8 leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-black text-[#003366] mb-8 leading-tight">
                 The Excellence in <br />
                 Every <span className="text-accent italic">Transaction</span>
               </h2>
@@ -138,7 +138,7 @@ export default function ServicesPage() {
                       <item.icon className="w-5 h-5 text-accent group-hover:text-white" />
                     </div>
                     <div>
-                      <h4 className="font-bold text-[#0A2647] mb-1">{item.title}</h4>
+                      <h4 className="font-bold text-[#003366] mb-1">{item.title}</h4>
                       <p className="text-slate-500 text-sm">{item.desc}</p>
                     </div>
                   </div>
@@ -157,7 +157,7 @@ export default function ServicesPage() {
                   alt="Business Team" 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-[#001a3f]/20" />
+                <div className="absolute inset-0 bg-[#002244]/20" />
                 
                 {/* Floating Achievement */}
                 <div className="absolute top-10 right-10 bg-white/90 backdrop-blur-md p-6 rounded-3xl shadow-xl border border-white/20 flex items-center gap-4">
@@ -166,7 +166,7 @@ export default function ServicesPage() {
                   </div>
                   <div>
                     <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">Client Trust</div>
-                    <div className="text-lg font-black text-[#0A2647]">99.8% Success</div>
+                    <div className="text-lg font-black text-[#003366]">99.8% Success</div>
                   </div>
                 </div>
               </div>

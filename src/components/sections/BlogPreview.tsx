@@ -18,7 +18,7 @@ export default function BlogPreview() {
   return (
     <section className="py-24 lg:py-32 bg-white relative overflow-hidden">
       {/* Decorative background element */}
-      <div className="absolute top-0 left-0 w-full h-full bg-[#001a3f]/[0.02] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-full h-full bg-[#002244]/[0.02] pointer-events-none" />
       
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
@@ -27,7 +27,7 @@ export default function BlogPreview() {
               <div className="w-8 h-[1px] bg-accent" />
               <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em]">Insights & News</span>
             </div>
-            <h2 className="text-4xl lg:text-5xl font-black text-[#0A2647] leading-tight uppercase tracking-tighter">
+            <h2 className="text-4xl lg:text-5xl font-black text-[#003366] leading-tight uppercase tracking-tighter">
               Latest from our <br />
               <span className="text-accent italic">Knowledge Hub</span>
             </h2>
@@ -35,7 +35,7 @@ export default function BlogPreview() {
           
           <Link 
             href="/blog" 
-            className="group flex items-center gap-3 text-[#0A2647] font-black text-[10px] uppercase tracking-widest hover:text-accent transition-colors"
+            className="group flex items-center gap-3 text-[#003366] font-black text-[10px] uppercase tracking-widest hover:text-accent transition-colors"
           >
             View All Posts <div className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center group-hover:border-accent group-hover:bg-accent transition-all">
               <ChevronRight className="w-4 h-4 group-hover:text-white" />
@@ -67,7 +67,7 @@ export default function BlogPreview() {
                       className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
                     <div className="absolute top-6 left-6">
-                      <span className="bg-white/90 backdrop-blur-md text-[#0A2647] text-[9px] font-black px-4 py-2 rounded-full uppercase tracking-widest shadow-lg">
+                      <span className="bg-white/90 backdrop-blur-md text-[#003366] text-[9px] font-black px-4 py-2 rounded-full uppercase tracking-widest shadow-lg">
                         {post.category}
                       </span>
                     </div>
@@ -86,7 +86,7 @@ export default function BlogPreview() {
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-black text-[#0A2647] mb-4 group-hover:text-accent transition-colors leading-tight uppercase tracking-tighter line-clamp-2">
+                    <h3 className="text-xl font-black text-[#003366] mb-4 group-hover:text-accent transition-colors leading-tight uppercase tracking-tighter line-clamp-2">
                       {post.title}
                     </h3>
 
@@ -95,7 +95,7 @@ export default function BlogPreview() {
                     </p>
 
                     <div className="mt-auto pt-6 border-t border-slate-50 flex items-center justify-between">
-                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#0A2647]">Read Full Article</span>
+                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#003366]">Read Full Article</span>
                       <ArrowRight className="w-4 h-4 text-accent transition-transform duration-500 group-hover:translate-x-2" />
                     </div>
                   </div>

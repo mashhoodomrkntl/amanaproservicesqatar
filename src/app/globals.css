@@ -2,29 +2,29 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-primary: #0A2647;
-  --color-primary-dark: #061A33;
-  --color-primary-light: #E8F0FE;
-  --color-primary-50: #F0F4F8;
-  --color-primary-100: #D1E1F0;
-  --color-primary-200: #A3C3E1;
-  --color-primary-300: #75A5D2;
-  --color-primary-400: #4787C3;
-  --color-primary-500: #1969B4;
-  --color-primary-600: #0A2647;
-  --color-primary-700: #061A33;
-  --color-primary-800: #041020;
-  --color-primary-900: #020810;
+  --color-primary: #003366;
+  --color-primary-dark: #002244;
+  --color-primary-light: #E6EEF5;
+  --color-primary-50: #EBF0F7;
+  --color-primary-100: #CCDDEe;
+  --color-primary-200: #99BBDD;
+  --color-primary-300: #6699CC;
+  --color-primary-400: #3377BB;
+  --color-primary-500: #0055AA;
+  --color-primary-600: #003366;
+  --color-primary-700: #002244;
+  --color-primary-800: #001833;
+  --color-primary-900: #000D1A;
 
-  --color-accent: #C5A059;
-  --color-accent-dark: #A38446;
-  --color-accent-light: #F4EBD0;
+  --color-accent: #CC9933;
+  --color-accent-dark: #AA7722;
+  --color-accent-light: #F5EBCF;
 
-  --color-dark: #050B16;
-  --color-dark-secondary: #0A1628;
+  --color-dark: #001122;
+  --color-dark-secondary: #001A33;
 
-  --color-gold: #D4AF37;
-  --color-gold-light: #F9F1D8;
+  --color-gold: #CC9933;
+  --color-gold-light: #F5EBCF;
 
   --color-surface: #FAFAFA;
   --color-surface-dark: #0A0A0A;
@@ -133,7 +133,7 @@ body {
 }
 
 .gradient-dark {
-  background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-secondary) 50%, #0d2847 100%);
+  background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-secondary) 50%, #0d2e52 100%);
 }
 
 .gradient-hero {
@@ -208,11 +208,11 @@ body {
 
   0%,
   100% {
-    box-shadow: 0 0 20px rgba(0, 71, 171, 0.3);
+    box-shadow: 0 0 20px rgba(0, 51, 102, 0.3);
   }
 
   50% {
-    box-shadow: 0 0 40px rgba(0, 71, 171, 0.6);
+    box-shadow: 0 0 40px rgba(0, 51, 102, 0.6);
   }
 }
 
@@ -257,7 +257,7 @@ body {
 
 .card-hover:hover {
   transform: translateY(-8px);
-  box-shadow: 0 25px 60px -12px rgba(0, 71, 171, 0.15);
+  box-shadow: 0 25px 60px -12px rgba(0, 51, 102, 0.15);
 }
 
 /* === Section Divider === */
@@ -279,7 +279,7 @@ body {
 
 /* === Dot Pattern === */
 .dot-pattern {
-  background-image: radial-gradient(rgba(0, 71, 171, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0, 51, 102, 0.08) 1px, transparent 1px);
   background-size: 24px 24px;
 }
 
@@ -302,7 +302,7 @@ body {
   --backgroundColor: var(--color-primary) !important;
   --textColor: #ffffff !important;
   --fontFamily: var(--font-sans) !important;
-  --backdropBackgroundColor: rgba(10, 38, 71, 0.7) !important;
+  --backdropBackgroundColor: rgba(0, 51, 102, 0.7) !important;
 }
 
 /* Force the banner background directly if the variable fails to cascade */

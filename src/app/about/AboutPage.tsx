@@ -79,7 +79,7 @@ export default function AboutPage() {
 
       {/* Story Section */}
       <section className="py-24 lg:py-32 relative overflow-hidden" ref={storyRef}>
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-[#001a3f]/[0.02] -skew-x-12" />
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-[#002244]/[0.02] -skew-x-12" />
 
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
@@ -93,7 +93,7 @@ export default function AboutPage() {
                 <span className="text-accent text-xs font-black uppercase tracking-[0.3em]">Established 2015</span>
               </div>
 
-              <h2 className="text-4xl lg:text-5xl font-black text-[#0A2647] mb-8 leading-[1.1]">
+              <h2 className="text-4xl lg:text-5xl font-black text-[#003366] mb-8 leading-[1.1]">
                 Redefining Business <br />
                 <span className="text-accent italic">Consultancy</span> in Qatar
               </h2>
@@ -102,7 +102,7 @@ export default function AboutPage() {
                 <p>
                   Amanah Business Services was founded with a singular mission: to eliminate the complexities of business setup in Qatar and provide a foundation of absolute trust for international and local investors.
                 </p>
-                <p className="font-medium text-[#0A2647]">
+                <p className="font-medium text-[#003366]">
                   "Amanah" isn't just our name — it's the Arabic word for "Trust." It's the core principle that guides every document we process and every partnership we form.
                 </p>
                 <p>
@@ -120,7 +120,7 @@ export default function AboutPage() {
                     className="p-4 rounded-2xl bg-white shadow-sm border border-slate-100 group hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 transition-all duration-300"
                   >
                     <item.icon className="w-5 h-5 text-accent mb-3 group-hover:scale-110 transition-transform" />
-                    <div className="text-xl font-black text-[#0A2647]">{item.value}</div>
+                    <div className="text-xl font-black text-[#003366]">{item.value}</div>
                     <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">{item.label}</div>
                   </motion.div>
                 ))}
@@ -134,13 +134,13 @@ export default function AboutPage() {
               className="relative"
             >
               <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl">
-                <div className="aspect-[4/5] bg-[#001a3f] relative group">
+                <div className="aspect-[4/5] bg-[#002244] relative group">
                   <img
                     src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
                     alt="Amanah Office"
                     className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#001a3f] via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#002244] via-transparent to-transparent opacity-60" />
                 </div>
               </div>
 
@@ -153,7 +153,7 @@ export default function AboutPage() {
               >
                 <div className="flex items-center gap-5">
                   <div className="text-5xl font-black text-accent">10+</div>
-                  <div className="text-sm font-bold text-[#0A2647] leading-tight uppercase tracking-widest">
+                  <div className="text-sm font-bold text-[#003366] leading-tight uppercase tracking-widest">
                     Years of <br />
                     Excellence
                   </div>
@@ -177,7 +177,7 @@ export default function AboutPage() {
             className="text-center max-w-3xl mx-auto mb-20"
           >
             <span className="text-accent text-xs font-black uppercase tracking-[0.4em] mb-4 block">Our DNA</span>
-            <h2 className="text-4xl lg:text-5xl font-black text-[#0A2647] mb-6 tracking-tight">The Values that <span className="text-accent">Define Us</span></h2>
+            <h2 className="text-4xl lg:text-5xl font-black text-[#003366] mb-6 tracking-tight">The Values that <span className="text-accent">Define Us</span></h2>
             <p className="text-slate-500 text-lg">We operate at the intersection of traditional values and modern business agility.</p>
           </motion.div>
 
@@ -193,11 +193,11 @@ export default function AboutPage() {
                 <div className="h-full bg-[#FAFAFA] rounded-3xl p-8 border border-slate-100 group-hover:bg-white group-hover:border-accent/20 transition-all duration-500 group-hover:-translate-y-3 group-hover:shadow-2xl group-hover:shadow-accent/5 overflow-hidden">
                   <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${value.color} p-0.5 mb-8 rotate-3 group-hover:rotate-12 transition-transform duration-500`}>
                     <div className="w-full h-full bg-white rounded-2xl flex items-center justify-center">
-                      <value.icon className="w-6 h-6 text-[#0A2647]" />
+                      <value.icon className="w-6 h-6 text-[#003366]" />
                     </div>
                   </div>
 
-                  <h3 className="text-xl font-extrabold text-[#0A2647] mb-4 group-hover:text-accent transition-colors">{value.title}</h3>
+                  <h3 className="text-xl font-extrabold text-[#003366] mb-4 group-hover:text-accent transition-colors">{value.title}</h3>
                   <p className="text-slate-500 leading-relaxed text-sm">
                     {value.desc}
                   </p>
@@ -214,7 +214,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline Section - Sleek Progress */}
-      <section className="py-24 lg:py-32 bg-[#001a3f] relative overflow-hidden" ref={timelineRef}>
+      <section className="py-24 lg:py-32 bg-[#002244] relative overflow-hidden" ref={timelineRef}>
         <div className="absolute inset-0 hero-grid opacity-10" />
         <div className="container mx-auto px-6 relative z-10">
           <motion.div
@@ -231,7 +231,7 @@ export default function AboutPage() {
             <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-white/10 hidden lg:block -translate-x-1/2">
               <motion.div
                 style={{ height: timelineHeight }}
-                className="w-full bg-gradient-to-b from-accent to-accent-light shadow-[0_0_15px_rgba(197,160,89,0.5)]"
+                className="w-full bg-gradient-to-b from-accent to-accent-light shadow-[0_0_15px_rgba(204,153,51,0.5)]"
               />
             </div>
 
@@ -259,7 +259,7 @@ export default function AboutPage() {
 
                   {/* Central Node */}
                   <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center">
-                    <div className="w-4 h-4 rounded-full bg-accent shadow-[0_0_15px_rgba(197,160,89,1)] z-20" />
+                    <div className="w-4 h-4 rounded-full bg-accent shadow-[0_0_15px_rgba(204,153,51,1)] z-20" />
                   </div>
                 </div>
               ))}
@@ -278,7 +278,7 @@ export default function AboutPage() {
               className="lg:col-span-5"
             >
               <span className="text-accent text-xs font-black uppercase tracking-[0.4em] mb-4 block">The Amanah Edge</span>
-              <h2 className="text-4xl lg:text-5xl font-black text-[#0A2647] mb-8 leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-black text-[#003366] mb-8 leading-tight">
                 Why Industry Leaders <span className="text-accent italic">Choose</span> Us
               </h2>
               <p className="text-slate-500 text-lg mb-10">
@@ -295,7 +295,7 @@ export default function AboutPage() {
                     <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
                       <item.icon className="w-5 h-5 text-accent group-hover:text-white" />
                     </div>
-                    <span className="font-bold text-[#0A2647] text-sm uppercase tracking-wide">{item.text}</span>
+                    <span className="font-bold text-[#003366] text-sm uppercase tracking-wide">{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -316,7 +316,7 @@ export default function AboutPage() {
                   className="bg-[#FAFAFA] p-8 rounded-[2.5rem] border border-slate-100 hover:bg-white hover:shadow-2xl hover:shadow-accent/5 transition-all duration-500 group"
                 >
                   <div className="w-12 h-[2px] bg-accent mb-6 group-hover:w-20 transition-all duration-500" />
-                  <h4 className="text-lg font-black text-[#0A2647] mb-4 uppercase tracking-tighter">{card.title}</h4>
+                  <h4 className="text-lg font-black text-[#003366] mb-4 uppercase tracking-tighter">{card.title}</h4>
                   <p className="text-slate-500 text-sm leading-relaxed">{card.desc}</p>
                 </motion.div>
               ))}
@@ -333,15 +333,15 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, scale: 1 }}
             className="bg-accent rounded-[3rem] p-12 lg:p-20 text-center relative overflow-hidden group"
           >
-            <div className="absolute inset-0 bg-[#001a3f] opacity-0 group-hover:opacity-5 transition-opacity duration-700" />
+            <div className="absolute inset-0 bg-[#002244] opacity-0 group-hover:opacity-5 transition-opacity duration-700" />
             <div className="relative z-10 max-w-2xl mx-auto">
-              <h2 className="text-3xl lg:text-5xl font-black text-[#001a3f] mb-8 leading-tight">
+              <h2 className="text-3xl lg:text-5xl font-black text-[#002244] mb-8 leading-tight">
                 Ready to Start Your Success Story in Qatar?
               </h2>
-              <p className="text-[#001a3f]/70 text-lg mb-12 font-medium">
+              <p className="text-[#002244]/70 text-lg mb-12 font-medium">
                 Join over 5,000 businesses that trusted Amanah with their vision.
               </p>
-              <button className="px-12 py-5 bg-[#001a3f] text-white font-black rounded-full hover:shadow-[0_20px_50px_rgba(0,26,63,0.3)] hover:-translate-y-1 transition-all duration-300 uppercase text-sm tracking-[0.2em]">
+              <button className="px-12 py-5 bg-[#002244] text-white font-black rounded-full hover:shadow-[0_20px_50px_rgba(0,34,68,0.3)] hover:-translate-y-1 transition-all duration-300 uppercase text-sm tracking-[0.2em]">
                 Partner With Us
               </button>
             </div>

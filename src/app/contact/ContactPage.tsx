@@ -59,7 +59,7 @@ export default function ContactPage() {
                 <div className={`w-14 h-14 rounded-2xl ${card.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
                   <card.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-black text-[#0A2647] mb-2">{card.title}</h3>
+                <h3 className="text-xl font-black text-[#003366] mb-2">{card.title}</h3>
                 <div className="text-accent font-bold mb-1">{card.value}</div>
                 <p className="text-slate-500 text-sm">{card.desc}</p>
               </motion.a>
@@ -79,7 +79,7 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             <div className="lg:col-span-4">
               <span className="text-accent text-xs font-black uppercase tracking-[0.4em] mb-4 block">Visit Us</span>
-              <h2 className="text-4xl lg:text-5xl font-black text-[#0A2647] mb-8 leading-tight">
+              <h2 className="text-4xl lg:text-5xl font-black text-[#003366] mb-8 leading-tight">
                 Find Us in <br />
                 <span className="text-accent">Doha</span>
               </h2>
@@ -90,7 +90,7 @@ export default function ContactPage() {
                     <MapPin className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#0A2647] mb-2 uppercase tracking-wide text-sm">Headquarters</h4>
+                    <h4 className="font-bold text-[#003366] mb-2 uppercase tracking-wide text-sm">Headquarters</h4>
                     <p className="text-slate-500 text-sm leading-relaxed">
                       {siteConfig.address}
                     </p>
@@ -102,10 +102,10 @@ export default function ContactPage() {
                     <Clock className="w-5 h-5 text-accent" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#0A2647] mb-2 uppercase tracking-wide text-sm">Working Hours</h4>
+                    <h4 className="font-bold text-[#003366] mb-2 uppercase tracking-wide text-sm">Working Hours</h4>
                     <p className="text-slate-500 text-sm">
                       Sunday — Thursday <br />
-                      <span className="text-[#0A2647] font-semibold">08:00 AM — 06:00 PM</span>
+                      <span className="text-[#003366] font-semibold">08:00 AM — 06:00 PM</span>
                     </p>
                   </div>
                 </div>

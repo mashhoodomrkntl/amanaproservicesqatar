@@ -13,7 +13,7 @@ export default function WhyQatarPreview() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section className="py-24 lg:py-32 bg-[#0A2647] relative overflow-hidden" ref={ref}>
+    <section className="py-24 lg:py-32 bg-[#003366] relative overflow-hidden" ref={ref}>
       {/* Background Visuals */}
       <div className="absolute inset-0 z-0">
         <img
@@ -21,7 +21,7 @@ export default function WhyQatarPreview() {
           alt="Doha Night Skyline"
           className="w-full h-full object-cover opacity-20 scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0A2647] via-[#0A2647]/95 to-[#0A2647]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#003366] via-[#003366]/95 to-[#003366]" />
         <div className="absolute inset-0 hero-grid opacity-[0.03]" />
       </div>
 
@@ -54,7 +54,7 @@ export default function WhyQatarPreview() {
               </p>
             </div>
 
-            <Link href="/why-qatar" className="group inline-flex items-center gap-3 px-10 py-5 bg-white text-[#0A2647] font-black rounded-2xl hover:bg-accent hover:text-white transition-all duration-500 uppercase text-[10px] tracking-widest shadow-2xl">
+            <Link href="/why-qatar" className="group inline-flex items-center gap-3 px-10 py-5 bg-white text-[#003366] font-black rounded-2xl hover:bg-accent hover:text-white transition-all duration-500 uppercase text-[10px] tracking-widest shadow-2xl">
               Why Invest In Qatar <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
             </Link>
           </motion.div>

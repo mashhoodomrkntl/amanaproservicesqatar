@@ -65,7 +65,7 @@ export default function Navbar() {
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-        ? "bg-[#0A2647]/90 backdrop-blur-xl shadow-2xl shadow-black/20 py-2 border-b border-white/5"
+        ? "bg-[#003366]/90 backdrop-blur-xl shadow-2xl shadow-black/20 py-2 border-b border-white/5"
         : "bg-transparent py-4 border-b border-white/5"
         }`}
     >
@@ -127,7 +127,7 @@ export default function Navbar() {
                             transition={{ duration: 0.25, ease: "circOut" }}
                             className="absolute top-full left-1/2 -translate-x-1/2 w-[560px] pt-4 z-[60]"
                           >
-                            <div className="bg-[#0A2647]/95 backdrop-blur-3xl rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.4)] border border-white/10 p-6 overflow-hidden">
+                            <div className="bg-[#003366]/95 backdrop-blur-3xl rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.4)] border border-white/10 p-6 overflow-hidden">
                               <div className="grid grid-cols-2 gap-3">
                                 {services.map((service) => (
                                   <Link
@@ -188,7 +188,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-4 shrink-0">
             <Link
               href="/contact"
-              className="px-7 py-3 bg-accent text-[#0A2647] text-[12px] font-black rounded-xl shadow-lg shadow-accent/20 hover:shadow-accent/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 uppercase tracking-widest"
+              className="px-7 py-3 bg-accent text-[#003366] text-[12px] font-black rounded-xl shadow-lg shadow-accent/20 hover:shadow-accent/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 uppercase tracking-widest"
             >
               Get Started
             </Link>
@@ -213,7 +213,7 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:hidden border-t border-white/10 overflow-y-auto max-h-[calc(100dvh-5rem)] bg-[#0A2647]/98 backdrop-blur-2xl scrollbar-premium"
+            className="lg:hidden border-t border-white/10 overflow-y-auto max-h-[calc(100dvh-5rem)] bg-[#003366]/98 backdrop-blur-2xl scrollbar-premium"
           >
             <div className="px-6 py-8 space-y-2">
               {navLinks.map((link) => (
@@ -222,7 +222,7 @@ export default function Navbar() {
                     <div className="space-y-1">
                       <button
                         onClick={() => setServicesOpen(!servicesOpen)}
-                        className={`w-full flex items-center justify-between px-4 py-4 text-sm font-bold uppercase tracking-widest rounded-2xl transition-all ${servicesOpen ? "bg-accent text-[#0A2647] shadow-lg shadow-accent/20" : "text-white hover:bg-white/5"
+                        className={`w-full flex items-center justify-between px-4 py-4 text-sm font-bold uppercase tracking-widest rounded-2xl transition-all ${servicesOpen ? "bg-accent text-[#003366] shadow-lg shadow-accent/20" : "text-white hover:bg-white/5"
                           }`}
                       >
                         {link.label}
@@ -273,7 +273,7 @@ export default function Navbar() {
                 <Link
                   href="/contact"
                   onClick={() => setIsOpen(false)}
-                  className="block text-center px-6 py-5 bg-accent text-[#0A2647] text-[13px] font-black uppercase tracking-widest rounded-2xl shadow-xl shadow-accent/25 active:scale-[0.98] transition-transform"
+                  className="block text-center px-6 py-5 bg-accent text-[#003366] text-[13px] font-black uppercase tracking-widest rounded-2xl shadow-xl shadow-accent/25 active:scale-[0.98] transition-transform"
                 >
                   Free Consultation
                 </Link>

@@ -12,7 +12,7 @@ export default function FAQ() {
 
   return (
     <section
-      className="relative overflow-hidden py-24 lg:py-32 bg-white text-[#0A2647]"
+      className="relative overflow-hidden py-24 lg:py-32 bg-white text-[#003366]"
       ref={ref}
       id="faq"
     >
@@ -34,7 +34,7 @@ export default function FAQ() {
             <HelpCircle className="w-4 h-4" />
             Knowledge Hub
           </div>
-          <h2 className="text-4xl lg:text-6xl font-extrabold mb-8 tracking-tight text-[#0A2647]">
+          <h2 className="text-4xl lg:text-6xl font-extrabold mb-8 tracking-tight text-[#003366]">
             Frequently Asked <span className="text-accent">Questions</span>
           </h2>
           <p className="text-gray-500 text-lg leading-relaxed">
@@ -56,7 +56,7 @@ export default function FAQ() {
                 >
                   <div
                     className={`group transition-all duration-500 rounded-2xl border ${isOpen
-                        ? "bg-white border-accent shadow-[0_20px_50px_rgba(197,160,89,0.15)]"
+                        ? "bg-white border-accent shadow-[0_20px_50px_rgba(204,153,51,0.15)]"
                         : "bg-gray-50 border-gray-100 hover:border-accent/30 hover:bg-white"
                       } overflow-hidden`}
                   >
@@ -68,7 +68,7 @@ export default function FAQ() {
                         <span className={`text-lg font-mono transition-colors duration-300 ${isOpen ? "text-accent" : "text-gray-500"}`}>
                           {(index + 1).toString().padStart(2, '0')}
                         </span>
-                        <h3 className={`text-lg lg:text-xl font-bold transition-colors duration-300 ${isOpen ? "text-[#0A2647]" : "text-gray-600 group-hover:text-[#0A2647]"
+                        <h3 className={`text-lg lg:text-xl font-bold transition-colors duration-300 ${isOpen ? "text-[#003366]" : "text-gray-600 group-hover:text-[#003366]"
                           }`}>
                           {faq.question}
                         </h3>
@@ -118,7 +118,7 @@ export default function FAQ() {
             </p>
             <a
               href="#contact-form"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#001a3f] text-white font-black rounded-full hover:bg-accent hover:text-[#001a3f] transition-all shadow-xl shadow-blue-900/10 uppercase text-xs tracking-widest"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-[#002244] text-white font-black rounded-full hover:bg-accent hover:text-[#002244] transition-all shadow-xl shadow-blue-900/10 uppercase text-xs tracking-widest"
             >
               Contact Our Experts
             </a>

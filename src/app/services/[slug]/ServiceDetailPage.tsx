@@ -62,7 +62,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
 
       <section className="py-24 lg:py-32 relative overflow-hidden" ref={ref}>
         {/* Subtle Background Pattern */}
-        <div className="absolute top-0 left-0 w-full h-full bg-[#001a3f]/[0.01] pointer-events-none" />
+        <div className="absolute top-0 left-0 w-full h-full bg-[#002244]/[0.01] pointer-events-none" />
         <div className="absolute top-1/2 right-0 w-72 h-72 bg-accent/5 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="container mx-auto px-6 relative z-10">
@@ -77,12 +77,12 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                 {/* Intro Section */}
                 <div className="mb-16">
                   <div className="flex items-center gap-6 mb-10">
-                    <div className="w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-2xl md:rounded-[2rem] bg-[#001a3f] flex items-center justify-center shadow-2xl shadow-blue-900/20 group">
+                    <div className="w-16 h-16 md:w-20 md:h-20 shrink-0 rounded-2xl md:rounded-[2rem] bg-[#002244] flex items-center justify-center shadow-2xl shadow-blue-900/20 group">
                       <Icon className="w-8 h-8 md:w-10 md:h-10 text-accent transition-transform group-hover:scale-110" />
                     </div>
                     <div>
                       <span className="text-accent text-[10px] font-black uppercase tracking-[0.4em] mb-2 block">Premium Service</span>
-                      <h2 className="text-3xl lg:text-5xl font-black text-[#0A2647] tracking-tight uppercase">{service.title}</h2>
+                      <h2 className="text-3xl lg:text-5xl font-black text-[#003366] tracking-tight uppercase">{service.title}</h2>
                     </div>
                   </div>
 
@@ -95,7 +95,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                 <div className="mb-8">
                   <div className="flex items-center gap-3 mb-10">
                     <div className="w-10 h-[1px] bg-accent" />
-                    <h3 className="text-xl font-black text-[#0A2647] uppercase tracking-tighter">Core Offerings</h3>
+                    <h3 className="text-xl font-black text-[#003366] uppercase tracking-tighter">Core Offerings</h3>
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-6">
@@ -111,14 +111,14 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                         <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-accent transition-colors">
                           <CheckCircle className="w-4 h-4 text-accent group-hover:text-white" />
                         </div>
-                        <span className="text-sm text-slate-600 font-bold uppercase tracking-wide group-hover:text-[#0A2647] transition-colors">{feature}</span>
+                        <span className="text-sm text-slate-600 font-bold uppercase tracking-wide group-hover:text-[#003366] transition-colors">{feature}</span>
                       </motion.div>
                     ))}
                   </div>
                 </div>
 
                 {/* Value Proposition Banner */}
-                <div className="relative rounded-[3rem] overflow-hidden bg-[#001a3f] p-12 lg:p-16 text-white group mb-8">
+                <div className="relative rounded-[3rem] overflow-hidden bg-[#002244] p-12 lg:p-16 text-white group mb-8">
                   <div className="absolute inset-0 hero-grid opacity-10" />
                   <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-[100px] -z-0 translate-x-1/3 -translate-y-1/3" />
 
@@ -131,7 +131,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                       {service.benefits.map((benefit, i) => (
                         <div key={i} className="flex items-start gap-4 group/item">
                           <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-accent transition-colors">
-                            <ShieldCheck className="w-5 h-5 text-accent group-hover/item:text-[#001a3f]" />
+                            <ShieldCheck className="w-5 h-5 text-accent group-hover/item:text-[#002244]" />
                           </div>
                           <span className="text-white/70 text-sm font-medium leading-relaxed group-hover/item:text-white transition-colors">
                             {benefit}
@@ -158,7 +158,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                         <div className="p-2 rounded-lg bg-accent text-white">
                           <ShieldCheck className="w-5 h-5" />
                         </div>
-                        <h4 className="text-lg font-black text-[#0A2647] uppercase tracking-tighter">Secure Document Protocol</h4>
+                        <h4 className="text-lg font-black text-[#003366] uppercase tracking-tighter">Secure Document Protocol</h4>
                       </div>
                       <p className="text-slate-600 mb-6 leading-relaxed">
                         At Amanah, we understand that your documents often contain sensitive corporate or personal data. Our translation process is governed by strict **ISO-standard confidentiality protocols**. Every digital file is encrypted, and physical documents are handled within a secure, monitored environment.
@@ -170,7 +170,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                           "Secure data deletion post-project completion",
                           "Restricted access to sensitive legal documents"
                         ].map((item, idx) => (
-                          <li key={idx} className="flex items-center gap-3 text-sm font-bold text-[#0A2647]">
+                          <li key={idx} className="flex items-center gap-3 text-sm font-bold text-[#003366]">
                             <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
                             <span>{item}</span>
                           </li>
@@ -198,7 +198,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                     <div className="w-12 h-12 rounded-2xl bg-accent/10 flex items-center justify-center mb-6">
                       <Zap className="w-6 h-6 text-accent" />
                     </div>
-                    <h3 className="text-xl font-black text-[#0A2647] mb-4 uppercase tracking-tighter">Fast-Track Setup</h3>
+                    <h3 className="text-xl font-black text-[#003366] mb-4 uppercase tracking-tighter">Fast-Track Setup</h3>
                     <p className="text-slate-500 text-sm mb-8 leading-relaxed">
                       Consult with our {service.shortTitle} experts today and skip the bureaucratic delays.
                     </p>
@@ -206,7 +206,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                     <div className="space-y-4">
                       <Link
                         href="/contact"
-                        className="flex items-center justify-center gap-3 w-full py-4 bg-[#001a3f] text-white font-black rounded-2xl hover:bg-accent transition-all duration-300 uppercase text-[10px] tracking-widest shadow-xl shadow-blue-900/10"
+                        className="flex items-center justify-center gap-3 w-full py-4 bg-[#002244] text-white font-black rounded-2xl hover:bg-accent transition-all duration-300 uppercase text-[10px] tracking-widest shadow-xl shadow-blue-900/10"
                       >
                         Free Consultation <ArrowRight className="w-4 h-4" />
                       </Link>
@@ -215,13 +215,13 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                         <a
                           href={`https://wa.me/${siteConfig.whatsapp.replace("+", "")}`}
                           target="_blank"
-                          className="flex items-center justify-center gap-2 py-3 bg-[#FAFAFA] text-[#0A2647] font-bold rounded-xl border border-slate-100 hover:border-accent/30 transition-all text-[10px] tracking-wide"
+                          className="flex items-center justify-center gap-2 py-3 bg-[#FAFAFA] text-[#003366] font-bold rounded-xl border border-slate-100 hover:border-accent/30 transition-all text-[10px] tracking-wide"
                         >
                           <MessageSquare className="w-3.5 h-3.5 text-accent" /> WhatsApp
                         </a>
                         <a
                           href={`tel:${siteConfig.phone}`}
-                          className="flex items-center justify-center gap-2 py-3 bg-[#FAFAFA] text-[#0A2647] font-bold rounded-xl border border-slate-100 hover:border-accent/30 transition-all text-[10px] tracking-wide"
+                          className="flex items-center justify-center gap-2 py-3 bg-[#FAFAFA] text-[#003366] font-bold rounded-xl border border-slate-100 hover:border-accent/30 transition-all text-[10px] tracking-wide"
                         >
                           <Phone className="w-3.5 h-3.5 text-accent" /> Call Us
                         </a>
@@ -234,7 +234,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                 <div className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-xl shadow-slate-200/40">
                   <div className="flex items-center gap-3 mb-8">
                     <div className="w-8 h-[2px] bg-accent" />
-                    <h3 className="text-sm font-black text-[#0A2647] uppercase tracking-widest">More Solutions</h3>
+                    <h3 className="text-sm font-black text-[#003366] uppercase tracking-widest">More Solutions</h3>
                   </div>
 
                   <div className="space-y-3">
@@ -246,10 +246,10 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                           href={`/services/${s.id}`}
                           className="flex items-center gap-4 p-4 rounded-2xl bg-[#FAFAFA] border border-transparent hover:border-accent/20 hover:bg-white hover:shadow-xl hover:shadow-accent/5 transition-all duration-500 group"
                         >
-                          <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center group-hover:bg-[#001a3f] transition-all">
+                          <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center group-hover:bg-[#002244] transition-all">
                             <SIcon className="w-5 h-5 text-accent group-hover:text-white transition-colors" />
                           </div>
-                          <span className="text-xs font-black text-[#0A2647] uppercase tracking-tighter group-hover:text-accent transition-colors">
+                          <span className="text-xs font-black text-[#003366] uppercase tracking-tighter group-hover:text-accent transition-colors">
                             {s.shortTitle}
                           </span>
                           <ArrowRight className="w-3.5 h-3.5 text-accent ml-auto opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -278,7 +278,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                   <div className="p-2 rounded-lg bg-accent text-white">
                     <ShieldCheck className="w-5 h-5" />
                   </div>
-                  <h4 className="text-lg font-black text-[#0A2647] uppercase tracking-tighter">Secure Document Protocol</h4>
+                  <h4 className="text-lg font-black text-[#003366] uppercase tracking-tighter">Secure Document Protocol</h4>
                 </div>
                 <p className="text-slate-600 mb-6 leading-relaxed">
                   At Amanah, we understand that your documents often contain sensitive corporate or personal data. Our translation process is governed by strict **ISO-standard confidentiality protocols**. Every digital file is encrypted, and physical documents are handled within a secure, monitored environment.
@@ -290,7 +290,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                     "Secure data deletion post-project completion",
                     "Restricted access to sensitive legal documents"
                   ].map((item, idx) => (
-                    <li key={idx} className="flex items-center gap-3 text-sm font-bold text-[#0A2647]">
+                    <li key={idx} className="flex items-center gap-3 text-sm font-bold text-[#003366]">
                       <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
                       <span>{item}</span>
                     </li>

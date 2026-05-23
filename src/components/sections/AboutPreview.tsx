@@ -24,7 +24,7 @@ export default function AboutPreview() {
               <div className="w-6 h-[2px] bg-primary" />
               <span className="text-xs font-bold text-primary uppercase tracking-widest">About Our Agency</span>
             </div>
-            <h2 className="text-3xl lg:text-5xl font-black text-[#0A2647] leading-[1.1] tracking-tight">
+            <h2 className="text-3xl lg:text-5xl font-black text-[#003366] leading-[1.1] tracking-tight">
               Premium PRO & Business <br />
               Solutions For Growth
             </h2>
@@ -107,7 +107,7 @@ export default function AboutPreview() {
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="sm:col-span-2 bg-[#0A2647] rounded-[1.5rem] p-8 lg:p-10 flex flex-col sm:flex-row justify-between items-end gap-6 text-white relative overflow-hidden shadow-xl"
+              className="sm:col-span-2 bg-[#003366] rounded-[1.5rem] p-8 lg:p-10 flex flex-col sm:flex-row justify-between items-end gap-6 text-white relative overflow-hidden shadow-xl"
             >
               <div className="relative z-10 max-w-md">
                 <h3 className="text-2xl font-black text-accent mb-4">Business Growth</h3>
@@ -125,7 +125,7 @@ export default function AboutPreview() {
                   <ArrowRight className="w-5 h-5 text-white -rotate-45" />
                 </div>
                 <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center group cursor-pointer hover:bg-accent-light transition-colors">
-                  <ArrowRight className="w-5 h-5 text-[#0A2647]" />
+                  <ArrowRight className="w-5 h-5 text-[#003366]" />
                 </div>
               </div>
 

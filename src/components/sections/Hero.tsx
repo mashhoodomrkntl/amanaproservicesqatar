@@ -6,10 +6,10 @@ import { ArrowRight, PlayCircle, CheckCircle2 } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-33 pb-20 lg:pt-35 lg:pb-32 overflow-hidden bg-[#001a3f]">
+    <section className="relative min-h-[90vh] flex items-center pt-33 pb-20 lg:pt-35 lg:pb-32 overflow-hidden bg-[#002244]">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#001a3f] via-[#003380] to-[#001a3f] opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#002244] via-[#004488] to-[#002244] opacity-90" />
         <div className="absolute inset-0 hero-grid opacity-90" />
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/30 rounded-full blur-[120px] animate-pulse" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-accent/20 rounded-full blur-[120px]" />
@@ -61,7 +61,7 @@ export default function Hero() {
               <div className="flex flex-wrap items-center gap-5 mb-12">
                 <Link
                   href="/contact"
-                  className="px-8 py-4 bg-accent text-[#001a3f] font-black rounded-2xl hover:bg-white hover:shadow-[0_20px_50px_rgba(197,160,89,0.3)] hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest"
+                  className="px-8 py-4 bg-accent text-[#002244] font-black rounded-2xl hover:bg-white hover:shadow-[0_20px_50px_rgba(204,153,51,0.3)] hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest"
                 >
                   Start Your Journey
                 </Link>

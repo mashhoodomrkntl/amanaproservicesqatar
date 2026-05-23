@@ -33,7 +33,7 @@ export default function Testimonials() {
           <span className="inline-block px-4 py-1 rounded-lg border border-accent/60 bg-white text-accent text-[9px] font-black uppercase tracking-[0.2em] mb-4">
             Testimonials
           </span>
-          <h2 className="text-4xl lg:text-5xl font-black text-[#0A2647] tracking-tight">
+          <h2 className="text-4xl lg:text-5xl font-black text-[#003366] tracking-tight">
             Our trusted clients
           </h2>
         </motion.div>
@@ -55,7 +55,7 @@ export default function Testimonials() {
                 {/* Compact Quote Icon */}
                 <div className="w-10 h-10 rounded-full bg-slate-50 flex items-center justify-center mb-4">
                   <svg width="16" height="11" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M5.71429 0C2.55714 0 0 2.55714 0 5.71429C0 8.87143 2.55714 11.4286 5.71429 11.4286H6.28571V15.2857L10.1429 11.4286H11.4286V5.71429C11.4286 2.55714 8.87143 0 5.71429 0ZM17.1429 0C13.9857 0 11.4286 2.55714 11.4286 5.71429C11.4286 8.87143 13.9857 11.4286 17.1429 11.4286H17.7143V15.2857L21.5714 11.4286H22.8571V5.71429C22.8571 2.55714 20.3 0 17.1429 0Z" fill="#3B82F6" opacity="0.3" />
+                    <path d="M5.71429 0C2.55714 0 0 2.55714 0 5.71429C0 8.87143 2.55714 11.4286 5.71429 11.4286H6.28571V15.2857L10.1429 11.4286H11.4286V5.71429C11.4286 2.55714 8.87143 0 5.71429 0ZM17.1429 0C13.9857 0 11.4286 2.55714 11.4286 5.71429C11.4286 8.87143 13.9857 11.4286 17.1429 11.4286H17.7143V15.2857L21.5714 11.4286H22.8571V5.71429C22.8571 2.55714 20.3 0 17.1429 0Z" fill="#CC9933" opacity="0.3" />
                   </svg>
                 </div>
 
@@ -77,7 +77,7 @@ export default function Testimonials() {
                     />
                   </div>
                   <div className="overflow-hidden">
-                    <h4 className="font-bold text-[#0A2647] text-[12px] leading-none mb-1 truncate">
+                    <h4 className="font-bold text-[#003366] text-[12px] leading-none mb-1 truncate">
                       {testimonial.name}
                     </h4>
                     <p className="text-[9px] text-slate-400 font-medium truncate uppercase tracking-tighter">
