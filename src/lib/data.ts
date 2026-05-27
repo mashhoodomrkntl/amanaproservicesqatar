@@ -353,6 +353,20 @@ export const testimonials = [
     rating: 5,
     image: "/anees_grand_olive.jpeg",
   },
+  {
+    name: "Viswanadhan nair ",
+    role: "Managing Director, Sunrise group and companies",
+    text: "Very Reliable, Quick and efficient. Amanah has been our PRO and licensing partner for several years and their service has been exceptional. Highly recommend their PRO services for businesses in Qatar.",
+    rating: 5,
+    image: "/Viswanadhan_sunRise.jpeg",
+  },
+  {
+    name: "Mansoor Muhammad",
+    role: "Managing Director, Royal Qamees",
+    text: "Team Amanah is one of the most professional and reliable service providers in Qatar. They have been our trusted partners for many years and have consistently delivered exceptional service. Highly recommend their PRO & Business Setup services.",
+    rating: 5,
+    image: "/royalQamees.png",
+  },
 ];
 
 export const faqs = [
