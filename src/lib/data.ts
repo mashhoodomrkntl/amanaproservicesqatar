@@ -364,7 +364,7 @@ export const faqs = [
   {
     question: "Can foreigners own 100% of a company in Qatar?",
     answer:
-      "Yes, Qatar allows 100% foreign ownership across many sectors including IT, healthcare, education, manufacturing, tourism, and more. The right legal structure and licensing framework must be selected to qualify. Our experts guide you through the process.",
+      "Yes, Qatar allows 100% foreign ownership across many sectors including IT, healthcare, education, tourism, trading, Restaurants and more. The right legal structure and licensing framework must be selected to qualify. Our experts guide you through the process.",
   },
   {
     question: "How long does company formation in Qatar take?",
@@ -379,7 +379,7 @@ export const faqs = [
   {
     question: "What documents are needed for company setup?",
     answer:
-      "Required documents typically include passport copies, attested certificates, Articles of Association, office lease agreement, and ministry application forms. We ensure compliance at every stage of your setup.",
+      "Required documents typically include passport copies, QID, office lease agreement for municapality license. We ensure compliance at every stage of your setup.",
   },
   {
     question: "What are PRO services in Qatar?",
@@ -394,7 +394,7 @@ export const faqs = [
   {
     question: "Why choose Amanah Business Services?",
     answer:
-      "With over a decade of experience, 5000+ successfully completed projects, and a dedicated team of 150+ professionals, Amanah offers end-to-end business setup solutions with transparency, accuracy, and personalized service.",
+      "With over a decade of experience, 2000+ successfully completed projects, and a dedicated team of 30+ professionals, Amanah offers end-to-end business setup solutions with transparency, accuracy, and personalized service.",
   },
 ];
 

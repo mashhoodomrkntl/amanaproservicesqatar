@@ -13,7 +13,7 @@ export default function ContactPage() {
       icon: Phone,
       title: "Call Our Experts",
       value: siteConfig.allPhones.join(" / "),
-      desc: "Available Sun-Thu, 8AM-6PM",
+      desc: "Available S-Thu, 8AM-6PM",
       href: `tel:${siteConfig.phone.replace(/\s/g, "")}`,
       color: "bg-blue-500",
     },
@@ -83,7 +83,7 @@ export default function ContactPage() {
                 Find Us in <br />
                 <span className="text-accent">Doha</span>
               </h2>
-              
+
               <div className="space-y-8">
                 <div className="flex gap-5">
                   <div className="w-12 h-12 rounded-xl bg-[#FAFAFA] flex items-center justify-center flex-shrink-0 border border-slate-100">
@@ -104,14 +104,14 @@ export default function ContactPage() {
                   <div>
                     <h4 className="font-bold text-[#0A2647] mb-2 uppercase tracking-wide text-sm">Working Hours</h4>
                     <p className="text-slate-500 text-sm">
-                      Sunday — Thursday <br />
+                      Saturday — Thursday <br />
                       <span className="text-[#0A2647] font-semibold">08:00 AM — 06:00 PM</span>
                     </p>
                   </div>
                 </div>
 
-                <a 
-                  href="https://maps.google.com/?q=Amanah+Business+Services+Doha+Qatar" 
+                <a
+                  href="https://maps.google.com/?q=Amanah+Business+Services+Doha+Qatar"
                   target="_blank"
                   className="inline-flex items-center gap-2 text-accent font-black uppercase text-xs tracking-widest hover:gap-4 transition-all"
                 >
@@ -122,13 +122,13 @@ export default function ContactPage() {
 
             <div className="lg:col-span-8">
               <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white aspect-[16/9] lg:aspect-auto lg:h-[500px] group">
-                <iframe 
+                <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.447547466858!2d51.5204487!3d25.2891393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c53198038e47%3A0x6b4a3a1f4a3a1f4a!2sDoha%2C%20Qatar!5e0!3m2!1sen!2sqa!4v1715440000000!5m2!1sen!2sqa"
-                  width="100%" 
-                  height="100%" 
-                  style={{ border: 0 }} 
-                  allowFullScreen 
-                  loading="lazy" 
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                   className="grayscale hover:grayscale-0 transition-all duration-700"
                 />

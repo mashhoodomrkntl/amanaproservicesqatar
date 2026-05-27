@@ -82,8 +82,8 @@ export default function Hero() {
               <div className="flex flex-wrap items-center gap-8 py-8 border-t border-white/10">
                 {[
                   { label: "Founded", value: "2015" },
-                  { label: "Projects Done", value: "5000+" },
-                  { label: "Expert Team", value: "150+" },
+                  { label: "Projects Done", value: "2000+" },
+                  { label: "Expert Team", value: "30+" },
                 ].map((stat, i) => (
                   <div key={i} className="flex flex-col">
                     <span className="text-accent font-black text-lg">{stat.value}</span>
@@ -98,10 +98,10 @@ export default function Hero() {
           <div className="lg:col-span-5 xl:col-span-4">
             <div className="grid grid-cols-2 gap-4">
               {[
-                { label: "Projects Completed", value: "5000+" },
+                { label: "Projects Completed", value: "2000+" },
                 { label: "Years Experience", value: "10+" },
                 { label: "Client Satisfaction", value: "98%" },
-                { label: "Expert Team", value: "150+" },
+                { label: "Expert Team", value: "30+" },
               ].map((stat, idx) => (
                 <motion.div
                   key={idx}

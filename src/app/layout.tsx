@@ -83,7 +83,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     telephone: siteConfig.phone,
     email: siteConfig.email,
     address: { "@type": "PostalAddress", addressLocality: "Doha", addressCountry: "QA", streetAddress: "Office 6, 2nd Floor, Building No. 67, Opposite Liverpool John Moores University" },
-    openingHours: "Su-Th 08:00-18:00",
+    openingHours: "Sat-Th 08:00-18:00",
     sameAs: [
       "https://facebook.com/amanahbusiness",
       "https://instagram.com/amanahbusiness",

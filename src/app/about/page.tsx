@@ -4,7 +4,7 @@ import AboutPage from "./AboutPage";
 export const metadata: Metadata = {
   title: "About Us | Amanah Business Services Qatar",
   description:
-    "Learn about Amanah Business Services — Qatar's trusted PRO services and business setup consultancy with 10+ years of experience, 5000+ completed projects, and 150+ expert professionals.",
+    "Learn about Amanah Business Services — Qatar's trusted PRO services and business setup consultancy with 10+ years of experience, 2000+ completed projects, and 30+ expert professionals.",
   alternates: { canonical: "https://amanahbusiness.qa/about" },
   openGraph: {
     title: "About Amanah Business Services | Qatar's Premier Business Consultancy",

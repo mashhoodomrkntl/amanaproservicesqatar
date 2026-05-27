@@ -38,15 +38,15 @@ const values = [
 const milestones = [
   { year: "2015", title: "Founded", desc: "Amanah Business Services established in Doha, Qatar." },
   { year: "2017", title: "500+ Projects", desc: "Reached 500 successfully completed business setup projects." },
-  { year: "2019", title: "Team Growth", desc: "Expanded team to 50+ dedicated professionals." },
-  { year: "2021", title: "2000+ Projects", desc: "Crossed 2000 projects with 98% client satisfaction." },
-  { year: "2023", title: "100+ Team", desc: "Team grew to 100+ with new service verticals." },
-  { year: "2025", title: "5000+ Projects", desc: "Milestone of 5000+ projects and 150+ team members." },
+  { year: "2019", title: "Team Growth", desc: "Expanded team to 30+ dedicated professionals." },
+  { year: "2021", title: "1000+ Projects", desc: "Crossed 1000 projects with 98% client satisfaction." },
+  { year: "2023", title: "50+ Team", desc: "Team grew to 50+ with new service verticals." },
+  { year: "2025", title: "2000+ Projects", desc: "Milestone of 2000+ projects and 50+ team members." },
 ];
 
 const highlights = [
   { icon: TrendingUp, label: "Success Rate", value: "99%" },
-  { icon: Briefcase, label: "Corporate Clients", value: "800+" },
+  { icon: Briefcase, label: "Corporate Clients", value: "2000+" },
   { icon: Clock, label: "Response Time", value: "< 2h" },
   { icon: Zap, label: "Setup Speed", value: "Fastest" },
 ];
@@ -106,7 +106,7 @@ export default function AboutPage() {
                   "Amanah" isn't just our name — it's the Arabic word for "Trust." It's the core principle that guides every document we process and every partnership we form.
                 </p>
                 <p>
-                  Today, we stand as one of Qatar's premier PRO and business setup agencies, managing the regional expansion of global brands and supporting the dreams of local entrepreneurs with a team of 150+ expert consultants.
+                  Today, we stand as one of Qatar's premier PRO and business setup agencies, managing the regional expansion of global brands and supporting the dreams of local entrepreneurs with a team of 30+ expert consultants.
                 </p>
               </div>
 
@@ -306,7 +306,7 @@ export default function AboutPage() {
                 { title: "Fast-Track Processing", desc: "Proprietary networks and relationships with government bodies ensure record-breaking approval times." },
                 { title: "Transparent Ecosystem", desc: "Real-time tracking of your applications and absolute clarity on pricing with zero hidden costs." },
                 { title: "Strategic Advisory", desc: "We don't just fill forms; we provide strategic advice on corporate structure and market entry." },
-                { title: "Multi-Lingual Experts", desc: "Our team consists of 150+ professionals fluent in Arabic, English, and 5+ other languages." }
+                { title: "Multi-Lingual Experts", desc: "Our team consists of 30+ professionals fluent in Arabic, English, and 5+ other languages." }
               ].map((card, i) => (
                 <motion.div
                   key={i}
@@ -339,7 +339,7 @@ export default function AboutPage() {
                 Ready to Start Your Success Story in Qatar?
               </h2>
               <p className="text-[#001a3f]/70 text-lg mb-12 font-medium">
-                Join over 5,000 businesses that trusted Amanah with their vision.
+                Join over 2000+ businesses that trusted Amanah with their vision.
               </p>
               <button className="px-12 py-5 bg-[#001a3f] text-white font-black rounded-full hover:shadow-[0_20px_50px_rgba(0,26,63,0.3)] hover:-translate-y-1 transition-all duration-300 uppercase text-sm tracking-[0.2em]">
                 Partner With Us

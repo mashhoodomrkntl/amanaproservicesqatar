@@ -92,7 +92,7 @@ export default function AboutPreview() {
               className="bg-[#F0EEE9] rounded-[1.5rem] p-6 lg:p-8 flex flex-col justify-center items-center text-center gap-4 shadow-sm border border-slate-200/20"
             >
               <div className="space-y-1">
-                <div className="text-3xl font-black text-primary tracking-tighter">5,000<span className="text-accent">+</span></div>
+                <div className="text-3xl font-black text-primary tracking-tighter">2000<span className="text-accent">+</span></div>
                 <div className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Projects Completed</div>
               </div>
               <div className="w-10 h-[1px] bg-slate-300/50" />

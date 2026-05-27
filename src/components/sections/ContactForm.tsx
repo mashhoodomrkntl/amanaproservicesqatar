@@ -53,12 +53,12 @@ export default function ContactForm() {
       submissionData.append("name", formData.name);
       submissionData.append("email", formData.email);
       if (formData.phone) submissionData.append("phone", formData.phone);
-      
+
       const serviceLabel = services.find(s => s.value === formData.service)?.label;
       if (serviceLabel && formData.service !== "") {
         submissionData.append("service", serviceLabel);
       }
-      
+
       submissionData.append("message", formData.message);
 
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -67,7 +67,7 @@ export default function ContactForm() {
       });
 
       const data = await response.json();
-      
+
       if (data.success) {
         setSubmitted(true);
         setFormData({ name: "", email: "", phone: "", service: "", message: "" });
@@ -116,7 +116,7 @@ export default function ContactForm() {
                 { icon: Phone, label: "Call Us", value: siteConfig.phone, href: `tel:${siteConfig.phone}` },
                 { icon: Mail, label: "Email Us", value: siteConfig.email, href: `mailto:${siteConfig.email}` },
                 { icon: MapPin, label: "Visit Us", value: siteConfig.address, href: "#" },
-                { icon: Clock, label: "Hours", value: "Sun‑Thu: 8AM‑6PM", href: "#" },
+                { icon: Clock, label: "Hours", value: "Saturday‑Thursday: 8AM‑6PM", href: "#" },
               ].map((item, i) => (
                 <a
                   key={i}
@@ -148,7 +148,7 @@ export default function ContactForm() {
                   transition={{ duration: 0.4 }}
                   className="text-center py-16 px-6 h-full flex flex-col items-center justify-center"
                 >
-                  <motion.div 
+                  <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
@@ -156,7 +156,7 @@ export default function ContactForm() {
                   >
                     <CheckCircle2 className="w-12 h-12" />
                   </motion.div>
-                  <motion.h3 
+                  <motion.h3
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
@@ -164,7 +164,7 @@ export default function ContactForm() {
                   >
                     Thank You!
                   </motion.h3>
-                  <motion.p 
+                  <motion.p
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
@@ -183,141 +183,139 @@ export default function ContactForm() {
                   </motion.button>
                 </motion.div>
               ) : (
-                <motion.form 
+                <motion.form
                   key="form"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  onSubmit={handleSubmit} 
+                  onSubmit={handleSubmit}
                   className="space-y-6"
                 >
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-600 mb-1">
-                      Full Name*
-                    </label>
-                    <input
-                      id="name"
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#0A2647] placeholder-gray-400 transition"
-                      placeholder="Your full name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-600 mb-1">
-                      Email*
-                    </label>
-                    <input
-                      id="email"
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#0A2647] placeholder-gray-400 transition"
-                      placeholder="you@example.com"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-600 mb-1">
-                      Phone
-                    </label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#0A2647] placeholder-gray-400 transition"
-                      placeholder="+974 XXXX XXXX"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="service" className="block text-sm font-medium text-gray-600 mb-1">
-                      Service Needed
-                    </label>
-                    <div className="relative" ref={dropdownRef}>
-                      <button
-                        type="button"
-                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                        className={`w-full px-4 py-2 flex items-center justify-between rounded-xl bg-gray-50 border transition cursor-pointer text-left outline-none ${
-                          isDropdownOpen 
-                            ? "border-accent ring-2 ring-accent/20 bg-white" 
-                            : "border-gray-200 hover:bg-white hover:border-accent/50"
-                        }`}
-                      >
-                        <span className={formData.service ? "text-[#0A2647]" : "text-gray-400"}>
-                          {services.find(s => s.value === formData.service)?.label || "Select a service"}
-                        </span>
-                        <ChevronDown className={`w-4 h-4 text-accent transition-transform duration-300 ${isDropdownOpen ? "rotate-180" : ""}`} />
-                      </button>
-
-                      <AnimatePresence>
-                        {isDropdownOpen && (
-                          <motion.div
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            transition={{ duration: 0.2 }}
-                            className="absolute z-50 w-full mt-2 py-2 bg-white rounded-xl border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.08)] overflow-hidden"
-                          >
-                            {services.slice(1).map((service) => (
-                              <button
-                                type="button"
-                                key={service.value}
-                                onClick={() => {
-                                  setFormData({ ...formData, service: service.value });
-                                  setIsDropdownOpen(false);
-                                }}
-                                className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${
-                                  formData.service === service.value
-                                    ? "bg-accent/10 text-accent font-medium"
-                                    : "text-gray-600 hover:bg-gray-50 hover:text-[#0A2647]"
-                                }`}
-                              >
-                                {service.label}
-                              </button>
-                            ))}
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-gray-600 mb-1">
+                        Full Name*
+                      </label>
+                      <input
+                        id="name"
+                        type="text"
+                        required
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#0A2647] placeholder-gray-400 transition"
+                        placeholder="Your full name"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-gray-600 mb-1">
+                        Email*
+                      </label>
+                      <input
+                        id="email"
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#0A2647] placeholder-gray-400 transition"
+                        placeholder="you@example.com"
+                      />
                     </div>
                   </div>
-                </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-600 mb-1">
-                    Message*
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    required
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#0A2647] placeholder-gray-400 transition resize-none"
-                    placeholder="Tell us about your requirements..."
-                  />
-                </div>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-medium text-gray-600 mb-1">
+                        Phone
+                      </label>
+                      <input
+                        id="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#0A2647] placeholder-gray-400 transition"
+                        placeholder="+974 XXXX XXXX"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="service" className="block text-sm font-medium text-gray-600 mb-1">
+                        Service Needed
+                      </label>
+                      <div className="relative" ref={dropdownRef}>
+                        <button
+                          type="button"
+                          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                          className={`w-full px-4 py-2 flex items-center justify-between rounded-xl bg-gray-50 border transition cursor-pointer text-left outline-none ${isDropdownOpen
+                            ? "border-accent ring-2 ring-accent/20 bg-white"
+                            : "border-gray-200 hover:bg-white hover:border-accent/50"
+                            }`}
+                        >
+                          <span className={formData.service ? "text-[#0A2647]" : "text-gray-400"}>
+                            {services.find(s => s.value === formData.service)?.label || "Select a service"}
+                          </span>
+                          <ChevronDown className={`w-4 h-4 text-accent transition-transform duration-300 ${isDropdownOpen ? "rotate-180" : ""}`} />
+                        </button>
 
-                {errorMessage && (
-                  <p className="text-sm text-red-500 font-medium text-center">{errorMessage}</p>
-                )}
+                        <AnimatePresence>
+                          {isDropdownOpen && (
+                            <motion.div
+                              initial={{ opacity: 0, y: -10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -10 }}
+                              transition={{ duration: 0.2 }}
+                              className="absolute z-50 w-full mt-2 py-2 bg-white rounded-xl border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.08)] overflow-hidden"
+                            >
+                              {services.slice(1).map((service) => (
+                                <button
+                                  type="button"
+                                  key={service.value}
+                                  onClick={() => {
+                                    setFormData({ ...formData, service: service.value });
+                                    setIsDropdownOpen(false);
+                                  }}
+                                  className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${formData.service === service.value
+                                    ? "bg-accent/10 text-accent font-medium"
+                                    : "text-gray-600 hover:bg-gray-50 hover:text-[#0A2647]"
+                                    }`}
+                                >
+                                  {service.label}
+                                </button>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    </div>
+                  </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2 py-4 bg-accent text-[#001a3f] font-black rounded-xl hover:bg-white hover:shadow-[0_20px_50px_rgba(197,160,89,0.3)] hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:bg-accent disabled:hover:shadow-none"
-                >
-                  {isSubmitting ? "Sending..." : <>Send Message <Send className="w-4 h-4" /></>}
-                </button>
-                <p className="text-xs text-gray-500 text-center mt-2">
-                  ✓ Free consultation • ✓ 100% Confidential • ✓ Response within 2 hours
-                </p>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-gray-600 mb-1">
+                      Message*
+                    </label>
+                    <textarea
+                      id="message"
+                      rows={4}
+                      required
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      className="w-full px-4 py-2 rounded-xl bg-gray-50 border border-gray-200 focus:border-accent focus:ring-2 focus:ring-accent/20 outline-none text-[#0A2647] placeholder-gray-400 transition resize-none"
+                      placeholder="Tell us about your requirements..."
+                    />
+                  </div>
+
+                  {errorMessage && (
+                    <p className="text-sm text-red-500 font-medium text-center">{errorMessage}</p>
+                  )}
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full flex items-center justify-center gap-2 py-4 bg-accent text-[#001a3f] font-black rounded-xl hover:bg-white hover:shadow-[0_20px_50px_rgba(197,160,89,0.3)] hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:bg-accent disabled:hover:shadow-none"
+                  >
+                    {isSubmitting ? "Sending..." : <>Send Message <Send className="w-4 h-4" /></>}
+                  </button>
+                  <p className="text-xs text-gray-500 text-center mt-2">
+                    ✓ Free consultation • ✓ 100% Confidential • ✓ Response within 2 hours
+                  </p>
                 </motion.form>
               )}
             </AnimatePresence>

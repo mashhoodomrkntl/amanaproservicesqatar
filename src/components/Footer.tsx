@@ -64,7 +64,7 @@ export default function Footer() {
               </div>
             </Link>
             <p className="text-white/50 text-base leading-relaxed mb-8 max-w-sm">
-              Qatar&apos;s trusted partner for company formation, PRO services,
+              Qatar&apos;s trusted partner for company formation, PRO services, Translation & Attestation
               and business consultancy. Over a decade of excellence since{" "}
               {siteConfig.foundedYear}.
             </p>
