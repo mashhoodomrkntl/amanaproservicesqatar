@@ -1,24 +1,23 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { services } from "@/lib/data";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  Menu,
-  X,
-  ChevronDown,
+  ArrowRight,
   Building2,
+  ChevronDown,
   FileCheck,
   Handshake,
-  Scale,
   Languages,
+  Menu,
+  Scale,
   TrendingUp,
-  Calculator,
-  ArrowRight,
+  X
 } from "lucide-react";
-import { services } from "@/lib/data";
+import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const serviceIcons: Record<string, React.ReactNode> = {
   "company-formation": <Building2 className="w-5 h-5" />,
@@ -27,7 +26,6 @@ const serviceIcons: Record<string, React.ReactNode> = {
   "legal-consultation": <Scale className="w-5 h-5" />,
   "translation-attestation": <Languages className="w-5 h-5" />,
   "business-consultation": <TrendingUp className="w-5 h-5" />,
-  "accounting-bookkeeping": <Calculator className="w-5 h-5" />,
 };
 
 export default function Navbar() {

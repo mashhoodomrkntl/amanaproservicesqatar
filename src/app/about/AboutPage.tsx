@@ -289,7 +289,7 @@ export default function AboutPage() {
                 {[
                   { icon: Building2, text: "End-to-end setup ecosystems" },
                   { icon: Shield, text: "100% compliance guarantee" },
-                  { icon: Users, text: "Dedicated strategic accounts" }
+                  { icon: Users, text: "Dedicated Client Support" }
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-4 p-4 rounded-2xl bg-[#FAFAFA] border border-slate-100 group hover:border-accent/30 transition-all duration-300">
                     <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
@@ -326,7 +326,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      {/* <section className="py-20">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -347,7 +347,7 @@ export default function AboutPage() {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

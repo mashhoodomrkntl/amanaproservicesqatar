@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Amanah Business Services",
   tagline: "Your Trusted Partner for Business Setup in Qatar",
   description:
-    "Amanah Business Services is Qatar's premier PRO services and business setup consultancy. We provide company formation, PRO services, local sponsorship, legal consultation, translation & attestation, and accounting services with 100% foreign ownership support.",
+    "Amanah Business Services is Qatar's premier PRO services and business setup consultancy, offering company formation, PRO services, local sponsorship, legal consultation, translation and attestation, and support for 100% foreign ownership",
   url: "https://amanahbusiness.qa",
   phone: "+974 7021 0333",
   email: "info@amanahbusiness.qa",
@@ -247,44 +247,6 @@ export const services = [
         "market entry qatar",
         "feasibility study qatar",
         "business consultancy qatar",
-      ],
-    },
-  },
-  {
-    id: "accounting-bookkeeping",
-    title: "Accounting & Bookkeeping",
-    shortTitle: "Accounting",
-    subtitle: "Professional Financial Management",
-    description:
-      "Keep your finances in order with our professional accounting and bookkeeping services. We help you manage, track, and optimize your financial operations, ensuring compliance with Qatar's tax regulations and providing insights for strategic decision-making.",
-    icon: "Calculator",
-    features: [
-      "Bookkeeping & Accounting Services",
-      "Financial Statement Preparation",
-      "Tax Registration & Compliance",
-      "VAT Filing & Reporting",
-      "Payroll Management",
-      "Auditing & Assurance",
-      "Financial Advisory",
-      "Corporate Tax Advisory",
-    ],
-    benefits: [
-      "Accurate and timely financial reporting",
-      "Full regulatory compliance",
-      "Cost-effective outsourced accounting",
-      "Strategic financial insights",
-    ],
-    seo: {
-      title: "Accounting & Bookkeeping Services in Qatar | Tax Compliance | Amanah Business Services",
-      description:
-        "Professional accounting and bookkeeping services in Qatar. Amanah Business Services provides financial management, tax compliance, VAT filing, payroll, and auditing services for businesses.",
-      keywords: [
-        "accounting services qatar",
-        "bookkeeping qatar",
-        "tax compliance qatar",
-        "VAT filing qatar",
-        "payroll services qatar",
-        "auditing qatar",
       ],
     },
   },

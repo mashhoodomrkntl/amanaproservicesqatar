@@ -5,20 +5,20 @@ import { useRef } from "react";
 import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import { services } from "@/lib/data";
-import { 
-  Building2, FileCheck, Handshake, Scale, Languages, 
-  TrendingUp, Calculator, ArrowRight, CheckCircle, 
+import {
+  Building2, FileCheck, Handshake, Scale, Languages,
+  TrendingUp, Calculator, ArrowRight, CheckCircle,
   Star, ShieldCheck, Zap
 } from "lucide-react";
 
-const iconMap: Record<string, React.ElementType> = { 
-  Building2, 
-  FileCheck, 
-  Handshake, 
-  Scale, 
-  Languages, 
-  TrendingUp, 
-  Calculator 
+const iconMap: Record<string, React.ElementType> = {
+  Building2,
+  FileCheck,
+  Handshake,
+  Scale,
+  Languages,
+  TrendingUp,
+  Calculator
 };
 
 const serviceImages: Record<string, string> = {
@@ -28,7 +28,6 @@ const serviceImages: Record<string, string> = {
   "local-sponsorship": "https://images.unsplash.com/photo-1521791136064-7986c2959513?auto=format&fit=crop&q=80&w=800",
   "legal-consultation": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=800",
   "business-consultation": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
-  "accounting-bookkeeping": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800"
 };
 
 export default function ServicesPage() {
@@ -48,16 +47,16 @@ export default function ServicesPage() {
       <section className="py-24 lg:py-32 relative overflow-hidden" ref={ref}>
         {/* Decorative Background */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-[#001a3f]/[0.02] -skew-x-12" />
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, i) => {
               const Icon = iconMap[service.icon];
               return (
-                <motion.div 
-                  key={service.id} 
-                  initial={{ opacity: 0, y: 40 }} 
-                  animate={isInView ? { opacity: 1, y: 0 } : {}} 
+                <motion.div
+                  key={service.id}
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
                   className="group"
                 >
@@ -67,13 +66,13 @@ export default function ServicesPage() {
                   >
                     {/* Image Area */}
                     <div className="h-56 relative">
-                      <img 
-                        src={serviceImages[service.id] || "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800"} 
+                      <img
+                        src={serviceImages[service.id] || "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800"}
                         alt={service.shortTitle}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-[#001a3f]/10 group-hover:bg-transparent transition-colors duration-500" />
-                      
+
                       {/* Floating Icon */}
                       <div className="absolute -bottom-7 left-8 w-14 h-14 rounded-2xl bg-[#001a3f] flex items-center justify-center shadow-2xl group-hover:bg-accent group-hover:scale-110 transition-all duration-500 z-20">
                         <Icon className="w-7 h-7 text-white" />
@@ -126,12 +125,12 @@ export default function ServicesPage() {
               <p className="text-slate-500 text-lg mb-10 leading-relaxed">
                 Amanah Business Services doesn't just process paperwork. We engineer success for our clients through a commitment to three core operational pillars.
               </p>
-              
+
               <div className="space-y-6">
                 {[
                   { icon: ShieldCheck, title: "Uncompromising Compliance", desc: "Every service is vetted against the latest Qatari laws and regulations." },
                   { icon: Zap, title: "Agile Processing", desc: "We leverage proprietary networks to deliver approvals faster than industry averages." },
-                  { icon: Star, title: "Premium Support", desc: "Dedicated account managers who understand the nuances of your business sector." }
+                  { icon: Star, title: "Client-Centric Approach", desc: "Your business goals are our priority. We provide end-to-end support." }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-5 group">
                     <div className="w-12 h-12 rounded-xl bg-[#FAFAFA] border border-slate-100 flex items-center justify-center flex-shrink-0 group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
@@ -152,13 +151,13 @@ export default function ServicesPage() {
               className="relative"
             >
               <div className="rounded-[3rem] overflow-hidden shadow-2xl relative aspect-square">
-                <img 
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" 
-                  alt="Business Team" 
+                <img
+                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
+                  alt="Business Team"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-[#001a3f]/20" />
-                
+
                 {/* Floating Achievement */}
                 <div className="absolute top-10 right-10 bg-white/90 backdrop-blur-md p-6 rounded-3xl shadow-xl border border-white/20 flex items-center gap-4">
                   <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
