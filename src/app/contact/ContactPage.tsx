@@ -109,9 +109,8 @@ export default function ContactPage() {
                     </p>
                   </div>
                 </div>
-
                 <a
-                  href="https://maps.google.com/?q=Amanah+Business+Services+Doha+Qatar"
+                  href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115455.86086842917!2d51.348833843359394!3d25.270731700000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485f95476520dff7%3A0x177b1e4b3376acb7!2sVaiga%20Consultancy%20Services%20W.L.L!5e0!3m2!1sen!2sin!4v1780572733738!5m2!1sen!2sin"
                   target="_blank"
                   className="inline-flex items-center gap-2 text-accent font-black uppercase text-xs tracking-widest hover:gap-4 transition-all"
                 >
@@ -123,7 +122,7 @@ export default function ContactPage() {
             <div className="lg:col-span-8">
               <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white aspect-[16/9] lg:aspect-auto lg:h-[500px] group">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.447547466858!2d51.5204487!3d25.2891393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45c53198038e47%3A0x6b4a3a1f4a3a1f4a!2sDoha%2C%20Qatar!5e0!3m2!1sen!2sqa!4v1715440000000!5m2!1sen!2sqa"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115455.86086842917!2d51.348833843359394!3d25.270731700000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485f95476520dff7%3A0x177b1e4b3376acb7!2sVaiga%20Consultancy%20Services%20W.L.L!5e0!3m2!1sen!2sin!4v1780572733738!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

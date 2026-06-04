@@ -29,7 +29,7 @@ export const services = [
     icon: "Building2",
     features: [
       "100% Foreign Ownership Setup",
-      "LLC, Branch & Sole Establishment Registration",
+      "WLL, Branch & Sole Establishment Registration",
       "Trade Name Reservation & Approval",
       "Commercial Registration (CR) with MOCI",
       "Articles of Association (AOA) Drafting & Notarization",
@@ -48,13 +48,13 @@ export const services = [
     seo: {
       title: "Company Formation in Qatar | 100% Foreign Ownership | Amanah Business Services",
       description:
-        "Start your company in Qatar with Amanah Business Services. Expert guidance for LLC registration, 100% foreign ownership setup, commercial registration, and trade license acquisition. Fast, compliant, hassle-free.",
+        "Start your company in Qatar with Amanah Business Services. Expert guidance for WLL registration, 100% foreign ownership setup, commercial registration, and trade license acquisition. Fast, compliant, hassle-free.",
       keywords: [
         "company formation in qatar",
         "business setup qatar",
         "qatar company registration",
         "100% foreign ownership qatar",
-        "LLC registration qatar",
+        "WLL registration qatar",
         "start business in qatar",
       ],
     },
@@ -72,12 +72,13 @@ export const services = [
       "Residence Permit Applications",
       "Labour Contract Processing",
       "Government Document Clearances",
-      "Ministry Liaison & Follow-ups",
+      "Ministry Approvals & Follow-ups",
       "Health Card Processing",
       "Qatar ID (QID) Applications",
       "Immigration Services",
       "License Renewals & Amendments",
       "Exit Permit Processing",
+      "Hukoomi Works"
     ],
     benefits: [
       "Dedicated PRO team with government relationships",
@@ -195,7 +196,6 @@ export const services = [
     ],
     benefits: [
       "Experienced legal professionals",
-      "Practical, business-focused advice",
       "Confidential and reliable service",
       "Cost-effective legal solutions",
     ],
@@ -264,7 +264,7 @@ export const processSteps = [
     step: 1,
     title: "Choose Business Activity & Structure",
     description:
-      "Select your business activity and legal entity type (LLC, branch, or sole establishment). This determines the approvals, trade license category, and regulating ministry.",
+      "Select your business activity and legal entity type (WLL, branch, or sole establishment). This determines the approvals, trade license category, and regulating ministry.",
   },
   {
     step: 2,
@@ -457,7 +457,7 @@ export const blogPosts = [
     id: "choosing-right-business-structure-qatar",
     title: "Choosing the Right Business Structure in Qatar",
     excerpt:
-      "LLC, branch office, free zone, or QFC? Compare the different business structures available in Qatar and find the one that best suits your goals.",
+      "WLL, branch office, free zone, or QFC? Compare the different business structures available in Qatar and find the one that best suits your goals.",
     date: "2026-03-01",
     category: "Company Formation",
     readTime: "7 min read",
