@@ -5,7 +5,7 @@ export const siteConfig = {
     "Amanah Business Services is Qatar's premier PRO services and business setup consultancy. We provide company formation, PRO services, local sponsorship, legal consultation, translation & attestation, and accounting services with 100% foreign ownership support.",
   url: "https://amanahbusiness.qa",
   phone: "+974 7021 0333",
-  email: "info@amanahqatar.com",
+  email: "info@amanahbusiness.qa",
   whatsapp: "+97470210333",
   allPhones: ["+974 7021 0333", "+974 7019 0333", "+974 7169 0333"],
   address: "Office 6, 2nd Floor, Building No. 67, Opposite Liverpool John Moores University | Oryx University, Doha, Qatar",

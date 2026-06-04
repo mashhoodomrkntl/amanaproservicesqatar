@@ -10,6 +10,7 @@ import {
   X,
 } from "lucide-react";
 import { siteConfig, services } from "@/lib/data";
+import Image from "next/image";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -70,10 +71,11 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-4">
               {[
-                { icon: Users, href: siteConfig.socialLinks.facebook, label: "Facebook" },
-                { icon: Camera, href: siteConfig.socialLinks.instagram, label: "Instagram" },
-                { icon: Briefcase, href: siteConfig.socialLinks.linkedin, label: "LinkedIn" },
-                { icon: X, href: siteConfig.socialLinks.twitter, label: "Twitter" },
+                { icon: "/facebook.png", href: siteConfig.socialLinks.facebook, label: "Facebook" },
+                { icon: "/instagram.png", href: siteConfig.socialLinks.instagram, label: "Instagram" },
+                { icon: "/linkedin (1).png", href: siteConfig.socialLinks.linkedin, label: "LinkedIn" },
+                { icon: "/twitter.png", href: siteConfig.socialLinks.twitter, label: "Twitter" },
+                { icon: "/youtube.png", href: siteConfig.socialLinks.twitter, label: "Twitter" },
               ].map((social) => (
                 <a
                   key={social.label}
@@ -83,7 +85,7 @@ export default function Footer() {
                   className="w-12 h-12 rounded-2xl bg-white/5 hover:bg-primary flex items-center justify-center transition-all duration-500 hover:-translate-y-2 border border-white/5"
                   aria-label={`Follow us on ${social.label}`}
                 >
-                  <social.icon className="w-5 h-5 text-white/60 group-hover:text-white" />
+                  <Image src={social.icon} alt={social.label} className="w-7 h-7" width={50} height={50} />
                 </a>
               ))}
             </div>
@@ -120,6 +122,8 @@ export default function Footer() {
                 { href: "/why-qatar", label: "Why Qatar" },
                 { href: "/blog", label: "Journal" },
                 { href: "/contact", label: "Contact" },
+                { href: "/terms", label: "Terms and Conditions" },
+                { href: "/privacy", label: "Privacy Policy" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -184,14 +188,6 @@ export default function Footer() {
           <p className="text-[11px] font-bold text-white/20 uppercase tracking-[0.2em]">
             © {currentYear} Amanah Business Services. Built for Excellence.
           </p>
-          <div className="flex items-center gap-10 text-[11px] font-bold text-white/20 uppercase tracking-[0.2em]">
-            <Link href="/privacy" className="hover:text-white transition-colors">
-              Privacy
-            </Link>
-            <Link href="/terms" className="hover:text-white transition-colors">
-              Terms
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
