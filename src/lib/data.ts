@@ -416,6 +416,7 @@ export const blogPosts = [
     date: "2026-04-15",
     category: "Company Formation",
     readTime: "8 min read",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "100-percent-foreign-ownership-qatar",
@@ -425,6 +426,7 @@ export const blogPosts = [
     date: "2026-04-08",
     category: "Investment",
     readTime: "6 min read",
+    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "pro-services-importance-qatar",
@@ -434,6 +436,7 @@ export const blogPosts = [
     date: "2026-03-25",
     category: "PRO Services",
     readTime: "5 min read",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: "qatar-investment-reforms-2026",
@@ -443,6 +446,7 @@ export const blogPosts = [
     date: "2026-03-18",
     category: "Investment",
     readTime: "7 min read",
+    image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "document-attestation-guide",
@@ -452,6 +456,7 @@ export const blogPosts = [
     date: "2026-03-10",
     category: "Translation",
     readTime: "6 min read",
+    image: "https://images.unsplash.com/photo-1554224154-26032ffc0d07?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "choosing-right-business-structure-qatar",
@@ -461,5 +466,6 @@ export const blogPosts = [
     date: "2026-03-01",
     category: "Company Formation",
     readTime: "7 min read",
+    image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80",
   },
 ];
