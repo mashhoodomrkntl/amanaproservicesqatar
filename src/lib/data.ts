@@ -11,10 +11,12 @@ export const siteConfig = {
   address: "Office 6, 2nd Floor, Building No. 67, Opposite Liverpool John Moores University | Oryx University, Doha, Qatar",
   foundedYear: 2015,
   socialLinks: {
-    facebook: "https://facebook.com/amanahbusiness",
-    instagram: "https://instagram.com/amanahbusiness",
-    linkedin: "https://linkedin.com/company/amanahbusiness",
-    twitter: "https://x.com/amanahbusiness",
+    facebook: "https://www.facebook.com/share/1EWGXDVWqq/",
+    instagram: "https://www.instagram.com/amanah_business_services?igsh=MWxsOXJrNTc3c3Nkbg==",
+    linkedin: "https://linkedin.com/company/amanah-business-service",
+    twitter: "https://x.com/AmanahBusiness1",
+    youtube: "https://youtube.com/@amanahbusinessservices?si=cybsiBjFJTLA6kot",
+    tiktok: "https://www.tiktok.com/@amanah.business.s?_r=1&_t=ZS-970J6RVKvob",
   },
 };
 

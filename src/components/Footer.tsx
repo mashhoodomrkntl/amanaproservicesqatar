@@ -70,8 +70,8 @@ export default function Footer() {
                 { icon: "/instagram.png", href: siteConfig.socialLinks.instagram, label: "Instagram" },
                 { icon: "/linkedin (1).png", href: siteConfig.socialLinks.linkedin, label: "LinkedIn" },
                 { icon: "/twitter.png", href: siteConfig.socialLinks.twitter, label: "Twitter" },
-                { icon: "/youtube.png", href: siteConfig.socialLinks.twitter, label: "YouTube" },
-                { icon: "/tiktok.png", href: siteConfig.socialLinks.twitter, label: "tiktok" },
+                { icon: "/youtube.png", href: siteConfig.socialLinks.youtube, label: "YouTube" },
+                { icon: "/tiktok.png", href: siteConfig.socialLinks.tiktok, label: "tiktok" },
               ].map((social) => (
                 <a
                   key={social.label}
