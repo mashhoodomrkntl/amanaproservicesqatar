@@ -36,6 +36,10 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
 
+  // Force solid background on pages without a dark hero section
+  const forceSolidBg = pathname === '/thank-you';
+  const headerSolid = isScrolled || forceSolidBg;
+
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
@@ -64,7 +68,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${headerSolid
         ? "bg-[#0A2647]/90 backdrop-blur-xl shadow-2xl shadow-black/20 py-2 border-b border-white/5"
         : "bg-transparent py-4 border-b border-white/5"
         }`}
@@ -79,7 +83,7 @@ export default function Navbar() {
                 alt="Amanah Business Services Logo"
                 width={150}
                 height={50}
-                className={`transition-all duration-500 object-contain ${isScrolled ? "w-[140px]" : "w-[145px]"
+                className={`transition-all duration-500 object-contain ${headerSolid ? "w-[140px]" : "w-[145px]"
                   } h-auto`}
                 priority
               />
