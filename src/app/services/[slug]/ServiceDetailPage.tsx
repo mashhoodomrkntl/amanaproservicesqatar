@@ -18,7 +18,8 @@ const iconMap: Record<string, React.ElementType> = {
   Scale,
   Languages,
   TrendingUp,
-  Calculator
+  Calculator,
+  ShieldCheck
 };
 
 interface ServiceDetailPageProps {
@@ -142,8 +143,8 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                   </div>
                 </div>
 
-                {/* Security Spotlight (Conditional for Translation) - MOBILE ONLY */}
-                {service.id === "translation-attestation" && (
+                {/* Security Spotlight (Conditional for Translation & Attestation) - MOBILE ONLY */}
+                {(service.id === "translation" || service.id === "attestation") && (
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -161,7 +162,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                         <h4 className="text-lg font-black text-[#0A2647] uppercase tracking-tighter">Secure Document Protocol</h4>
                       </div>
                       <p className="text-slate-600 mb-6 leading-relaxed">
-                        At Amanah, we understand that your documents often contain sensitive corporate or personal data. Our translation process is governed by strict **ISO-standard confidentiality protocols**. Every digital file is encrypted, and physical documents are handled within a secure, monitored environment.
+                        At Amanah, we understand that your documents often contain sensitive corporate or personal data. Our document handling process is governed by strict **ISO-standard confidentiality protocols**. Every digital file is encrypted, and physical documents are handled within a secure, monitored environment.
                       </p>
                       <ul className="grid sm:grid-cols-2 gap-4">
                         {[
@@ -262,8 +263,8 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
             </div>
           </div>
 
-          {/* Security Spotlight (Conditional for Translation) - DESKTOP ONLY */}
-          {service.id === "translation-attestation" && (
+          {/* Security Spotlight (Conditional for Translation & Attestation) - DESKTOP ONLY */}
+          {(service.id === "translation" || service.id === "attestation") && (
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -281,7 +282,7 @@ export default function ServiceDetailPage({ service }: ServiceDetailPageProps) {
                   <h4 className="text-lg font-black text-[#0A2647] uppercase tracking-tighter">Secure Document Protocol</h4>
                 </div>
                 <p className="text-slate-600 mb-6 leading-relaxed">
-                  At Amanah, we understand that your documents often contain sensitive corporate or personal data. Our translation process is governed by strict **ISO-standard confidentiality protocols**. Every digital file is encrypted, and physical documents are handled within a secure, monitored environment.
+                  At Amanah, we understand that your documents often contain sensitive corporate or personal data. Our document handling process is governed by strict **ISO-standard confidentiality protocols**. Every digital file is encrypted, and physical documents are handled within a secure, monitored environment.
                 </p>
                 <ul className="grid sm:grid-cols-2 gap-4">
                   {[

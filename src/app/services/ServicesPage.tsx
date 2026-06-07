@@ -18,14 +18,16 @@ const iconMap: Record<string, React.ElementType> = {
   Scale,
   Languages,
   TrendingUp,
-  Calculator
+  Calculator,
+  ShieldCheck
 };
 
 const serviceImages: Record<string, string> = {
   "company-formation": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800",
   "pro-services": "https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&q=80&w=800",
-  "translation-attestation": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800",
-  "local-sponsorship": "https://images.unsplash.com/photo-1521791136064-7986c2959513?auto=format&fit=crop&q=80&w=800",
+  "translation": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800",
+  "attestation": "https://t3.ftcdn.net/jpg/03/47/46/86/360_F_347468662_7S9D5RgQb9iC8J98jH42O7EbJTREriOp.jpg",
+  "local-sponsorship": "https://images.unsplash.com/photo-1712903276855-845bb42e5df9?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   "legal-consultation": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=800",
   "business-consultation": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
 };

@@ -12,7 +12,8 @@ import {
   Menu,
   Scale,
   TrendingUp,
-  X
+  X,
+  ShieldCheck,
 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,7 +25,8 @@ const serviceIcons: Record<string, React.ReactNode> = {
   "pro-services": <FileCheck className="w-5 h-5" />,
   "local-sponsorship": <Handshake className="w-5 h-5" />,
   "legal-consultation": <Scale className="w-5 h-5" />,
-  "translation-attestation": <Languages className="w-5 h-5" />,
+  "translation": <Languages className="w-5 h-5" />,
+  "attestation": <ShieldCheck className="w-5 h-5" />,
   "business-consultation": <TrendingUp className="w-5 h-5" />,
 };
 

@@ -1,16 +1,11 @@
-import Link from "next/link";
+import { services, siteConfig } from "@/lib/data";
 import {
-  Phone,
   Mail,
   MapPin,
-  ArrowRight,
-  Users,
-  Camera,
-  Briefcase,
-  X,
+  Phone
 } from "lucide-react";
-import { siteConfig, services } from "@/lib/data";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
