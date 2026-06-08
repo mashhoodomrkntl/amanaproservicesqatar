@@ -1,4 +1,6 @@
-import { services, siteConfig } from "@/lib/data";
+import { Locale } from "@/lib/i18n";
+import { getUiTranslations } from "@/lib/i18n-translations";
+import { getSiteConfig, getServices } from "@/lib/data";
 import {
   Mail,
   MapPin,
@@ -7,8 +9,25 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Footer() {
+interface FooterProps {
+  locale?: string;
+}
+
+export default function Footer({ locale = "en" }: FooterProps) {
   const currentYear = new Date().getFullYear();
+  const t = getUiTranslations(locale as Locale);
+  const services = getServices(locale as Locale);
+  const siteConfig = getSiteConfig(locale as Locale);
+
+  const quickLinks = [
+    { href: `/${locale}`, label: t("nav.home") },
+    { href: `/${locale}/about`, label: t("nav.about") },
+    { href: `/${locale}/why-qatar`, label: t("nav.whyQatar") },
+    { href: `/${locale}/blog`, label: t("nav.blog") },
+    { href: `/${locale}/contact`, label: t("nav.contact") },
+    { href: `/${locale}/terms`, label: t("terms.title") },
+    { href: `/${locale}/privacy`, label: t("privacy.title") },
+  ];
 
   return (
     <footer className="bg-[#050B16] text-white/80" role="contentinfo">
@@ -18,19 +37,18 @@ export default function Footer() {
           <div className="absolute inset-0 hero-grid opacity-20" />
           <div className="container relative mx-auto text-center">
             <h2 className="text-3xl lg:text-5xl font-black text-white mb-6 leading-tight">
-              Ready to Start Your <br />
-              <span className="text-accent">Business in Qatar?</span>
+              {t("footer.ctaTitle")} <br />
+              <span className="text-accent">{t("footer.ctaAccent")}</span>
             </h2>
             <p className="text-base lg:text-lg text-white/70 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Get a free consultation from our experts. We&apos;ll guide you through
-              every step of your business setup journey with absolute transparency.
+              {t("footer.ctaDesc")}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-5">
               <Link
-                href="/contact"
+                href={`/${locale}/contact`}
                 className="px-10 py-5 bg-accent text-dark font-black rounded-2xl hover:bg-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest"
               >
-                Schedule Consultation
+                {t("footer.ctaButton")}
               </Link>
               <a
                 href={`https://wa.me/${siteConfig.whatsapp.replace("+", "")}`}
@@ -38,7 +56,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="px-10 py-5 bg-white/5 text-white font-black rounded-2xl border border-white/20 hover:bg-white/10 transition-all duration-300 uppercase text-xs tracking-widest"
               >
-                WhatsApp Us
+                {t("footer.ctaWhatsapp")}
               </a>
             </div>
           </div>
@@ -50,19 +68,17 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16">
           {/* Company Info */}
           <div className="lg:col-span-4">
-            <Link href="/" className="flex items-center group mb-4 -mt-5" aria-label="Amanah Business Services Home">
-              <div className="relative w-56 h-26 transition-transform duration-500 scale-105 ">
+            <Link href={`/${locale}`} className="flex items-center group mb-4 -mt-5" aria-label="Amanah Business Services Home">
+              <div className={`relative w-56 h-26 transition-transform duration-500 scale-105`}>
                 <img
                   src="/Amanah_logo_abv.png"
                   alt="Amanah Business Services"
-                  className="w-full h-full object-contain object-left"
+                  className={`w-full h-full object-contain ${locale === 'ar' ? 'object-right' : 'object-left'}`}
                 />
               </div>
             </Link>
             <p className="text-white/50 text-base leading-relaxed mb-8 max-w-sm">
-              Qatar&apos;s trusted partner for company formation, PRO services, Translation & Attestation
-              and business consultancy. Over a decade of excellence since{" "}
-              {siteConfig.foundedYear}.
+              {t("footer.desc")}
             </p>
             <div className="flex items-center gap-4">
               {[
@@ -90,13 +106,13 @@ export default function Footer() {
           {/* Our Services */}
           <div className="lg:col-span-3">
             <h3 className="text-white font-black text-xs uppercase tracking-[0.2em] mb-8">
-              Expert Services
+              {t("footer.titleServices")}
             </h3>
             <ul className="space-y-4">
               {services.slice(0, 5).map((service) => (
                 <li key={service.id}>
                   <Link
-                    href={`/services/${service.id}`}
+                    href={`/${locale}/services/${service.id}`}
                     className="text-sm text-white/40 hover:text-accent transition-all duration-300"
                   >
                     {service.shortTitle}
@@ -109,18 +125,10 @@ export default function Footer() {
           {/* Quick Links */}
           <div className="lg:col-span-2">
             <h3 className="text-white font-black text-xs uppercase tracking-[0.2em] mb-8">
-              Explore
+              {t("footer.titleExplore")}
             </h3>
             <ul className="space-y-4">
-              {[
-                { href: "/", label: "Home" },
-                { href: "/about", label: "Our Story" },
-                { href: "/why-qatar", label: "Why Qatar" },
-                { href: "/blog", label: "Journal" },
-                { href: "/contact", label: "Contact" },
-                { href: "/terms", label: "Terms and Conditions" },
-                { href: "/privacy", label: "Privacy Policy" },
-              ].map((link) => (
+              {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
@@ -136,7 +144,7 @@ export default function Footer() {
           {/* Contact Info */}
           <div className="lg:col-span-3">
             <h3 className="text-white font-black text-xs uppercase tracking-[0.2em] mb-8">
-              Office
+              {t("footer.titleOffice")}
             </h3>
             <div className="space-y-6">
               <div className="flex items-start gap-4 text-sm text-white/50 group">
@@ -144,9 +152,9 @@ export default function Footer() {
                   <Phone className="w-4 h-4 text-accent" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-white/30 text-[10px] font-bold uppercase tracking-widest mb-1">Call Us</span>
+                  <span className="text-white/30 text-[10px] font-bold uppercase tracking-widest mb-1">{t("footer.callUs")}</span>
                   {siteConfig.allPhones.map((phone, idx) => (
-                    <a key={idx} href={`tel:${phone.replace(/\s/g, "")}`} className="font-bold hover:text-accent transition-colors">
+                    <a key={idx} href={`tel:${phone.replace(/\s/g, "")}`} className="font-bold hover:text-accent transition-colors text-right" dir="ltr">
                       {phone}
                     </a>
                   ))}
@@ -160,8 +168,8 @@ export default function Footer() {
                   <Mail className="w-4 h-4 text-accent" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-white/30 text-[10px] font-bold uppercase tracking-widest mb-1">Email Us</span>
-                  <span className="font-bold">{siteConfig.email}</span>
+                  <span className="text-white/30 text-[10px] font-bold uppercase tracking-widest mb-1">{t("footer.emailUs")}</span>
+                  <span className="font-bold text-right" dir="ltr">{siteConfig.email}</span>
                 </div>
               </a>
               <div className="flex items-start gap-4 text-sm text-white/50">
@@ -169,7 +177,7 @@ export default function Footer() {
                   <MapPin className="w-4 h-4 text-accent" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-white/30 text-[10px] font-bold uppercase tracking-widest mb-1">Visit Us</span>
+                  <span className="text-white/30 text-[10px] font-bold uppercase tracking-widest mb-1">{t("footer.visitUs")}</span>
                   <span className="font-bold leading-relaxed">{siteConfig.address}</span>
                 </div>
               </div>
@@ -182,7 +190,7 @@ export default function Footer() {
       <div className="border-t border-white/5 py-10">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <p className="text-[11px] font-bold text-white/20 uppercase tracking-[0.2em]">
-            © {currentYear} Amanah Business Services. Built for Excellence.
+            © {currentYear} {t("footer.copyright")}
           </p>
         </div>
       </div>

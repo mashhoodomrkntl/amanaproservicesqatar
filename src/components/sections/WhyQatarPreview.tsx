@@ -4,13 +4,14 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 import { Globe, Percent, Shield, Landmark, TrendingUp, Target, ArrowRight } from "lucide-react";
-import { whyQatar } from "@/lib/data";
+import { useTranslations } from "@/lib/i18n";
 
 const iconMap: Record<string, React.ElementType> = { Globe, Percent, Shield, Landmark, TrendingUp, Target };
 
 export default function WhyQatarPreview() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t, locale, whyQatar } = useTranslations();
 
   return (
     <section className="py-24 lg:py-32 bg-[#0A2647] relative overflow-hidden" ref={ref}>
@@ -33,29 +34,29 @@ export default function WhyQatarPreview() {
             initial={{ opacity: 0, x: -40 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-5"
+            className="lg:col-span-5 text-start"
           >
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-[1px] bg-accent" />
-              <span className="text-xs font-black text-accent uppercase tracking-[0.4em]">Strategic Market Insights</span>
+              <span className="text-xs font-black text-accent uppercase tracking-[0.4em]">{t("whyQatar.badge")}</span>
             </div>
 
             <h2 className="text-4xl lg:text-6xl font-black text-white mb-8 leading-[1.1] tracking-tight">
-              Why Invest In <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent-light to-accent">Modern Qatar?</span>
+              {t("whyQatar.title")} <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent-light to-accent">{t("whyQatar.titleAccent")}</span>
             </h2>
 
             <div className="space-y-6 mb-10">
               <p className="text-lg text-slate-300 leading-relaxed font-medium">
-                Qatar is the fastest-growing business hub in the Middle East, powered by a visionary national strategy and world-class infrastructure.
+                {t("whyQatar.desc1")}
               </p>
               <p className="text-base text-slate-400 leading-relaxed">
-                Whether you&apos;re looking to establish in energy, tech, or hospitality, Qatar offers a stable business landscape with high returns and minimal barriers.
+                {t("whyQatar.desc2")}
               </p>
             </div>
 
-            <Link href="/why-qatar" className="group inline-flex items-center gap-3 px-10 py-5 bg-white text-[#0A2647] font-black rounded-2xl hover:bg-accent hover:text-white transition-all duration-500 uppercase text-[10px] tracking-widest shadow-2xl">
-              Why Invest In Qatar <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2" />
+            <Link href={`/${locale}/why-qatar`} className="group inline-flex items-center gap-3 px-10 py-5 bg-white text-[#0A2647] font-black rounded-2xl hover:bg-accent hover:text-white transition-all duration-500 uppercase text-[10px] tracking-widest shadow-2xl">
+              {t("whyQatar.cta")} <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-2 rtl:group-hover:-translate-x-2 rtl:rotate-180" />
             </Link>
           </motion.div>
 
@@ -77,10 +78,10 @@ export default function WhyQatarPreview() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                    className={`group relative p-8 rounded-[2rem] border border-white/10 bg-white/[0.03] backdrop-blur-xl hover:bg-white/[0.08] hover:border-accent/30 transition-all duration-700 overflow-hidden ${isLarge ? "md:col-span-2" : ""}`}
+                    className={`group relative p-8 rounded-[2rem] border border-white/10 bg-white/[0.03] backdrop-blur-xl hover:bg-white/[0.08] hover:border-accent/30 transition-all duration-700 overflow-hidden text-start ${isLarge ? "md:col-span-2" : ""}`}
                   >
                     {/* Glowing Accent */}
-                    <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+                    <div className="absolute top-0 right-0 rtl:right-auto rtl:left-0 w-24 h-24 bg-accent/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
 
                     <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
                       <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center border border-accent/20 group-hover:bg-accent group-hover:border-accent transition-all duration-500 shrink-0">

@@ -1,31 +1,47 @@
 import type { MetadataRoute } from "next";
-import { services, blogPosts } from "@/lib/data";
+import { getServices, getBlogPosts } from "@/lib/data";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://amanahbusiness.qa";
+  const locales = ["en", "ar"];
 
-  const staticPages = [
-    { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 1 },
-    { url: `${baseUrl}/about`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
-    { url: `${baseUrl}/services`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.9 },
-    { url: `${baseUrl}/why-qatar`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.7 },
-    { url: `${baseUrl}/blog`, lastModified: new Date(), changeFrequency: "weekly" as const, priority: 0.7 },
-    { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: "monthly" as const, priority: 0.8 },
+  const staticRoutes = [
+    { path: "", priority: 1.0, changeFreq: "weekly" as const },
+    { path: "/about", priority: 0.8, changeFreq: "monthly" as const },
+    { path: "/services", priority: 0.9, changeFreq: "weekly" as const },
+    { path: "/why-qatar", priority: 0.7, changeFreq: "monthly" as const },
+    { path: "/blog", priority: 0.7, changeFreq: "weekly" as const },
+    { path: "/contact", priority: 0.8, changeFreq: "monthly" as const },
+    { path: "/privacy", priority: 0.3, changeFreq: "yearly" as const },
+    { path: "/terms", priority: 0.3, changeFreq: "yearly" as const },
   ];
 
-  const servicePages = services.map((service) => ({
-    url: `${baseUrl}/services/${service.id}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
-  }));
+  const staticPages = locales.flatMap((locale) =>
+    staticRoutes.map((route) => ({
+      url: `${baseUrl}/${locale}${route.path}`,
+      lastModified: new Date(),
+      changeFrequency: route.changeFreq,
+      priority: route.priority,
+    }))
+  );
 
-  const blogPages = blogPosts.map((post) => ({
-    url: `${baseUrl}/blog/${post.id}`,
-    lastModified: new Date(post.date),
-    changeFrequency: "monthly" as const,
-    priority: 0.6,
-  }));
+  const servicePages = locales.flatMap((locale) =>
+    getServices(locale).map((service) => ({
+      url: `${baseUrl}/${locale}/services/${service.id}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    }))
+  );
+
+  const blogPages = locales.flatMap((locale) =>
+    getBlogPosts(locale).map((post) => ({
+      url: `${baseUrl}/${locale}/blog/${post.id}`,
+      lastModified: new Date(post.date),
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
+    }))
+  );
 
   return [...staticPages, ...servicePages, ...blogPages];
 }

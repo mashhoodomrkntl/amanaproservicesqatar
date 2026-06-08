@@ -2,9 +2,11 @@
 
 import { useEffect } from "react";
 import Script from "next/script";
-import Head from "next/head";
+import { useTranslations } from "@/lib/i18n";
 
 export default function CookieConsent() {
+  const { t } = useTranslations();
+
   useEffect(() => {
     // Fallback if onLoad doesn't fire fast enough or fires too early
     const checkAndInit = () => {
@@ -14,20 +16,20 @@ export default function CookieConsent() {
           consentTypes: [
             {
               id: "essential",
-              label: "Essential",
-              description: "Necessary for the website to function.",
+              label: t("cookie.essential"),
+              description: t("cookie.essentialDesc"),
               required: true,
             },
             {
               id: "analytics",
-              label: "Analytics",
-              description: "Helps us understand site interaction.",
+              label: t("cookie.analytics"),
+              description: t("cookie.analyticsDesc"),
               defaultValue: true,
             },
             {
               id: "marketing",
-              label: "Marketing",
-              description: "Used to deliver personalized advertisements.",
+              label: t("cookie.marketing"),
+              description: t("cookie.marketingDesc"),
               defaultValue: false,
             },
           ],
@@ -44,7 +46,7 @@ export default function CookieConsent() {
     }, 500);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [t]);
 
   return (
     <>

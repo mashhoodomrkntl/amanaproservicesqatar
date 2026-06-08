@@ -1,6 +1,6 @@
 "use client";
 
-import { services } from "@/lib/data";
+import { useTranslations } from "@/lib/i18n";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   ArrowRight,
@@ -36,8 +36,22 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
 
+  const { t, locale, services } = useTranslations();
+
+  const handleLanguageSwitch = () => {
+    const nextLocale = locale === "en" ? "ar" : "en";
+    const segments = pathname.split("/");
+    if (segments[1] === "en" || segments[1] === "ar") {
+      segments[1] = nextLocale;
+    } else {
+      segments.splice(1, 0, nextLocale);
+    }
+    const newPath = segments.join("/");
+    window.location.href = newPath;
+  };
+
   // Force solid background on pages without a dark hero section
-  const forceSolidBg = pathname === '/thank-you';
+  const forceSolidBg = pathname.includes('/thank-you');
   const headerSolid = isScrolled || forceSolidBg;
 
   useEffect(() => {
@@ -58,12 +72,12 @@ export default function Navbar() {
   }, [isOpen]);
 
   const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/about", label: "About Us" },
-    { href: "/services", label: "Services", hasDropdown: true },
-    { href: "/why-qatar", label: "Why Qatar" },
-    { href: "/blog", label: "Blog" },
-    { href: "/contact", label: "Contact" },
+    { href: `/${locale}`, label: t("nav.home") },
+    { href: `/${locale}/about`, label: t("nav.about") },
+    { href: `/${locale}/services`, label: t("nav.services"), hasDropdown: true },
+    { href: `/${locale}/why-qatar`, label: t("nav.whyQatar") },
+    { href: `/${locale}/blog`, label: t("nav.blog") },
+    { href: `/${locale}/contact`, label: t("nav.contact") },
   ];
 
   return (
@@ -76,8 +90,8 @@ export default function Navbar() {
       <div className="container mx-auto">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
-          <Link href="/" className="relative flex items-center shrink-0 group " aria-label="Amanah Business Services Home">
-            <div className={`relative transition-all duration-500 scale-105 -ml-4`}>
+          <Link href={`/${locale}`} className="relative flex items-center shrink-0 group " aria-label="Amanah Business Services Home">
+            <div className={`relative transition-all duration-500 scale-105 ${locale === 'ar' ? '-mr-4' : '-ml-4'}`}>
               <Image
                 src="/Amanah-logo.png"
                 alt="Amanah Business Services Logo"
@@ -93,7 +107,7 @@ export default function Navbar() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-2">
             {navLinks.map((link) => {
-              const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+              const isActive = pathname === link.href || (link.href !== `/${locale}` && pathname.startsWith(link.href));
 
               return (
                 <div key={link.href} className="relative">
@@ -136,7 +150,7 @@ export default function Navbar() {
                                 {services.map((service) => (
                                   <Link
                                     key={service.id}
-                                    href={`/services/${service.id}`}
+                                    href={`/${locale}/services/${service.id}`}
                                     className="flex items-start gap-4 p-4 rounded-3xl hover:bg-white/5 transition-all duration-500 group/item"
                                   >
                                     <div className="w-12 h-12 shrink-0 rounded-2xl bg-white/5 flex items-center justify-center text-accent group-hover/item:bg-accent group-hover/item:text-primary transition-all duration-500 shadow-sm">
@@ -155,11 +169,11 @@ export default function Navbar() {
                               </div>
                               <div className="mt-5 pt-5 border-t border-white/5">
                                 <Link
-                                  href="/services"
+                                  href={`/${locale}/services`}
                                   className="group/btn flex items-center justify-between px-6 py-3.5 bg-white/5 hover:bg-accent hover:text-primary rounded-2xl text-white text-[12px] font-bold transition-all duration-500"
                                 >
-                                  <span className="group-hover/btn:text-primary">Discover all our specialized business services</span>
-                                  <ArrowRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                                  <span className="group-hover/btn:text-primary">{t("nav.discoverServices")}</span>
+                                  <ArrowRight className="w-4 h-4 rtl:rotate-180 transition-transform group-hover/btn:translate-x-1 rtl:group-hover/btn:-translate-x-1" />
                                 </Link>
                               </div>
                             </div>
@@ -188,24 +202,40 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA & Language switcher Buttons */}
           <div className="hidden lg:flex items-center gap-4 shrink-0">
+            <button
+              onClick={handleLanguageSwitch}
+              className="flex items-center gap-1.5 px-4 py-3 bg-white/5 border border-white/10 hover:bg-white/10 text-white text-[12px] font-black rounded-xl transition-all duration-300 uppercase tracking-widest cursor-pointer"
+            >
+              <Languages className="w-4 h-4" />
+              <span>{locale === "en" ? "العربية" : "English"}</span>
+            </button>
             <Link
-              href="/contact"
+              href={`/${locale}/contact`}
               className="px-7 py-3 bg-accent text-[#0A2647] text-[12px] font-black rounded-xl shadow-lg shadow-accent/20 hover:shadow-accent/40 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 uppercase tracking-widest"
             >
-              Get Started
+              {t("nav.getStarted")}
             </Link>
           </div>
 
-          {/* Mobile Toggle */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 rounded-xl hover:bg-white/10 transition-colors text-white"
-            aria-label="Toggle menu"
-          >
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Toggle & Mobile Language switcher */}
+          <div className="flex lg:hidden items-center gap-2">
+            <button
+              onClick={handleLanguageSwitch}
+              className="flex items-center gap-1 px-3 py-2 bg-white/5 border border-white/10 hover:bg-white/10 text-white rounded-xl text-[11px] font-bold uppercase transition-all duration-300 cursor-pointer"
+            >
+              <Languages className="w-3.5 h-3.5" />
+              <span>{locale === "en" ? "AR" : "EN"}</span>
+            </button>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 rounded-xl hover:bg-white/10 transition-colors text-white"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
       </div>
 
@@ -247,7 +277,7 @@ export default function Navbar() {
                               {services.map((service) => (
                                 <Link
                                   key={service.id}
-                                  href={`/services/${service.id}`}
+                                  href={`/${locale}/services/${service.id}`}
                                   onClick={() => setIsOpen(false)}
                                   className="flex items-center gap-4 px-4 py-4 text-[14px] font-bold text-white/70 hover:text-accent transition-all"
                                 >
@@ -275,11 +305,11 @@ export default function Navbar() {
               ))}
               <div className="pt-6 mt-6 border-t border-white/10">
                 <Link
-                  href="/contact"
+                  href={`/${locale}/contact`}
                   onClick={() => setIsOpen(false)}
                   className="block text-center px-6 py-5 bg-accent text-[#0A2647] text-[13px] font-black uppercase tracking-widest rounded-2xl shadow-xl shadow-accent/25 active:scale-[0.98] transition-transform"
                 >
-                  Free Consultation
+                  {t("nav.freeConsultation")}
                 </Link>
               </div>
             </div>

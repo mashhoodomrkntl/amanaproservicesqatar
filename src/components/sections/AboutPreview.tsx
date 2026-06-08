@@ -4,10 +4,12 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { useTranslations } from "@/lib/i18n";
 
 export default function AboutPreview() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t, locale } = useTranslations();
 
   return (
     <section className="py-16 lg:py-20 bg-[#F9F6F1] relative overflow-hidden" ref={ref}>
@@ -22,11 +24,10 @@ export default function AboutPreview() {
           >
             <div className="flex items-center gap-3 mb-4">
               <div className="w-6 h-[2px] bg-primary" />
-              <span className="text-xs font-bold text-primary uppercase tracking-widest">About Our Agency</span>
+              <span className="text-xs font-bold text-primary uppercase tracking-widest">{t("aboutPreview.badge")}</span>
             </div>
             <h2 className="text-3xl lg:text-5xl font-black text-[#0A2647] leading-[1.1] tracking-tight">
-              Premium PRO & Business <br />
-              Solutions For Growth
+              {t("aboutPreview.title")}
             </h2>
           </motion.div>
 
@@ -34,11 +35,10 @@ export default function AboutPreview() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="max-w-sm lg:text-right"
+            className="max-w-sm lg:text-right rtl:lg:text-left"
           >
             <p className="text-sm text-slate-600 leading-relaxed italic">
-              Where strategic expertise meets unparalleled local knowledge.
-              We specialize in bridging the gap between global vision and local success.
+              {t("aboutPreview.description")}
             </p>
           </motion.div>
         </div>
@@ -73,14 +73,14 @@ export default function AboutPreview() {
             >
               <div>
                 <h3 className="text-xl font-black text-primary mb-3 leading-tight">
-                  Strategic <br />Expert Guidance
+                  {t("aboutPreview.card1Title")}
                 </h3>
                 <p className="text-xs text-slate-500 leading-relaxed mb-4">
-                  We specialize in connecting businesses with efficient pathways in the Qatari region.
+                  {t("aboutPreview.card1Desc")}
                 </p>
               </div>
-              <Link href="/services" className="inline-flex items-center gap-2 text-primary font-black uppercase text-[9px] tracking-widest group">
-                Learn More <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              <Link href={`/${locale}/services`} className="inline-flex items-center gap-2 text-primary font-black uppercase text-[9px] tracking-widest group">
+                {t("aboutPreview.learnMore")} <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform" />
               </Link>
             </motion.div>
 
@@ -92,13 +92,17 @@ export default function AboutPreview() {
               className="bg-[#F0EEE9] rounded-[1.5rem] p-6 lg:p-8 flex flex-col justify-center items-center text-center gap-4 shadow-sm border border-slate-200/20"
             >
               <div className="space-y-1">
-                <div className="text-3xl font-black text-primary tracking-tighter">2000<span className="text-accent">+</span></div>
-                <div className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Projects Completed</div>
+                <div className="text-3xl font-black text-primary tracking-tighter" dir="ltr">2000<span className="text-accent">+</span></div>
+                <div className="text-[9px] font-black text-slate-400 uppercase tracking-widest">
+                  {locale === "ar" ? "المشاريع المنجزة" : "Projects Completed"}
+                </div>
               </div>
               <div className="w-10 h-[1px] bg-slate-300/50" />
               <div className="space-y-1">
-                <div className="text-3xl font-black text-primary tracking-tighter">10<span className="text-accent">+</span></div>
-                <div className="text-[9px] font-black text-slate-400 uppercase tracking-widest">Years Experience</div>
+                <div className="text-3xl font-black text-primary tracking-tighter" dir="ltr">10<span className="text-accent">+</span></div>
+                <div className="text-[9px] font-black text-slate-400 uppercase tracking-widest">
+                  {locale === "ar" ? "سنوات الخبرة" : "Years Experience"}
+                </div>
               </div>
             </motion.div>
 
@@ -109,23 +113,22 @@ export default function AboutPreview() {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="sm:col-span-2 bg-[#0A2647] rounded-[1.5rem] p-8 lg:p-10 flex flex-col sm:flex-row justify-between items-end gap-6 text-white relative overflow-hidden shadow-xl"
             >
-              <div className="relative z-10 max-w-md">
-                <h3 className="text-2xl font-black text-accent mb-4">Business Growth</h3>
+              <div className="relative z-10 max-w-md text-start">
+                <h3 className="text-2xl font-black text-accent mb-4">{t("aboutPreview.card2Title")}</h3>
                 <p className="text-xs text-white/50 leading-relaxed mb-6">
-                  We focus on scaling your operations through strategic governmental compliance
-                  and operational efficiency. Our dedicated team ensures you remain competitive.
+                  {t("aboutPreview.card2Desc")}
                 </p>
-                <Link href="/contact" className="inline-flex items-center gap-2 text-accent font-black uppercase text-[9px] tracking-widest group">
-                  Start Your Journey <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                <Link href={`/${locale}/contact`} className="inline-flex items-center gap-2 text-accent font-black uppercase text-[9px] tracking-widest group">
+                  {t("hero.ctaStart")} <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform" />
                 </Link>
               </div>
 
               <div className="flex gap-3 relative z-10">
                 <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group cursor-pointer hover:bg-white/5 transition-colors">
-                  <ArrowRight className="w-5 h-5 text-white -rotate-45" />
+                  <ArrowRight className="w-5 h-5 text-white -rotate-45 rtl:rotate-45 rtl:scale-x-[-1]" />
                 </div>
                 <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center group cursor-pointer hover:bg-accent-light transition-colors">
-                  <ArrowRight className="w-5 h-5 text-[#0A2647]" />
+                  <ArrowRight className="w-5 h-5 text-[#0A2647] rtl:scale-x-[-1]" />
                 </div>
               </div>
 

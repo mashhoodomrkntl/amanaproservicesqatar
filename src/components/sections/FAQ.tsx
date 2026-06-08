@@ -3,12 +3,14 @@
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { useRef, useState } from "react";
 import { ChevronDown, MessageCircleQuestion, HelpCircle } from "lucide-react";
-import { faqs } from "@/lib/data";
+import { useTranslations } from "@/lib/i18n";
 
 export default function FAQ() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  
+  const { t, faqs } = useTranslations();
 
   return (
     <section
@@ -32,13 +34,13 @@ export default function FAQ() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-semibold uppercase tracking-widest mb-6">
             <HelpCircle className="w-4 h-4" />
-            Knowledge Hub
+            {t("faq.badge")}
           </div>
           <h2 className="text-4xl lg:text-6xl font-extrabold mb-8 tracking-tight text-[#0A2647]">
-            Frequently Asked <span className="text-accent">Questions</span>
+            {t("faq.title")}
           </h2>
           <p className="text-gray-500 text-lg leading-relaxed">
-            Everything you need to know about setting up and growing your business in Qatar. Can't find what you're looking for? Reach out to our consultants.
+            {t("faq.subtitle")}
           </p>
         </motion.div>
 
@@ -62,7 +64,7 @@ export default function FAQ() {
                   >
                     <button
                       onClick={() => setOpenIndex(isOpen ? null : index)}
-                      className="w-full flex items-center justify-between gap-6 p-6 lg:p-8 text-left transition-all"
+                      className="w-full flex items-center justify-between gap-6 p-6 lg:p-8 text-start transition-all cursor-pointer outline-none"
                     >
                       <div className="flex items-center gap-4">
                         <span className={`text-lg font-mono transition-colors duration-300 ${isOpen ? "text-accent" : "text-gray-500"}`}>
@@ -90,7 +92,7 @@ export default function FAQ() {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.4, ease: "easeInOut" }}
                         >
-                          <div className="px-6 pb-6 lg:px-8 lg:pb-8 lg:pl-20">
+                          <div className="px-6 pb-6 lg:px-8 lg:pb-8 lg:ps-20 text-start">
                             <div className="h-px w-full bg-gradient-to-r from-accent/30 to-transparent mb-6" />
                             <p className="text-gray-600 leading-relaxed text-base lg:text-lg">
                               {faq.answer}
@@ -114,13 +116,13 @@ export default function FAQ() {
           >
             <p className="text-gray-500 mb-6 flex items-center justify-center gap-2">
               <MessageCircleQuestion className="w-5 h-5 text-accent" />
-              Still have more questions?
+              {t("faq.ctaText")}
             </p>
             <a
               href="#contact-form"
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#001a3f] text-white font-black rounded-full hover:bg-accent hover:text-[#001a3f] transition-all shadow-xl shadow-blue-900/10 uppercase text-xs tracking-widest"
             >
-              Contact Our Experts
+              {t("faq.ctaButton")}
             </a>
           </motion.div>
         </div>
@@ -128,4 +130,3 @@ export default function FAQ() {
     </section>
   );
 }
-
