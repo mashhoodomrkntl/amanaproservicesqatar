@@ -111,7 +111,7 @@ export const services = [
       "Accurate, certified document translation services are essential for business operations in Qatar. We prioritize the security of your sensitive data with strict confidentiality protocols, providing fast, precise translations in multiple languages.",
     icon: "Languages",
     features: [
-      "Certified Legal Translation (Arabic ↔ English)",
+      "Certified Legal Translation Services in Arabic and English",
       "Secure & Confidential Document Handling",
       "Multi-Language Translation Services",
       "Commercial Document Translation",
@@ -188,7 +188,6 @@ export const services = [
       "Legal Compliance & Documentation",
       "Ongoing Sponsor Relationship Management",
       "Annual Sponsorship Renewals",
-      "Sponsor Representation at Government Bodies",
     ],
     benefits: [
       "Vetted and reliable local sponsors",
@@ -223,7 +222,6 @@ export const services = [
       "Dispute Resolution Support",
       "Regulatory Compliance Guidance",
       "Employment Law Consultation",
-      "Intellectual Property Advice",
       "Business Restructuring Counsel",
       "Corporate Governance Advisory",
     ],
