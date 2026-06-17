@@ -1,7 +1,6 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { Globe, Percent, Shield, Landmark, TrendingUp, Target, ArrowRight } from "lucide-react";
 import { useTranslations } from "@/lib/i18n";
@@ -9,12 +8,10 @@ import { useTranslations } from "@/lib/i18n";
 const iconMap: Record<string, React.ElementType> = { Globe, Percent, Shield, Landmark, TrendingUp, Target };
 
 export default function WhyQatarPreview() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const { t, locale, whyQatar } = useTranslations();
 
   return (
-    <section className="py-16 lg:py-20 bg-[#0A2647] relative overflow-hidden" ref={ref}>
+    <section className="py-16 lg:py-20 bg-[#0A2647] relative overflow-hidden">
       {/* Background Visuals */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img
@@ -45,7 +42,8 @@ export default function WhyQatarPreview() {
           {/* Left Side: Strategic Narrative */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
             transition={{ duration: 0.8 }}
             className="lg:col-span-5 text-start relative z-10"
           >
@@ -88,7 +86,8 @@ export default function WhyQatarPreview() {
           {/* Right Side: The Premium Bento Matrix */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-20px" }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:col-span-7"
           >
@@ -101,7 +100,8 @@ export default function WhyQatarPreview() {
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 30 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-20px" }}
                       transition={{ duration: 0.6, delay: 0.3 }}
                       className="md:col-span-2 group relative p-6 md:p-8 rounded-[2rem] border border-white/10 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.04] transition-all duration-700 overflow-hidden text-start"
                     >
@@ -131,7 +131,8 @@ export default function WhyQatarPreview() {
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 30 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-20px" }}
                       transition={{ duration: 0.6, delay: 0.4 }}
                       className="group relative p-6 md:p-8 rounded-[2rem] border border-white/10 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.04] transition-all duration-700 overflow-hidden text-start"
                     >
@@ -156,7 +157,8 @@ export default function WhyQatarPreview() {
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 30 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-20px" }}
                       transition={{ duration: 0.6, delay: 0.5 }}
                       className="group relative p-6 md:p-8 rounded-[2rem] bg-accent border border-accent-light overflow-hidden shadow-[0_10px_40px_rgba(197,160,89,0.2)] hover:shadow-[0_10px_60px_rgba(197,160,89,0.4)] hover:-translate-y-2 transition-all duration-500 text-start"
                     >
@@ -184,7 +186,8 @@ export default function WhyQatarPreview() {
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, y: 30 }}
-                      animate={isInView ? { opacity: 1, y: 0 } : {}}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-20px" }}
                       transition={{ duration: 0.6, delay: 0.6 }}
                       className="md:col-span-2 group relative p-6 md:p-8 rounded-[2rem] border border-white/10 bg-gradient-to-r from-white/[0.03] to-transparent backdrop-blur-xl hover:from-white/[0.06] transition-all duration-700 overflow-hidden text-start"
                     >
