@@ -92,7 +92,7 @@ export default function WhyQatarPreview() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="lg:col-span-7"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 h-full">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {whyQatar.slice(0, 4).map((item, index) => {
                 const Icon = iconMap[item.icon];
 
@@ -133,7 +133,7 @@ export default function WhyQatarPreview() {
                       initial={{ opacity: 0, y: 30 }}
                       animate={isInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ duration: 0.6, delay: 0.4 }}
-                      className="group relative p-6 md:p-8 rounded-[2rem] border border-white/10 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.04] transition-all duration-700 overflow-hidden flex flex-col justify-between min-h-[200px] text-start"
+                      className="group relative p-6 md:p-8 rounded-[2rem] border border-white/10 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.04] transition-all duration-700 overflow-hidden text-start"
                     >
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/[0.02] opacity-0 group-hover:opacity-100 transition-all duration-700" />
                       <div className="relative z-10">
@@ -158,7 +158,7 @@ export default function WhyQatarPreview() {
                       initial={{ opacity: 0, y: 30 }}
                       animate={isInView ? { opacity: 1, y: 0 } : {}}
                       transition={{ duration: 0.6, delay: 0.5 }}
-                      className="group relative p-6 md:p-8 rounded-[2rem] bg-accent border border-accent-light overflow-hidden flex flex-col justify-between min-h-[200px] shadow-[0_10px_40px_rgba(197,160,89,0.2)] hover:shadow-[0_10px_60px_rgba(197,160,89,0.4)] hover:-translate-y-2 transition-all duration-500 text-start"
+                      className="group relative p-6 md:p-8 rounded-[2rem] bg-accent border border-accent-light overflow-hidden shadow-[0_10px_40px_rgba(197,160,89,0.2)] hover:shadow-[0_10px_60px_rgba(197,160,89,0.4)] hover:-translate-y-2 transition-all duration-500 text-start"
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-50" />
                       <div className="absolute -right-8 -top-8 w-32 h-32 border-4 border-[#0A2647]/10 rounded-full group-hover:scale-150 transition-transform duration-700" />
