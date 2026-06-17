@@ -124,7 +124,7 @@ export default function ServiceDetailPage({ service, locale }: ServiceDetailPage
                 </div>
 
                 {/* Value Proposition Banner */}
-                <div className="relative rounded-[3rem] overflow-hidden bg-[#001a3f] p-12 lg:p-16 text-white group mb-8">
+                <div className="relative rounded-[1.5rem] lg:rounded-[3rem] overflow-hidden bg-[#001a3f] p-8 lg:p-16 text-white group mb-8">
                   <div className="absolute inset-0 hero-grid opacity-10" />
                   <div className="absolute top-0 right-0 w-64 h-64 bg-accent/20 rounded-full blur-[100px] -z-0 translate-x-1/3 -translate-y-1/3" />
 
@@ -158,7 +158,7 @@ export default function ServiceDetailPage({ service, locale }: ServiceDetailPage
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="p-8 rounded-[2.5rem] bg-accent/5 border border-accent/20 relative overflow-hidden lg:hidden"
+                    className="p-8 rounded-[1.5rem] lg:rounded-[2.5rem] bg-accent/5 border border-accent/20 relative overflow-hidden lg:hidden"
                   >
                     <div className="absolute top-0 right-0 p-8 opacity-10">
                       <ShieldCheck className="w-32 h-32 text-accent" />
@@ -201,7 +201,7 @@ export default function ServiceDetailPage({ service, locale }: ServiceDetailPage
                 className="sticky top-32 space-y-8"
               >
                 {/* Premium Contact Widget */}
-                <div className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-2xl shadow-slate-200/50 relative overflow-hidden group">
+                <div className="bg-white rounded-[1.5rem] lg:rounded-[2.5rem] p-8 border border-slate-100 shadow-2xl shadow-slate-200/50 relative overflow-hidden group">
                   <div className="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full -translate-y-1/2 translate-x-1/2" />
 
                   <div className={`relative z-10 ${isRtl ? "text-right" : ""}`}>
@@ -243,7 +243,7 @@ export default function ServiceDetailPage({ service, locale }: ServiceDetailPage
                 </div>
 
                 {/* Vertical Service Navigation */}
-                <div className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-xl shadow-slate-200/40">
+                <div className="bg-white  rounded-[1.5rem] lg:rounded-[2.5rem] p-8 border border-slate-100 shadow-xl shadow-slate-200/40">
                   <div className={`flex items-center gap-3 mb-8 ${isRtl ? "flex-row-reverse" : ""}`}>
                     <div className="w-8 h-[2px] bg-accent" />
                     <h3 className="text-sm font-black text-[#0A2647] uppercase tracking-widest">{isRtl ? "خدمات أخرى" : "More Solutions"}</h3>
