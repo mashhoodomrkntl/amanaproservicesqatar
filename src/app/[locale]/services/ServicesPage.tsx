@@ -165,7 +165,7 @@ export default function ServicesPage() {
                   <>التميز في كل <br />
                     <span className="text-accent italic">معاملة</span></>
                 ) : (
-                  <>The Excellence in <br />
+                  <>The Excellence in
                     Every <span className="text-accent italic">Transaction</span></>
                 )}
               </h2>
