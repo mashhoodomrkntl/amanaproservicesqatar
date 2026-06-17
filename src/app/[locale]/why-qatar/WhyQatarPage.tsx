@@ -226,11 +226,11 @@ export default function WhyQatarPage() {
                     className="w-full h-full object-cover opacity-60 group-hover:scale-110 group-hover:opacity-40 transition-all duration-700"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#001a3f] via-[#001a3f]/20 to-transparent p-8 flex flex-col justify-end text-start">
-                    <div className="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center mb-6 -translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                    <div className="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center mb-6 lg:-translate-y-4 lg:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
                       <SectorIcon className="w-6 h-6 text-[#001a3f]" />
                     </div>
                     <h3 className="text-2xl font-black text-white mb-3">{sector.name}</h3>
-                    <p className="text-white/60 text-sm leading-relaxed max-w-[240px] translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
+                    <p className="text-white/60 text-sm leading-relaxed max-w-[240px] lg:translate-y-4 lg:opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 delay-100">
                       {sector.desc}
                     </p>
                   </div>
@@ -244,7 +244,7 @@ export default function WhyQatarPage() {
       {/* Map Section */}
       <section className="py-8 bg-white relative overflow-hidden ">
         <div className="container mx-auto px-6">
-          <div className="bg-[#001a3f] rounded-[3rem] p-8 lg:px-12 relative overflow-hidden">
+          <div className="bg-[#001a3f] rounded-[1.5rem] lg:rounded-[3rem] p-8 lg:px-12 relative overflow-hidden">
             <div className="absolute inset-0 opacity-10">
               <img
                 src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1200"
