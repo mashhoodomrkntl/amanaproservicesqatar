@@ -60,7 +60,7 @@ export default function FAQ() {
               >
                 <div className="aspect-[4/3] w-full relative group">
                   <img
-                    src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                    src="/faq.webp"
                     alt="Amanah Support"
                     className="w-full h-full object-cover mix-blend-overlay opacity-70 transition-transform duration-700 group-hover:scale-105"
                   />
@@ -91,7 +91,7 @@ export default function FAQ() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.8, delay: 0.3 }}
-                  className="bg-[#0A2647] rounded-3xl p-6 lg:p-8 text-center sm:text-start flex flex-col xl:flex-row items-center justify-between gap-6 w-full shadow-xl shadow-blue-900/10 mt-2"
+                  className="bg-[#0A2647] rounded-3xl p-6 lg:p-8 text-center sm:text-start flex flex-col 2xl:flex-row items-center justify-between gap-6 w-full shadow-xl shadow-blue-900/10 mt-2"
                 >
                   <div>
                     <p className="text-white font-bold text-lg mb-1 flex items-center justify-center sm:justify-start gap-2">

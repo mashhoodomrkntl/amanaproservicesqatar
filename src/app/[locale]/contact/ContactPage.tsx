@@ -71,72 +71,112 @@ export default function ContactPage() {
       </section>
 
       {/* Main Contact Section */}
-      <div className="pb-24">
-        <ContactForm />
-      </div>
+      <ContactForm />
 
       {/* Location Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="container mx-auto px-6">
-          <div className="grid lg:grid-cols-12 gap-16 items-center">
-            <div className="lg:col-span-4">
-              <span className={`text-accent text-xs font-black uppercase tracking-[0.4em] mb-4 block ${isRtl ? "text-right" : ""}`}>{isRtl ? "قم بزيارتنا" : "Visit Us"}</span>
-              <h2 className={`text-4xl lg:text-5xl font-black text-[#0A2647] mb-8 leading-tight ${isRtl ? "text-right" : ""}`}>
-                {isRtl ? "تجدنا في" : "Find Us in"} <br />
-                <span className="text-accent">{isRtl ? "الدوحة" : "Doha"}</span>
-              </h2>
+      <section className="py-24 relative overflow-hidden bg-[#FAFAFA]">
+        {/* Background Decorative Elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+          <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-accent/10 blur-[80px]" />
+          <div className="absolute bottom-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full bg-accent/10 blur-[100px]" />
+        </div>
 
+        <div className="mx-auto px-6 relative z-10">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="inline-block text-accent text-sm font-black uppercase tracking-[0.3em] mb-4 bg-accent/10 px-4 py-2 rounded-full"
+            >
+              {isRtl ? "قم بزيارتنا" : "Visit Us"}
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-4xl md:text-5xl font-black text-[#0A2647] leading-tight"
+            >
+              {isRtl ? "تجدنا في قلب" : "Find Us in the Heart of"} <br />
+              <span className="text-accent">
+                {isRtl ? "الدوحة" : "Doha"}
+              </span>
+            </motion.h2>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.7 }}
+            className="relative rounded-[1.5rem] overflow-hidden shadow-2xl border-3 border-white h-[600px] lg:h-[500px] group bg-slate-100"
+          >
+            {/* Map Iframe */}
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115455.86086842917!2d51.348833843359394!3d25.270731700000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485f95476520dff7%3A0x177b1e4b3376acb7!2sVaiga%20Consultancy%20Services%20W.L.L!5e0!3m2!1sen!2sin!4v1780572733738!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="absolute inset-0 "
+            />
+
+            {/* Overlay Gradient to blend map gracefully */}
+            <div className={`absolute inset-0 pointer-events-none transition-opacity duration-500 ${isRtl ? 'bg-gradient-to-r from-transparent via-white/10 to-white/60 lg:to-white/80' : 'bg-gradient-to-r from-white/60 lg:from-white/80 via-white/10 to-transparent '}`} />
+
+            {/* Floating Info Card */}
+            <motion.div
+              initial={{ opacity: 0, x: isRtl ? 30 : -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className={`absolute top-1/2 -translate-y-1/2 ${isRtl ? 'right-4 lg:right-12' : 'left-4 lg:left-12'} w-[calc(100%-2rem)] lg:w-[420px]  bg-white/90 backdrop-blur-xl rounded-[1.5rem] p-8 lg:p-10 shadow-2xl border border-white/60 hover:shadow-accent/10 transition-all duration-500`}
+            >
               <div className="space-y-8">
+                {/* Office Info */}
                 <div className={`flex gap-5 ${isRtl ? "flex-row-reverse text-right" : ""}`}>
-                  <div className="w-12 h-12 rounded-xl bg-[#FAFAFA] flex items-center justify-center flex-shrink-0 border border-slate-100">
-                    <MapPin className="w-5 h-5 text-accent" />
+                  <div className="w-14 h-14 rounded-2xl bg-blue-50/80 flex items-center justify-center flex-shrink-0 border border-blue-100/50 shadow-sm">
+                    <MapPin className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#0A2647] mb-2 uppercase tracking-wide text-sm">{isRtl ? "المقر الرئيسي" : "Headquarters"}</h4>
-                    <p className="text-slate-500 text-sm leading-relaxed">
+                    <h4 className="font-black text-[#0A2647] mb-2 uppercase tracking-wider text-sm">{isRtl ? "المقر الرئيسي" : "Headquarters"}</h4>
+                    <p className="text-slate-600 text-sm leading-relaxed font-medium">
                       {siteConfig.address}
                     </p>
                   </div>
                 </div>
 
+                <div className="w-full h-px bg-gradient-to-r from-slate-200/0 via-slate-200 to-slate-200/0" />
+
+                {/* Hours Info */}
                 <div className={`flex gap-5 ${isRtl ? "flex-row-reverse text-right" : ""}`}>
-                  <div className="w-12 h-12 rounded-xl bg-[#FAFAFA] flex items-center justify-center flex-shrink-0 border border-slate-100">
-                    <Clock className="w-5 h-5 text-accent" />
+                  <div className="w-14 h-14 rounded-2xl bg-orange-50/80 flex items-center justify-center flex-shrink-0 border border-orange-100/50 shadow-sm">
+                    <Clock className="w-6 h-6 text-orange-500" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-[#0A2647] mb-2 uppercase tracking-wide text-sm">{isRtl ? "ساعات العمل" : "Working Hours"}</h4>
-                    <p className="text-slate-500 text-sm">
+                    <h4 className="font-black text-[#0A2647] mb-2 uppercase tracking-wider text-sm">{isRtl ? "ساعات العمل" : "Working Hours"}</h4>
+                    <p className="text-slate-600 text-sm font-medium">
                       {isRtl ? "السبت — الخميس" : "Saturday — Thursday"} <br />
-                      <span className="text-[#0A2647] font-semibold" dir="ltr">08:00 AM — 06:00 PM</span>
+                      <span className="text-[#0A2647] font-bold mt-1 inline-block" dir="ltr">08:00 AM — 06:00 PM</span>
                     </p>
                   </div>
                 </div>
+
+                {/* Map Link */}
                 <a
                   href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115455.86086842917!2d51.348833843359394!3d25.270731700000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485f95476520dff7%3A0x177b1e4b3376acb7!2sVaiga%20Consultancy%20Services%20W.L.L!5e0!3m2!1sen!2sin!4v1780572733738!5m2!1sen!2sin"
                   target="_blank"
-                  className={`inline-flex items-center gap-2 text-accent font-black uppercase text-xs tracking-widest hover:gap-4 transition-all ${isRtl ? "flex-row-reverse float-right" : ""}`}
+                  className={`flex items-center justify-center gap-3 w-full bg-[#0A2647] hover:bg-accent text-white py-4 px-6 rounded-xl font-bold uppercase text-xs tracking-widest transition-all duration-300 shadow-xl hover:shadow-accent/40 hover:-translate-y-1 group/btn ${isRtl ? "flex-row-reverse" : ""}`}
                 >
-                  {isRtl ? "افتح في خرائط جوجل" : "Open in Google Maps"} <ExternalLink className="w-4 h-4" />
+                  {isRtl ? "افتح في خرائط جوجل" : "Open in Google Maps"}
+                  <ExternalLink className={`w-4 h-4 transition-transform duration-300 ${isRtl ? "group-hover/btn:-translate-x-1 group-hover/btn:-translate-y-1" : "group-hover/btn:translate-x-1 group-hover/btn:-translate-y-1"}`} />
                 </a>
               </div>
-            </div>
-
-            <div className="lg:col-span-8">
-              <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white aspect-[16/9] lg:aspect-auto lg:h-[500px] group">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115455.86086842917!2d51.348833843359394!3d25.270731700000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485f95476520dff7%3A0x177b1e4b3376acb7!2sVaiga%20Consultancy%20Services%20W.L.L!5e0!3m2!1sen!2sin!4v1780572733738!5m2!1sen!2sin"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="grayscale hover:grayscale-0 transition-all duration-700"
-                />
-                <div className="absolute inset-0 pointer-events-none border-[1px] border-black/5 rounded-[2.5rem]" />
-              </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 

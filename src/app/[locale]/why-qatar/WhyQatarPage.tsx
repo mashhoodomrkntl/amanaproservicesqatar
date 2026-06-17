@@ -27,12 +27,12 @@ export default function WhyQatarPage() {
   const { t, locale, whyQatar } = useTranslations();
 
   const sectors = [
-    { icon: Zap, name: locale === "ar" ? "الطاقة والنفط/الغاز" : "Energy & Oil/Gas", desc: locale === "ar" ? "أكبر مصدر للغاز الطبيعي المسال في العالم مع نمو هائل في قطاع الطاقة." : "World's largest LNG exporter with massive energy sector growth.", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800" },
-    { icon: Building2, name: locale === "ar" ? "العقارات" : "Real Estate", desc: locale === "ar" ? "بنية تحتية مزدهرة وتطوير عقاري فاخر للعديد من المشاريع الكبرى." : "Booming infrastructure and luxury property development.", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800" },
-    { icon: Cpu, name: locale === "ar" ? "التكنولوجيا والاتصالات" : "Technology & IT", desc: locale === "ar" ? "اقتصاد رقمي متنامٍ مع مبادرات مدن ذكية رائدة مثل مشيرب ولوسيل." : "Growing digital economy with smart city initiatives like Msheireb.", image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=800" },
-    { icon: Heart, name: locale === "ar" ? "الرعاية الصحية" : "Healthcare", desc: locale === "ar" ? "قطاع رعاية صحية متوسع بمرافق حديثة وضمان صحي للجميع." : "Expanding healthcare sector with world-class facilities and insurance.", image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aGVhbHRoY2FyZXxlbnwwfHwwfHx8MA%3D%3D" },
-    { icon: GraduationCap, name: locale === "ar" ? "التعليم" : "Education", desc: locale === "ar" ? "المدينة التعليمية ومؤسسات أكاديمية دولية متنامية ومرموقة." : "Education City and growing international academic institutions.", image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
-    { icon: Briefcase, name: locale === "ar" ? "الخدمات المالية" : "Finance", desc: locale === "ar" ? "يوفر مركز قطر للمال (QFC) منصة خدمات ببيئة عمل دولية متميزة." : "Qatar Financial Centre (QFC) offering international standards.", image: "https://images.unsplash.com/photo-1554774853-aae0a22c8aa4?auto=format&fit=crop&q=80&w=800" },
+    { icon: Zap, name: locale === "ar" ? "الطاقة والنفط/الغاز" : "Energy & Oil/Gas", desc: locale === "ar" ? "أكبر مصدر للغاز الطبيعي المسال في العالم مع نمو هائل في قطاع الطاقة." : "World's largest LNG exporter with massive energy sector growth.", image: "/oilgas.webp" },
+    { icon: Building2, name: locale === "ar" ? "العقارات" : "Real Estate", desc: locale === "ar" ? "بنية تحتية مزدهرة وتطوير عقاري فاخر للعديد من المشاريع الكبرى." : "Booming infrastructure and luxury property development.", image: "/realestate.webp" },
+    { icon: Cpu, name: locale === "ar" ? "التكنولوجيا والاتصالات" : "Technology & IT", desc: locale === "ar" ? "اقتصاد رقمي متنامٍ مع مبادرات مدن ذكية رائدة مثل مشيرب ولوسيل." : "Growing digital economy with smart city initiatives like Msheireb.", image: "/tech.webp" },
+    { icon: Heart, name: locale === "ar" ? "الرعاية الصحية" : "Healthcare", desc: locale === "ar" ? "قطاع رعاية صحية متوسع بمرافق حديثة وضمان صحي للجميع." : "Expanding healthcare sector with world-class facilities and insurance.", image: "/health.webp" },
+    { icon: GraduationCap, name: locale === "ar" ? "التعليم" : "Education", desc: locale === "ar" ? "المدينة التعليمية ومؤسسات أكاديمية دولية متنامية ومرموقة." : "Education City and growing international academic institutions.", image: "/edu.webp" },
+    { icon: Briefcase, name: locale === "ar" ? "الخدمات المالية" : "Finance", desc: locale === "ar" ? "يوفر مركز قطر للمال (QFC) منصة خدمات ببيئة عمل دولية متميزة." : "Qatar Financial Centre (QFC) offering international standards.", image: "/fin.webp" },
   ];
 
   const ownershipFeatures = [
@@ -103,65 +103,71 @@ export default function WhyQatarPage() {
       </section>
 
       {/* 100% Ownership Hero Section */}
-      <section className="py-24 lg:py-40 bg-[#001a3f] relative overflow-hidden" ref={ownershipRef}>
-        <div className="absolute inset-0 hero-grid opacity-10" />
-        <div className="absolute top-0 right-0 rtl:right-auto rtl:left-0 w-1/2 h-full hidden lg:block">
+      <section className="py-16 lg:py-10 bg-[#001a3f] relative overflow-hidden" ref={ownershipRef}>
+        <div className="absolute inset-0 w-full h-full">
           <img
-            src="https://images.unsplash.com/photo-1578895101408-1a36b834405b?auto=format&fit=crop&q=80&w=1200"
+            src="/ownership.webp"
             alt="Doha Skyline"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#001a3f] via-[#001a3f]/40 to-transparent rtl:bg-gradient-to-l rtl:from-[#001a3f] rtl:via-[#001a3f]/40 rtl:to-transparent" />
+          <div className="absolute inset-0 bg-[#001a3f]/88" />
         </div>
+        <div className="absolute inset-0 hero-grid opacity-10" />
 
         <div className="container mx-auto px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: locale === "ar" ? 50 : -50 }}
-              animate={isOwnershipInView ? { opacity: 1, x: 0 } : {}}
-              transition={{ duration: 0.8 }}
-              className="text-start"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-[2px] bg-accent" />
-                <span className="text-accent text-xs font-black uppercase tracking-[0.3em]">{t("whyQatar.ownershipBadge")}</span>
-              </div>
-              <h2 className="text-4xl lg:text-6xl font-black text-white mb-8 leading-[1.1]">
-                {locale === "ar" ? (
-                  <>
-                    تملك أجنبي <br />
-                    بنسبة <span className="text-accent">100٪</span>
-                  </>
-                ) : (
-                  <>
-                    100% Foreign <br />
-                    <span className="text-accent">Ownership</span>
-                  </>
-                )}
-              </h2>
-              <p className="text-white/70 text-lg leading-relaxed mb-10 max-w-xl">
-                {t("whyQatar.ownershipDesc")}
-              </p>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isOwnershipInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.8 }}
+            className="max-w-5xl mx-auto flex flex-col items-center text-center"
+          >
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-8 h-[2px] bg-accent" />
+              <span className="text-accent text-xs font-black uppercase tracking-[0.3em]">{t("whyQatar.ownershipBadge")}</span>
+              <div className="w-8 h-[2px] bg-accent" />
+            </div>
 
-              <div className="grid sm:grid-cols-2 gap-6 mb-12">
-                {ownershipFeatures.map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-                      <CheckCircle className="w-4 h-4 text-accent" />
-                    </div>
-                    <span className="text-white/80 text-sm font-medium">{item}</span>
+            <h2 className="text-4xl lg:text-5xl lg:leading-[1.2] font-black text-white mb-6">
+              {locale === "ar" ? (
+                <>
+                  تملك أجنبي بنسبة <span className="text-accent">100٪</span>
+                </>
+              ) : (
+                <>
+                  100% Foreign <span className="text-accent">Ownership</span>
+                </>
+              )}
+            </h2>
+
+            <p className="text-white/70 text-lg leading-relaxed mb-12 max-w-2xl mx-auto">
+              {t("whyQatar.ownershipDesc")}
+            </p>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 w-full">
+              {ownershipFeatures.map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isOwnershipInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.3 + (i * 0.1) }}
+                  className="flex flex-col items-center justify-center text-center gap-4 p-6 rounded-3xl bg-white/[0.02] border border-white/10 backdrop-blur-md hover:bg-white/[0.06] hover:border-accent/30 hover:-translate-y-1 transition-all duration-300 group"
+                >
+                  <div className="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center group-hover:bg-accent group-hover:scale-110 transition-all duration-300">
+                    <CheckCircle className="w-5 h-5 text-accent group-hover:text-[#001a3f] transition-colors" />
                   </div>
-                ))}
-              </div>
+                  <span className="text-white/90 text-sm font-medium">{item}</span>
+                </motion.div>
+              ))}
+            </div>
 
-              <Link
-                href={`/${locale}/contact`}
-                className="inline-flex items-center gap-4 px-10 py-5 bg-accent text-[#001a3f] font-black rounded-full hover:bg-white hover:shadow-[0_20px_50px_rgba(197,160,89,0.3)] hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest"
-              >
-                {t("whyQatar.ownershipCta")} <ArrowRight className="w-4 h-4 rtl:rotate-180" />
-              </Link>
-            </motion.div>
-          </div>
+            <Link
+              href={`/${locale}/contact`}
+              className="inline-flex items-center gap-4 px-10 py-5 bg-accent text-[#001a3f] font-black rounded-full hover:bg-white hover:shadow-[0_20px_50px_rgba(197,160,89,0.3)] hover:-translate-y-1 transition-all duration-300 uppercase text-xs tracking-widest group"
+            >
+              {t("whyQatar.ownershipCta")}
+              <ArrowRight className="w-4 h-4 rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
@@ -236,9 +242,9 @@ export default function WhyQatarPage() {
       </section>
 
       {/* Map Section */}
-      <section className="py-24 bg-white relative overflow-hidden">
+      <section className="py-12 bg-white relative overflow-hidden ">
         <div className="container mx-auto px-6">
-          <div className="bg-[#001a3f] rounded-[3rem] p-12 lg:p-20 relative overflow-hidden">
+          <div className="bg-[#001a3f] rounded-[3rem] p-8 relative overflow-hidden">
             <div className="absolute inset-0 opacity-10">
               <img
                 src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1200"
@@ -270,7 +276,7 @@ export default function WhyQatarPage() {
 
               <div className="relative hidden lg:block">
                 <div className="aspect-square bg-accent/10 rounded-full border border-accent/20 flex items-center justify-center animate-pulse">
-                  <Globe className="w-48 h-48 text-accent opacity-30" />
+                  <Globe className="w-40 h-40 text-accent opacity-30" />
                 </div>
               </div>
             </div>

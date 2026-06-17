@@ -34,13 +34,15 @@ export default function Services() {
   const { t, locale, services } = useTranslations();
 
   const serviceImages = [
-    "https://plus.unsplash.com/premium_photo-1661501701943-bc3742c01830?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Y29tcGFueSUyMGZvcm1hdGlvbnxlbnwwfHwwfHx8MA%3D%3D",
-    "https://images.unsplash.com/photo-1605152276897-4f618f831968?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvJTIwc2VydmljZXN8ZW58MHx8MHx8fDA%3D",
-    "https://images.unsplash.com/photo-1673515335152-f2589ba8bb7a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dHJhbnNsYXRpb258ZW58MHx8MHx8fDA%3D",
-    "https://t3.ftcdn.net/jpg/03/47/46/86/360_F_347468662_7S9D5RgQb9iC8J98jH42O7EbJTREriOp.jpg",
-    "https://images.unsplash.com/photo-1712903276360-20f76efac6f9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3BvbnNvcnNoaXB8ZW58MHx8MHx8fDA%3D",
-    "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800&auto=format&fit=crop",
-    "https://plus.unsplash.com/premium_photo-1661383943532-e68a663322ee?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Y29uc3VsdGluZyUyMGltZ3xlbnwwfHwwfHx8MA%3D%3D"
+    "/company_formation.webp",
+    "/pro.webp",
+    "translation.webp",
+    // "https://t3.ftcdn.net/jpg/03/47/46/86/360_F_347468662_7S9D5RgQb9iC8J98jH42O7EbJTREriOp.jpg",
+    "/attestation.webp",
+    "/sponsorship.webp",
+    // "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=800&auto=format&fit=crop",
+    "/legal.webp",
+    "/consulting.webp",
   ];
 
   return (
@@ -101,8 +103,8 @@ export default function Services() {
                     <div className="flex items-center gap-2 mb-3">
                       <Icon className={`w-4 h-4 ${isHighlighted ? "text-[#0A2647]" : "text-primary"}`} />
                       <span className={`text-[9px] font-black uppercase tracking-[0.2em] ${isHighlighted ? "text-[#0A2647]/60" : "text-slate-400"}`}>
-                        {index % 2 === 0 
-                          ? (locale === "ar" ? "شركات" : "Corporate") 
+                        {index % 2 === 0
+                          ? (locale === "ar" ? "شركات" : "Corporate")
                           : (locale === "ar" ? "عمليات" : "Operations")}
                       </span>
                     </div>

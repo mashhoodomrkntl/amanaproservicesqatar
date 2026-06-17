@@ -23,13 +23,13 @@ const iconMap: Record<string, React.ElementType> = {
 };
 
 const serviceImages: Record<string, string> = {
-  "company-formation": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800",
-  "pro-services": "https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&q=80&w=800",
-  "translation": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800",
-  "attestation": "https://t3.ftcdn.net/jpg/03/47/46/86/360_F_347468662_7S9D5RgQb9iC8J98jH42O7EbJTREriOp.jpg",
-  "local-sponsorship": "https://images.unsplash.com/photo-1712903276855-845bb42e5df9?q=80&w=1331&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "legal-consultation": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=800",
-  "business-consultation": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800",
+  "company-formation": "/company_formation.webp",
+  "pro-services": "/pro.webp",
+  "translation": "/translation.webp",
+  "attestation": "/attestation.webp",
+  "local-sponsorship": "/sponsorship.webp",
+  "legal-consultation": "/legal.webp",
+  "business-consultation": "/consulting.webp",
 };
 
 export default function ServicesPage() {
@@ -102,7 +102,7 @@ export default function ServicesPage() {
                     {/* Image Area */}
                     <div className="h-56 relative">
                       <img
-                        src={serviceImages[service.id] || "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800"}
+                        src={serviceImages[service.id]}
                         alt={service.shortTitle}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                       />
@@ -163,10 +163,10 @@ export default function ServicesPage() {
               <h2 className="text-4xl lg:text-5xl font-black text-[#0A2647] mb-8 leading-tight">
                 {isRtl ? (
                   <>التميز في كل <br />
-                  <span className="text-accent italic">معاملة</span></>
+                    <span className="text-accent italic">معاملة</span></>
                 ) : (
                   <>The Excellence in <br />
-                  Every <span className="text-accent italic">Transaction</span></>
+                    Every <span className="text-accent italic">Transaction</span></>
                 )}
               </h2>
               <p className="text-slate-500 text-lg mb-10 leading-relaxed">
@@ -197,7 +197,7 @@ export default function ServicesPage() {
             >
               <div className="rounded-[3rem] overflow-hidden shadow-2xl relative aspect-square">
                 <img
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800"
+                  src="/trust.avif"
                   alt="Business Team"
                   className="w-full h-full object-cover"
                 />

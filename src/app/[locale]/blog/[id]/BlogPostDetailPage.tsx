@@ -17,6 +17,26 @@ export default function BlogPostDetailPage({ post, locale }: BlogPostDetailPageP
   const isRtl = locale === "ar";
   const dateLocale = isRtl ? "ar-QA" : "en-US";
 
+  const handleShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: post.title,
+          url: window.location.href,
+        });
+      } catch (error) {
+        console.error("Error sharing:", error);
+      }
+    } else {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        alert(isRtl ? "تم نسخ الرابط بنجاح!" : "Link copied to clipboard!");
+      } catch (error) {
+        console.error("Error copying link:", error);
+      }
+    }
+  };
+
   return (
     <>
       {/* Custom Hero Section */}
@@ -58,7 +78,7 @@ export default function BlogPostDetailPage({ post, locale }: BlogPostDetailPageP
         </div>
       </section>
 
-      <section className="py-16 lg:py-24 bg-white relative">
+      <section className="py-16 lg:pt-24 lg:pb-12 bg-white relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -70,7 +90,7 @@ export default function BlogPostDetailPage({ post, locale }: BlogPostDetailPageP
               <p className="text-xl text-dark font-medium mb-8">
                 {post.excerpt}
               </p>
-              
+
               {/* In-content Layout */}
               <div className={`flex flex-col md:flex-row gap-8 items-start mb-12 ${isRtl ? "md:flex-row-reverse" : ""}`}>
                 <div className="relative w-full md:w-5/12 h-72 md:h-auto md:aspect-[4/5] rounded-3xl overflow-hidden shadow-xl shrink-0 mt-2">
@@ -92,7 +112,7 @@ export default function BlogPostDetailPage({ post, locale }: BlogPostDetailPageP
                   </p>
                 </div>
               </div>
-              <blockquote className={`border-primary pl-6 py-2 my-8 italic text-dark bg-primary-50 rounded-r-xl ${isRtl ? "border-r-4 pr-6 pl-0 rounded-r-none rounded-l-xl" : "border-l-4"}`}>
+              <blockquote className={`border-primary pl-6 py-2 my-8 italic text-dark bg-primary-50 rounded-r-xl ${isRtl ? "border-r-8 pr-6 pl-0 rounded-r-none rounded-l-xl" : "border-l-8"}`}>
                 {isRtl
                   ? "«بيئة الأعمال في قطر مصممة لتكون صديقة للمستثمر، وتوفر منصة مستقرة وآمنة للنمو العالمي.»"
                   : "\"Qatar's business environment is designed to be investor-friendly, providing a stable and secure platform for global growth.\""}
@@ -122,7 +142,11 @@ export default function BlogPostDetailPage({ post, locale }: BlogPostDetailPageP
               </Link>
               <div className={`flex items-center gap-4 ${isRtl ? "flex-row-reverse" : ""}`}>
                 <span className="text-sm font-medium text-text-secondary">{t("blog.share")}</span>
-                <button className="p-2 rounded-full bg-surface hover:bg-primary-50 text-text-secondary hover:text-primary transition-colors">
+                <button
+                  onClick={handleShare}
+                  title={t("blog.share")}
+                  className="p-2 rounded-full bg-surface hover:bg-primary-50 text-text-secondary hover:text-primary transition-colors"
+                >
                   <Share2 className="w-4 h-4" />
                 </button>
               </div>

@@ -457,7 +457,7 @@ export const blogPosts = [
     date: "2026-04-08",
     category: "Investment",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80",
+    image: "https://images.unsplash.com/photo-1655722724170-b3ab67a48791?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: "pro-services-importance-qatar",

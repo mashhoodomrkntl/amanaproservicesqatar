@@ -151,7 +151,7 @@ export default function AboutPage() {
               <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl">
                 <div className="aspect-[4/5] bg-[#001a3f] relative group">
                   <img
-                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200"
+                    src="/office.avif"
                     alt="Amanah Office"
                     className="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700"
                   />

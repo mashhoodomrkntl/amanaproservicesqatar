@@ -54,7 +54,7 @@ export default function AboutPreview() {
             className="lg:col-span-6 relative h-full rounded-[2rem] overflow-hidden shadow-xl group min-h-[400px] lg:min-h-0"
           >
             <img
-              src="https://images.unsplash.com/photo-1550350505-553196f2a527?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="/qtr.webp"
               alt="Qatar Business Office"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
             />
