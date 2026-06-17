@@ -110,22 +110,24 @@ export default function ContactPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2, duration: 0.7 }}
-            className="relative rounded-[1.5rem] overflow-hidden shadow-2xl border-3 border-white h-[600px] lg:h-[500px] group bg-slate-100"
+            className="relative rounded-[1.5rem] overflow-hidden shadow-2xl border-3 border-white flex flex-col lg:block group bg-slate-100"
           >
             {/* Map Iframe */}
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115455.86086842917!2d51.348833843359394!3d25.270731700000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485f95476520dff7%3A0x177b1e4b3376acb7!2sVaiga%20Consultancy%20Services%20W.L.L!5e0!3m2!1sen!2sin!4v1780572733738!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="absolute inset-0 "
-            />
+            <div className="relative w-full h-[350px] lg:h-[500px]">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115455.86086842917!2d51.348833843359394!3d25.270731700000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x485f95476520dff7%3A0x177b1e4b3376acb7!2sVaiga%20Consultancy%20Services%20W.L.L!5e0!3m2!1sen!2sin!4v1780572733738!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="absolute inset-0"
+              />
 
-            {/* Overlay Gradient to blend map gracefully */}
-            <div className={`absolute inset-0 pointer-events-none transition-opacity duration-500 ${isRtl ? 'bg-gradient-to-r from-transparent via-white/10 to-white/60 lg:to-white/80' : 'bg-gradient-to-r from-white/60 lg:from-white/80 via-white/10 to-transparent '}`} />
+              {/* Overlay Gradient to blend map gracefully */}
+              <div className={`hidden lg:block absolute inset-0 pointer-events-none transition-opacity duration-500 ${isRtl ? 'bg-gradient-to-r from-transparent via-white/10 to-white/80' : 'bg-gradient-to-r from-white/80 via-white/10 to-transparent'}`} />
+            </div>
 
             {/* Floating Info Card */}
             <motion.div
@@ -133,7 +135,7 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className={`absolute top-1/2 -translate-y-1/2 ${isRtl ? 'right-4 lg:right-12' : 'left-4 lg:left-12'} w-[calc(100%-2rem)] lg:w-[420px]  bg-white/90 backdrop-blur-xl rounded-[1.5rem] p-8 lg:p-10 shadow-2xl border border-white/60 hover:shadow-accent/10 transition-all duration-500`}
+              className={`relative lg:absolute lg:top-1/2 lg:-translate-y-1/2 ${isRtl ? 'lg:right-12' : 'lg:left-12'} w-full lg:w-[420px] bg-white lg:bg-white/90 lg:backdrop-blur-xl lg:rounded-[1.5rem] p-8 lg:p-10 lg:shadow-2xl lg:border lg:border-white/60 transition-all duration-500`}
             >
               <div className="space-y-8">
                 {/* Office Info */}
