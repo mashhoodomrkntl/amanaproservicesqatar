@@ -1,13 +1,23 @@
 "use client";
 
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
 import PageHeader from "@/components/PageHeader";
 import { useTranslations } from "@/lib/i18n";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import {
-  Award, Users, Target, Heart, CheckCircle, Globe, Shield,
-  Clock, TrendingUp, Briefcase, Zap, Building2
+  Award,
+  Briefcase,
+  Building2,
+  CheckCircle,
+  Clock,
+  Globe,
+  Heart,
+  Shield,
+  Target,
+  TrendingUp,
+  Users,
+  Zap
 } from "lucide-react";
+import { useRef } from "react";
 
 const iconMap: Record<string, React.ElementType> = {
   Shield,
@@ -247,56 +257,65 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline Section - Sleek Progress */}
-      <section className="py-24 lg:py-32 bg-[#001a3f] relative overflow-hidden" ref={timelineRef}>
-        <div className="absolute inset-0 hero-grid opacity-10" />
-        <div className="container mx-auto px-6 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isTimelineInView ? { opacity: 1, y: 0 } : {}}
-            className="text-center max-w-3xl mx-auto mb-20"
-          >
-            <span className="text-accent text-xs font-black uppercase tracking-[0.4em] mb-4 block">
-              {locale === "ar" ? "مسيرة التطور" : "Evolution"}
-            </span>
-            <h2 className="text-4xl lg:text-5xl font-black text-white mb-6">
-              {locale === "ar" ? <>عشر سنوات من <span className="text-accent">الإنجازات</span></> : <>A Decade of <span className="text-accent">Milestones</span></>}
-            </h2>
-          </motion.div>
+      <section className="py-24 lg:py-32 bg-slate-50/60 relative" ref={timelineRef}>
+        <div className="absolute inset-0 dot-pattern opacity-100" />
 
+        {/* Glowing ambient lights */}
+        <div className="absolute top-1/4 left-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+
+        {/* Sticky Header at the top of the section */}
+        <div className="sticky top-18 z-30 text-center mb-20 py-4 bg-slate-50/80 backdrop-blur-md rounded-2xl px-6">
+          <span className="text-accent text-xs font-black uppercase tracking-[0.4em] mb-4 block">
+            {locale === "ar" ? "مسيرة التطور" : "Evolution"}
+          </span>
+          <h2 className="text-4xl lg:text-5xl font-black text-[#0A2647] mb-2">
+            {locale === "ar" ? (
+              <>عشر سنوات من <span className="text-accent">الإنجازات</span></>
+            ) : (
+              <>A Decade of <span className="text-accent">Milestones</span></>
+            )}
+          </h2>
+        </div>
+
+        <div className="container mx-auto px-6 relative z-10">
           <div className="relative max-w-5xl mx-auto">
             {/* Main Progress Line */}
-            <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-white/10 hidden lg:block -translate-x-1/2">
+            <div className="absolute left-4 lg:left-1/2 top-0 bottom-0 w-[2px] bg-slate-200/80 -translate-x-1/2">
               <motion.div
                 style={{ height: timelineHeight }}
-                className="w-full bg-gradient-to-b from-accent to-accent-light shadow-[0_0_15px_rgba(197,160,89,0.5)]"
+                className="w-full bg-gradient-to-b from-accent to-accent-dark shadow-[0_0_10px_rgba(197,160,89,0.3)] origin-top"
               />
             </div>
 
             <div className="space-y-12 lg:space-y-0">
               {milestones.map((m, i) => (
-                <div key={i} className={`relative flex items-center justify-between lg:h-48 ${i % 2 === 0 ? "lg:flex-row-reverse" : ""}`}>
+                <div key={i} className={`relative flex items-center justify-between lg:h-48 ${i % 2 === 0 ? "lg:flex-row-reverse" : ""} pl-12 lg:pl-0 group`}>
                   <div className="w-full lg:w-[45%]">
                     <motion.div
-                      initial={{ opacity: 0, x: i % 2 === 0 ? 30 : -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.6 }}
-                      className="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-[2rem] hover:bg-white/10 transition-colors group text-start"
+                      initial={{ opacity: 0, x: i % 2 === 0 ? 50 : -50, scale: 0.96 }}
+                      whileInView={{ opacity: 1, x: 0, scale: 1 }}
+                      viewport={{ once: true, margin: "-80px" }}
+                      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                      className={`bg-white p-8 rounded-2xl shadow-sm hover:shadow-2xl hover:shadow-[#C5A059]/5 hover:-translate-y-1 transition-all duration-300 text-start border border-slate-100 ${locale === "ar"
+                        ? "border-r-2 border-r-accent"
+                        : "border-l-2 border-l-accent"
+                        }`}
                     >
                       <div className="flex items-center justify-between mb-4">
                         <span className="text-3xl font-black text-accent">{m.year}</span>
-                        <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-full bg-accent/5 flex items-center justify-center group-hover:bg-accent/10 transition-colors">
                           <CheckCircle className="w-5 h-5 text-accent" />
                         </div>
                       </div>
-                      <h4 className="text-xl font-bold text-white mb-2 group-hover:text-accent transition-colors">{m.title}</h4>
-                      <p className="text-white/50 text-sm leading-relaxed">{m.desc}</p>
+                      <h4 className="text-xl font-bold text-[#0A2647] mb-2 group-hover:text-accent transition-colors">{m.title}</h4>
+                      <p className="text-slate-500 text-sm leading-relaxed">{m.desc}</p>
                     </motion.div>
                   </div>
 
-                  {/* Central Node */}
-                  <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 hidden lg:flex flex-col items-center">
-                    <div className="w-4 h-4 rounded-full bg-accent shadow-[0_0_15px_rgba(197,160,89,1)] z-20" />
+                  {/* Central Node dot (desktop) / Left dot (mobile) */}
+                  <div className="absolute left-4 lg:left-1/2 top-12 lg:top-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+                    <div className="w-4 h-4 rounded-full bg-white border-4 border-accent shadow-sm group-hover:scale-125 group-hover:border-accent-dark group-hover:shadow-[0_0_10px_rgba(197,160,89,0.5)] transition-all duration-300 z-20" />
                   </div>
                 </div>
               ))}
