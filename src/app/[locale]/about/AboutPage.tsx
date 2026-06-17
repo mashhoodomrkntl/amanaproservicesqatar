@@ -69,7 +69,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="bg-[#FAFAFA]">
+    <div className="bg-[#FAFAFA] overflow-x-clip">
       <PageHeader
         title={t("nav.about")}
         subtitle={locale === "ar" ? "تمكين رحلة عملك في قطر بالثقة والخبرة منذ عام 2015." : "Empowering your business journey in Qatar with trust and expertise since 2015."}
@@ -261,8 +261,10 @@ export default function AboutPage() {
         <div className="absolute inset-0 dot-pattern opacity-100" />
 
         {/* Glowing ambient lights */}
-        <div className="absolute top-1/4 left-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-1/4 left-10 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+        </div>
 
         {/* Sticky Header at the top of the section */}
         <div className="sticky top-18 z-30 text-center mb-20 py-4 bg-slate-50/80 backdrop-blur-md rounded-2xl px-6">
