@@ -7,6 +7,26 @@ import { useTranslations } from "@/lib/i18n";
 
 const iconMap: Record<string, React.ElementType> = { Globe, Percent, Shield, Landmark, TrendingUp, Target };
 
+/* Shared viewport config — generous margin so animations fire
+   well before the element is visible, preventing "missing content" */
+const vp = { once: true, amount: 0.05 } as const;
+
+/* Stagger container variant for the card grid */
+const gridVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
+
+/* Individual card variant — only opacity, no Y-shift that can hide content */
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const },
+  },
+};
+
 export default function WhyQatarPreview() {
   const { t, locale, whyQatar } = useTranslations();
 
@@ -23,28 +43,26 @@ export default function WhyQatarPreview() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A2647] via-transparent to-[#0A2647]/50" />
         <div className="absolute inset-0 hero-grid opacity-[0.02]" />
 
-        {/* Animated Glowing Orbs */}
-        <motion.div
-          animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.25, 0.15] }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-accent rounded-full blur-[150px] mix-blend-screen pointer-events-none"
+        {/* Animated Glowing Orbs — CSS-only where possible to reduce JS paint */}
+        <div
+          className="absolute -top-[20%] -left-[10%] w-[60%] h-[60%] bg-accent rounded-full blur-[150px] mix-blend-screen pointer-events-none animate-pulse opacity-20"
         />
-        <motion.div
-          animate={{ scale: [1, 1.3, 1], opacity: [0.1, 0.2, 0.1] }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-          className="absolute top-[30%] -right-[10%] w-[50%] h-[50%] bg-blue-500 rounded-full blur-[150px] mix-blend-screen pointer-events-none"
+        <div
+          className="absolute top-[30%] -right-[10%] w-[50%] h-[50%] bg-blue-500 rounded-full blur-[150px] mix-blend-screen pointer-events-none animate-pulse opacity-15"
+          style={{ animationDelay: "2s", animationDuration: "10s" }}
         />
       </div>
 
       <div className="container relative z-10 mx-auto">
         <div className="grid lg:grid-cols-12 gap-16 items-center">
 
-          {/* Left Side: Strategic Narrative */}
+          {/* Left Side: Strategic Narrative
+              Single whileInView on this column — no child animations to conflict */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={vp}
+            transition={{ duration: 0.6 }}
             className="lg:col-span-5 text-start relative z-10"
           >
             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-sm">
@@ -83,12 +101,14 @@ export default function WhyQatarPreview() {
             </Link>
           </motion.div>
 
-          {/* Right Side: The Premium Bento Matrix */}
+          {/* Right Side: The Premium Bento Matrix
+              Uses staggerChildren so cards animate sequentially without
+              each one needing its own viewport observer */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            variants={gridVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={vp}
             className="lg:col-span-7"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -99,11 +119,8 @@ export default function WhyQatarPreview() {
                   return (
                     <motion.div
                       key={index}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-20px" }}
-                      transition={{ duration: 0.6, delay: 0.3 }}
-                      className="md:col-span-2 group relative p-6 md:p-8 rounded-[2rem] border border-white/10 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.04] transition-all duration-700 overflow-hidden text-start"
+                      variants={cardVariants}
+                      className="md:col-span-2 group relative p-6 md:p-8 rounded-[2rem] border border-white/10 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.04] transition-all duration-700 overflow-hidden text-start will-change-[opacity,transform]"
                     >
                       <div className="absolute -right-20 -top-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl group-hover:bg-accent/20 transition-all duration-700" />
                       <div className="absolute right-0 bottom-0 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-700 pointer-events-none translate-x-1/4 translate-y-1/4 rtl:-scale-x-100">
@@ -130,11 +147,8 @@ export default function WhyQatarPreview() {
                   return (
                     <motion.div
                       key={index}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-20px" }}
-                      transition={{ duration: 0.6, delay: 0.4 }}
-                      className="group relative p-6 md:p-8 rounded-[2rem] border border-white/10 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.04] transition-all duration-700 overflow-hidden text-start"
+                      variants={cardVariants}
+                      className="group relative p-6 md:p-8 rounded-[2rem] border border-white/10 bg-white/[0.02] backdrop-blur-xl hover:bg-white/[0.04] transition-all duration-700 overflow-hidden text-start will-change-[opacity,transform]"
                     >
                       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/[0.02] opacity-0 group-hover:opacity-100 transition-all duration-700" />
                       <div className="relative z-10">
@@ -156,11 +170,8 @@ export default function WhyQatarPreview() {
                   return (
                     <motion.div
                       key={index}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-20px" }}
-                      transition={{ duration: 0.6, delay: 0.5 }}
-                      className="group relative p-6 md:p-8 rounded-[2rem] bg-accent border border-accent-light overflow-hidden shadow-[0_10px_40px_rgba(197,160,89,0.2)] hover:shadow-[0_10px_60px_rgba(197,160,89,0.4)] hover:-translate-y-2 transition-all duration-500 text-start"
+                      variants={cardVariants}
+                      className="group relative p-6 md:p-8 rounded-[2rem] bg-accent border border-accent-light overflow-hidden shadow-[0_10px_40px_rgba(197,160,89,0.2)] hover:shadow-[0_10px_60px_rgba(197,160,89,0.4)] hover:-translate-y-2 transition-all duration-500 text-start will-change-[opacity,transform]"
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-50" />
                       <div className="absolute -right-8 -top-8 w-32 h-32 border-4 border-[#0A2647]/10 rounded-full group-hover:scale-150 transition-transform duration-700" />
@@ -185,11 +196,8 @@ export default function WhyQatarPreview() {
                   return (
                     <motion.div
                       key={index}
-                      initial={{ opacity: 0, y: 30 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, margin: "-20px" }}
-                      transition={{ duration: 0.6, delay: 0.6 }}
-                      className="md:col-span-2 group relative p-6 md:p-8 rounded-[2rem] border border-white/10 bg-gradient-to-r from-white/[0.03] to-transparent backdrop-blur-xl hover:from-white/[0.06] transition-all duration-700 overflow-hidden text-start"
+                      variants={cardVariants}
+                      className="md:col-span-2 group relative p-6 md:p-8 rounded-[2rem] border border-white/10 bg-gradient-to-r from-white/[0.03] to-transparent backdrop-blur-xl hover:from-white/[0.06] transition-all duration-700 overflow-hidden text-start will-change-[opacity,transform]"
                     >
                       <div className="relative z-10 flex flex-col md:flex-row items-start md:items-center gap-6">
                         <div className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:border-accent/50 group-hover:bg-accent/10 transition-all duration-500 shrink-0">
