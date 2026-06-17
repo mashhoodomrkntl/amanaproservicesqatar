@@ -1,13 +1,13 @@
+import CookieConsent from "@/components/CookieConsent";
+import CursorFollower from "@/components/CursorFollower";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import WhatsAppButton from "@/components/WhatsAppButton";
+import { getSiteConfig } from "@/lib/data";
+import { Locale, LocaleProvider } from "@/lib/i18n";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./../globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import CookieConsent from "@/components/CookieConsent";
-import { LocaleProvider, Locale } from "@/lib/i18n";
-import { getUiTranslations } from "@/lib/i18n-translations";
-import { getSiteConfig } from "@/lib/data";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -189,6 +189,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {/* End Google Tag Manager (noscript) */}
         <LocaleProvider locale={activeLocale as Locale}>
           <CookieConsent />
+          <CursorFollower />
           <Navbar />
           <main className="flex-1">{children}</main>
           <Footer locale={activeLocale} />
