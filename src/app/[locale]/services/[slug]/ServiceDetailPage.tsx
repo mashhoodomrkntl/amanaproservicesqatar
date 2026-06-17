@@ -112,7 +112,7 @@ export default function ServiceDetailPage({ service, locale }: ServiceDetailPage
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: i * 0.05 }}
-                        className={`flex items-start gap-4 p-5 rounded-2xl bg-white border border-slate-100 shadow-sm hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 transition-all duration-300 group ${isRtl ? "flex-row-reverse text-right" : ""}`}
+                        className={`flex items-center gap-4 p-5 rounded-2xl bg-white border border-slate-100 shadow-sm hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5 transition-all duration-300 group ${isRtl ? "flex-row-reverse text-right" : ""}`}
                       >
                         <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-accent transition-colors">
                           <CheckCircle className="w-4 h-4 text-accent group-hover:text-white" />
@@ -139,7 +139,7 @@ export default function ServiceDetailPage({ service, locale }: ServiceDetailPage
 
                     <div className="grid sm:grid-cols-2 gap-x-12 gap-y-8">
                       {service.benefits.map((benefit, i) => (
-                        <div key={i} className={`flex items-start gap-4 group/item ${isRtl ? "flex-row-reverse" : ""}`}>
+                        <div key={i} className={`flex items-center gap-4 group/item ${isRtl ? "flex-row-reverse" : ""}`}>
                           <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover/item:bg-accent transition-colors">
                             <ShieldCheck className="w-5 h-5 text-accent group-hover/item:text-[#001a3f]" />
                           </div>
