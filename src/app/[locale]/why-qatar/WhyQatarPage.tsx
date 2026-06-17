@@ -242,9 +242,9 @@ export default function WhyQatarPage() {
       </section>
 
       {/* Map Section */}
-      <section className="py-12 bg-white relative overflow-hidden ">
+      <section className="py-8 bg-white relative overflow-hidden ">
         <div className="container mx-auto px-6">
-          <div className="bg-[#001a3f] rounded-[3rem] p-8 relative overflow-hidden">
+          <div className="bg-[#001a3f] rounded-[3rem] p-8 lg:px-12 relative overflow-hidden">
             <div className="absolute inset-0 opacity-10">
               <img
                 src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=1200"
@@ -252,18 +252,18 @@ export default function WhyQatarPage() {
                 className="w-full h-full object-cover grayscale"
               />
             </div>
-            <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative z-10 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
               <div className="text-start">
-                <h2 className="text-4xl lg:text-5xl font-black text-white mb-8">
+                <h2 className="text-3xl lg:text-4xl font-black text-white mb-6">
                   {locale === "ar" ? <>جاهز <span className="text-accent">للتوسع العالمي</span>؟</> : <>Ready to <span className="text-accent">Globalize</span>?</>}
                 </h2>
-                <p className="text-white/60 text-lg mb-10 leading-relaxed">
+                <p className="text-white/60 text-lg mb-8 leading-relaxed">
                   {t("whyQatar.globalDesc")}
                 </p>
-                <div className="flex flex-col sm:flex-row gap-6">
+                <div className="flex flex-col sm:flex-row gap-4 lg:gap-6">
                   <Link
                     href={`/${locale}/contact`}
-                    className="px-10 py-5 bg-accent text-[#001a3f] font-black rounded-full hover:bg-white transition-all text-center uppercase text-xs tracking-widest"
+                    className="px-8 py-4 bg-accent text-[#001a3f] font-black rounded-full hover:bg-white transition-all text-center uppercase text-xs tracking-widest"
                   >
                     {t("whyQatar.globalCta")}
                   </Link>
@@ -274,9 +274,9 @@ export default function WhyQatarPage() {
                 </div>
               </div>
 
-              <div className="relative hidden lg:block">
-                <div className="aspect-square bg-accent/10 rounded-full border border-accent/20 flex items-center justify-center animate-pulse">
-                  <Globe className="w-40 h-40 text-accent opacity-30" />
+              <div className="relative hidden lg:flex justify-center">
+                <div className="w-64 h-64 lg:w-72 lg:h-72 bg-accent/10 rounded-full border border-accent/20 flex items-center justify-center animate-pulse">
+                  <Globe className="w-32 h-32 text-accent opacity-30" />
                 </div>
               </div>
             </div>
