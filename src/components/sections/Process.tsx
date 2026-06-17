@@ -43,16 +43,6 @@ export default function Process() {
             />
           </div>
 
-          {/* Mobile Vertical Line */}
-          <div className="md:hidden absolute top-6 bottom-6 left-6 rtl:left-auto rtl:right-6 w-[2px] bg-primary/10 z-0 rounded-full overflow-hidden">
-            <motion.div
-              className="w-full bg-accent"
-              initial={{ height: "0%" }}
-              animate={isInView ? { height: "100%" } : {}}
-              transition={{ duration: 1.5, ease: "easeInOut", delay: 0.2 }}
-            />
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 lg:gap-6 xl:gap-8">
             {processSteps.map((step, index) => (
               <motion.div
@@ -60,10 +50,10 @@ export default function Process() {
                 initial={{ opacity: 0, y: 40, scale: 0.95 }}
                 animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
                 transition={{ duration: 0.7, delay: index * 0.2, ease: "easeOut" }}
-                className="relative group flex md:block items-start gap-6 md:gap-0 h-full"
+                className="relative group block h-full"
               >
                 {/* Step Node */}
-                <div className="w-12 h-12 shrink-0 rounded-full bg-white border-4 border-surface shadow-[0_8px_30px_rgb(0,0,0,0.12)] flex items-center justify-center relative z-10 group-hover:scale-110 group-hover:border-accent transition-all duration-500">
+                <div className="hidden md:flex w-12 h-12 shrink-0 rounded-full bg-white border-4 border-surface shadow-[0_8px_30px_rgb(0,0,0,0.12)] items-center justify-center relative z-10 group-hover:scale-110 group-hover:border-accent transition-all duration-500">
                   <span className="text-sm font-black text-primary group-hover:text-accent transition-colors">
                     {String(step.step).padStart(2, "0")}
                   </span>
@@ -71,7 +61,7 @@ export default function Process() {
                 </div>
 
                 {/* Content */}
-                <div className="mt-1 md:mt-8 flex-1 text-start bg-white rounded-[2rem] p-6 lg:p-8 border border-slate-100 shadow-sm group-hover:shadow-2xl group-hover:shadow-accent/5 group-hover:-translate-y-2 transition-all duration-500 relative overflow-hidden h-[calc(100%-1rem)] md:h-[calc(100%-4rem)] flex flex-col">
+                <div className="md:mt-8 flex-1 text-start bg-white rounded-[2rem] p-6 lg:p-8 border border-slate-100 shadow-sm group-hover:shadow-2xl group-hover:shadow-accent/5 group-hover:-translate-y-2 transition-all duration-500 relative overflow-hidden h-auto md:h-[calc(100%-4rem)] flex flex-col">
                   {/* Large background number */}
                   <div className="absolute -right-4 -bottom-4 text-8xl md:text-9xl font-black text-slate-50 opacity-50 pointer-events-none group-hover:text-accent/5 transition-colors duration-500 select-none">
                     {String(step.step).padStart(2, "0")}
