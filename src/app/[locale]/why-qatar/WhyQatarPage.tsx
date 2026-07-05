@@ -49,8 +49,21 @@ export default function WhyQatarPage() {
     { value: "100%", label: locale === "ar" ? "نسبة التملك" : "Ownership", icon: Shield },
   ];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: t("nav.whyQatar"),
+    description: locale === "ar" ? "اختبر بوابة التميز في الأعمال العالمية في قلب الشرق الأوسط." : "Experience the gateway to global business excellence in the heart of the Middle East.",
+    publisher: {
+      "@type": "Organization",
+      name: "Amanah Business Services",
+      url: "https://amanahbusiness.qa",
+    },
+  };
+
   return (
     <div className="bg-[#FAFAFA]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PageHeader
         title={t("nav.whyQatar")}
         subtitle={locale === "ar" ? "اختبر بوابة التميز في الأعمال العالمية في قلب الشرق الأوسط." : "Experience the gateway to global business excellence in the heart of the Middle East."}

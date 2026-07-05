@@ -68,8 +68,23 @@ export default function AboutPage() {
     { title: locale === "ar" ? "خبراء متعددو اللغات" : "Multi-Lingual Experts", desc: locale === "ar" ? "يتكون فريقنا من أكثر من 30 متخصصاً يتقنون العربية والإنجليزية و5 لغات أخرى." : "Our team consists of 30+ professionals fluent in Arabic, English, and 5+ other languages." }
   ];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    name: t("nav.about"),
+    description: locale === "ar" ? "تمكين رحلة عملك في قطر بالثقة والخبرة منذ عام 2015." : "Empowering your business journey in Qatar with trust and expertise since 2015.",
+    mainEntity: {
+      "@type": "Organization",
+      name: "Amanah Business Services",
+      url: "https://amanahbusiness.qa",
+      foundingDate: "2015",
+      description: locale === "ar" ? "الشريك الرائد لتأسيس الشركات والخدمات الحكومية والعلاقات العامة في قطر." : "Recognized as Qatar's best PRO services and business setup consultancy.",
+    },
+  };
+
   return (
     <div className="bg-[#FAFAFA] overflow-x-clip">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PageHeader
         title={t("nav.about")}
         subtitle={locale === "ar" ? "تمكين رحلة عملك في قطر بالثقة والخبرة منذ عام 2015." : "Empowering your business journey in Qatar with trust and expertise since 2015."}

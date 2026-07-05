@@ -64,8 +64,28 @@ export default function ServicesPage() {
     },
   ];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: isRtl ? "خبراتنا المتخصصة" : "Our Expertise",
+    description: isRtl
+      ? "حلول شاملة لتأسيس الأعمال مصممة للنجاح في السوق القطري الديناميكي."
+      : "End-to-end business solutions engineered for success in Qatar's dynamic market.",
+    itemListElement: services.map((service, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Service",
+        name: service.title,
+        description: service.description,
+        url: `https://amanahbusiness.qa/${locale}/services/${service.id}`,
+      },
+    })),
+  };
+
   return (
     <div className="bg-[#FAFAFA]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PageHeader
         title={isRtl ? "خبراتنا المتخصصة" : "Our Expertise"}
         subtitle={

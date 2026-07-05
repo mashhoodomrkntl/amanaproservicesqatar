@@ -37,8 +37,29 @@ export default function BlogPostDetailPage({ post, locale }: BlogPostDetailPageP
     }
   };
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    image: [post.image],
+    datePublished: post.date,
+    author: {
+      "@type": "Organization",
+      name: "Amanah Business Services",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Amanah Business Services",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://amanahbusiness.qa/Amanah Icon.png",
+      },
+    },
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Custom Hero Section */}
       <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden bg-slate-900">
         <Image src={post.image} alt={post.title} fill className="object-cover opacity-30" priority />

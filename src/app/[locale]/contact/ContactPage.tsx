@@ -37,8 +37,23 @@ export default function ContactPage() {
     },
   ];
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: t("nav.contact"),
+    description: isRtl ? "رحلتك نحو التميز في الأعمال في قطر تبدأ بمحادثة بسيطة." : "Your journey to business excellence in Qatar starts with a simple conversation.",
+    mainEntity: {
+      "@type": "LocalBusiness",
+      name: "Amanah Business Services",
+      telephone: siteConfig.phone,
+      email: siteConfig.email,
+      url: "https://amanahbusiness.qa",
+    },
+  };
+
   return (
     <div className="bg-[#FAFAFA]">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PageHeader
         title={t("nav.contact")}
         subtitle={isRtl ? "رحلتك نحو التميز في الأعمال في قطر تبدأ بمحادثة بسيطة." : "Your journey to business excellence in Qatar starts with a simple conversation."}

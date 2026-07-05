@@ -55,6 +55,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         "تأسيس الأعمال الدوحة"
       ]
       : [
+        "amanah business services",
+        "amanah business qatar",
+        "amanah doha qatar",
+        "amanah qatar",
         "best pro services in qatar",
         "pro services qatar",
         "qatar best pro service",

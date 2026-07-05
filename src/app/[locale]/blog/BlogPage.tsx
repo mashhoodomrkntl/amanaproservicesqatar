@@ -29,8 +29,25 @@ export default function BlogPage() {
   const dateLocale = locale === "ar" ? "ar-QA" : "en-US";
   const isRtl = locale === "ar";
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: t("nav.blog"),
+    description: t("blog.subtitle"),
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: blogPosts.map((post, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        url: `https://amanahbusiness.qa/${locale}/blog/${post.id}`,
+        name: post.title,
+      })),
+    },
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <PageHeader
         title={t("nav.blog")}
         subtitle={t("blog.subtitle")}
