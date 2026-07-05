@@ -12,7 +12,7 @@ export default function AboutPreview() {
   const { t, locale } = useTranslations();
 
   return (
-    <section className="py-16 lg:py-20 bg-[#F9F6F1] relative overflow-hidden" ref={ref}>
+    <section className="py-16 lg:py-16 bg-[#F9F6F1] relative overflow-hidden" ref={ref}>
       <div className="container mx-auto">
         {/* Top Header Row */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-12">

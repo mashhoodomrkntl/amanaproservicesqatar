@@ -17,7 +17,7 @@ export default function BlogPreview() {
   const { t, locale, blogPosts } = useTranslations();
 
   return (
-    <section className="py-24 lg:py-32 bg-white relative overflow-hidden">
+    <section className="py-24 lg:py-16 bg-white relative overflow-hidden">
       {/* Decorative background element */}
       <div className="absolute top-0 left-0 w-full h-full bg-[#001a3f]/[0.02] pointer-events-none" />
 

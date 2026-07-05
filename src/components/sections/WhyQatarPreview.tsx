@@ -31,7 +31,7 @@ export default function WhyQatarPreview() {
   const { t, locale, whyQatar } = useTranslations();
 
   return (
-    <section className="py-16 lg:py-20 bg-[#0A2647] relative overflow-hidden">
+    <section className="py-16 lg:py-16 bg-[#0A2647] relative overflow-hidden">
       {/* Background Visuals */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img

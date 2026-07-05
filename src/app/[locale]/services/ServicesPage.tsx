@@ -99,7 +99,7 @@ export default function ServicesPage() {
         ]}
       />
 
-      <section className="py-24 lg:py-32 relative overflow-hidden" ref={ref}>
+      <section className="py-24 lg:py-16 relative overflow-hidden" ref={ref}>
         {/* Decorative Background */}
         <div className={`absolute top-0 ${isRtl ? "left-0 skew-x-12" : "right-0 -skew-x-12"} w-1/3 h-full bg-[#001a3f]/[0.02]`} />
 
@@ -169,7 +169,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Why Choose Our Service Ecosystem */}
-      <section className="py-24 lg:py-32 bg-white relative overflow-hidden" ref={whyRef}>
+      <section className="py-24 lg:py-16 bg-white relative overflow-hidden" ref={whyRef}>
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div

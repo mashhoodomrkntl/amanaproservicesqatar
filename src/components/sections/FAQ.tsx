@@ -27,7 +27,7 @@ export default function FAQ() {
 
   return (
     <section
-      className="relative py-24 lg:py-32 bg-white text-[#0A2647]"
+      className="relative py-24 lg:py-16 bg-white text-[#0A2647]"
       ref={ref}
       id="faq"
     >

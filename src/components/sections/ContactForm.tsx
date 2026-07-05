@@ -87,7 +87,7 @@ export default function ContactForm() {
 
   return (
     <section
-      className="relative overflow-hidden py-24 bg-[#F9F6F1] text-[#0A2647]"
+      className="relative overflow-hidden py-16 bg-[#F9F6F1] text-[#0A2647]"
       ref={ref}
       id="contact-form"
     >

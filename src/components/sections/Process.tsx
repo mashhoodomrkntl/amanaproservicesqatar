@@ -10,7 +10,7 @@ export default function Process() {
   const { t, locale, processSteps } = useTranslations();
 
   return (
-    <section className="py-24 lg:py-32 bg-surface relative overflow-hidden" ref={ref}>
+    <section className="py-24 lg:py-16 bg-surface relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 dot-pattern opacity-[0.4]" />
       <div className="container mx-auto relative z-10">
         {/* Section Header */}

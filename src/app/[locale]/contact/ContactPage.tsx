@@ -61,7 +61,7 @@ export default function ContactPage() {
       />
 
       {/* Quick Contact Cards */}
-      <section className="py-20 -mt-16 relative z-20">
+      <section className="py-18 relative z-20">
         <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
             {contactCards.map((card, i) => (
@@ -71,11 +71,11 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-accent/5 hover:-translate-y-2 transition-all duration-500 group"
+                className="bg-white p-8 rounded-[1.5rem] border border-slate-100 shadow-xl shadow-slate-200/50 hover:shadow-2xl hover:shadow-accent/5 hover:-translate-y-2 transition-all duration-500 group"
               >
-                <div className={`w-14 h-14 rounded-2xl ${card.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform ${isRtl ? "ml-auto" : ""}`}>
+                {/* <div className={`w-14 h-14 rounded-2xl ${card.color} flex items-center justify-center mb-6 shadow-lg group-hover:scale-110 transition-transform ${isRtl ? "ml-auto" : ""}`}>
                   <card.icon className="w-7 h-7 text-white" />
-                </div>
+                </div> */}
                 <h3 className={`text-xl font-black text-[#0A2647] mb-2 ${isRtl ? "text-right" : ""}`}>{card.title}</h3>
                 <div className={`text-accent font-bold mb-1 ${isRtl ? "text-right" : ""}`} dir={card.icon === Phone || card.icon === Mail ? "ltr" : "auto"}>{card.value}</div>
                 <p className={`text-slate-500 text-sm ${isRtl ? "text-right" : ""}`}>{card.desc}</p>
@@ -89,7 +89,7 @@ export default function ContactPage() {
       <ContactForm />
 
       {/* Location Section */}
-      <section className="py-24 relative overflow-hidden bg-[#FAFAFA]">
+      <section className="py-18 relative overflow-hidden bg-[#FAFAFA]">
         {/* Background Decorative Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] rounded-full bg-accent/10 blur-[80px]" />

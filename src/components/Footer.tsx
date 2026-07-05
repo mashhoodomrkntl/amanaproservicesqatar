@@ -32,7 +32,7 @@ export default function Footer({ locale = "en" }: FooterProps) {
   return (
     <footer className="text-white/80" role="contentinfo">
       {/* CTA Banner */}
-      <div className="pt-12 pb-8" >
+      <div className="pt-2 pb-10" >
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto bg-primary rounded-[2rem] p-8 lg:p-14 relative overflow-hidden shadow-2xl border border-white/5">
             <div className="absolute inset-0 hero-grid opacity-20" />
@@ -68,7 +68,7 @@ export default function Footer({ locale = "en" }: FooterProps) {
       {/* Footer Content Wrapper */}
       <div className="bg-[#050B16]">
         {/* Main Footer */}
-        <div className="container mx-auto py-20 lg:py-28">
+        <div className="container mx-auto py-20 lg:py-16">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-16">
             {/* Company Info */}
             <div className="lg:col-span-4">

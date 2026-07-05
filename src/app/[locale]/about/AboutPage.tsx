@@ -92,7 +92,7 @@ export default function AboutPage() {
       />
 
       {/* Story Section */}
-      <section className="py-24 lg:py-32 relative overflow-hidden" ref={storyRef}>
+      <section className="py-24 lg:py-16 relative overflow-hidden" ref={storyRef}>
         <div className="absolute top-0 right-0 rtl:right-auto rtl:left-0 w-1/3 h-full bg-[#001a3f]/[0.02] -skew-x-12 rtl:skew-x-12" />
 
         <div className="container mx-auto px-6 relative z-10">
@@ -218,7 +218,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values Section - Premium Grid */}
-      <section className="py-24 lg:py-32 bg-white relative" ref={valuesRef}>
+      <section className="py-24 lg:py-16 bg-white relative" ref={valuesRef}>
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -272,7 +272,7 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline Section - Sleek Progress */}
-      <section className="py-24 lg:py-32 bg-slate-50/60 relative" ref={timelineRef}>
+      <section className="py-24 lg:py-16 bg-slate-50/60 relative" ref={timelineRef}>
         <div className="absolute inset-0 dot-pattern opacity-100" />
 
         {/* Glowing ambient lights */}
@@ -342,7 +342,7 @@ export default function AboutPage() {
       </section>
 
       {/* Expertise / Why Choose Us */}
-      <section className="py-24 lg:py-32 bg-white relative overflow-hidden" ref={whyRef}>
+      <section className="py-24 lg:py-16 bg-white relative overflow-hidden" ref={whyRef}>
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-12 gap-16 items-center">
             <motion.div

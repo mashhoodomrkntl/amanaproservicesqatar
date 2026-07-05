@@ -26,7 +26,7 @@ export default function Testimonials() {
   }, [locale, testimonials]);
 
   return (
-    <section id="testimonials" className="py-16 lg:py-20 bg-[#F9F6F1] relative overflow-hidden" ref={ref}>
+    <section id="testimonials" className="py-16  bg-[#F9F6F1] relative overflow-hidden" ref={ref}>
       <div className="container relative z-10 mx-auto px-6">
 
         {/* Section Header */}

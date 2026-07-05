@@ -54,7 +54,7 @@ export default function BlogPage() {
         breadcrumbs={[{ label: t("nav.home"), href: `/${locale}` }, { label: t("nav.blog") }]}
       />
 
-      <section className="py-20 lg:py-28 bg-white" ref={ref}>
+      <section className="py-20 lg:py-16 bg-white" ref={ref}>
         <div className="container mx-auto">
           {/* Featured Post */}
           <motion.div initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.6 }} className="mb-16">

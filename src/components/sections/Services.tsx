@@ -46,7 +46,7 @@ export default function Services() {
   ];
 
   return (
-    <section id="services" className="py-22 lg:py-30 bg-gradient-to-b from-[#fffefeff] to-[#F9F6F1] relative overflow-hidden" ref={ref}>
+    <section id="services" className="py-22 lg:py-14 bg-gradient-to-b from-[#fffefeff] to-[#F9F6F1] relative overflow-hidden" ref={ref}>
       <div className="container relative mx-auto z-10">
         {/* Section Header - Centered Editorial Style */}
         <motion.div

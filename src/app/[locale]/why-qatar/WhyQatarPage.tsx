@@ -71,7 +71,7 @@ export default function WhyQatarPage() {
       />
 
       {/* Advantages Grid */}
-      <section className="py-24 lg:py-32 relative overflow-hidden" ref={advantagesRef}>
+      <section className="py-24 lg:py-16 relative overflow-hidden" ref={advantagesRef}>
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent/5 via-transparent to-transparent opacity-50" />
 
         <div className="container mx-auto px-6 relative z-10">
@@ -116,7 +116,7 @@ export default function WhyQatarPage() {
       </section>
 
       {/* 100% Ownership Hero Section */}
-      <section className="py-16 lg:py-10 bg-[#001a3f] relative overflow-hidden" ref={ownershipRef}>
+      <section className="py-16 lg:py-12 bg-[#001a3f] relative overflow-hidden" ref={ownershipRef}>
         <div className="absolute inset-0 w-full h-full">
           <img
             src="/ownership.webp"
@@ -208,7 +208,7 @@ export default function WhyQatarPage() {
       </section>
 
       {/* Thriving Sectors */}
-      <section className="py-24 lg:py-32 bg-[#FAFAFA] relative overflow-hidden" ref={sectorsRef}>
+      <section className="py-24 lg:py-16 bg-[#FAFAFA] relative overflow-hidden" ref={sectorsRef}>
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -255,7 +255,7 @@ export default function WhyQatarPage() {
       </section>
 
       {/* Map Section */}
-      <section className="py-8 bg-white relative overflow-hidden ">
+      {/* <section className="py-8 bg-white relative overflow-hidden ">
         <div className="container mx-auto px-6">
           <div className="bg-[#001a3f] rounded-[1.5rem] lg:rounded-[3rem] p-8 lg:px-12 relative overflow-hidden">
             <div className="absolute inset-0 opacity-10">
@@ -295,7 +295,7 @@ export default function WhyQatarPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

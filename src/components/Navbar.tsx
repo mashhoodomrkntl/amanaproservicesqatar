@@ -145,34 +145,34 @@ export default function Navbar() {
                             transition={{ duration: 0.25, ease: "circOut" }}
                             className="absolute top-full left-1/2 -translate-x-1/2 w-[560px] pt-4 z-[60]"
                           >
-                            <div className="bg-[#0A2647]/95 backdrop-blur-3xl rounded-[2.5rem] shadow-[0_30px_70px_rgba(0,0,0,0.4)] border border-white/10 p-6 overflow-hidden">
-                              <div className="grid grid-cols-2 gap-3">
+                            <div className="bg-[#0A2647]/95 backdrop-blur-3xl rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-white/10 p-5 overflow-hidden">
+                              <div className="grid grid-cols-2 gap-2">
                                 {services.map((service) => (
                                   <Link
                                     key={service.id}
                                     href={`/${locale}/services/${service.id}`}
-                                    className="flex items-start gap-4 p-4 rounded-3xl hover:bg-white/5 transition-all duration-500 group/item"
+                                    className="flex items-start gap-3.5 p-3 rounded-lg hover:bg-white/5 transition-all duration-300 group/item border border-transparent hover:border-white/5"
                                   >
-                                    <div className="w-12 h-12 shrink-0 rounded-2xl bg-white/5 flex items-center justify-center text-accent group-hover/item:bg-accent group-hover/item:text-primary transition-all duration-500 shadow-sm">
+                                    <div className="w-10 h-10 shrink-0 rounded-lg bg-white/5 flex items-center justify-center text-accent group-hover/item:bg-accent group-hover/item:text-[#0A2647] transition-all duration-300 shadow-sm">
                                       {serviceIcons[service.id]}
                                     </div>
                                     <div className="flex flex-col gap-1 mt-0.5">
-                                      <span className="text-[14px] font-bold text-white group-hover/item:text-accent transition-colors leading-none">
+                                      <span className="text-[13px] font-bold text-white group-hover/item:text-accent transition-colors leading-tight">
                                         {service.shortTitle}
                                       </span>
-                                      <p className="text-[11px] text-white/50 leading-tight line-clamp-2 mt-1">
+                                      <p className="text-[11px] text-white/50 leading-snug line-clamp-2">
                                         {service.subtitle}
                                       </p>
                                     </div>
                                   </Link>
                                 ))}
                               </div>
-                              <div className="mt-5 pt-5 border-t border-white/5">
+                              <div className="mt-4 pt-4 border-t border-white/10">
                                 <Link
                                   href={`/${locale}/services`}
-                                  className="group/btn flex items-center justify-between px-6 py-3.5 bg-white/5 hover:bg-accent hover:text-primary rounded-2xl text-white text-[12px] font-bold transition-all duration-500"
+                                  className="group/btn flex items-center justify-between px-5 py-3 bg-white/5 hover:bg-accent hover:text-[#0A2647] rounded-lg text-white text-[12px] font-bold uppercase tracking-wider transition-all duration-300 border border-white/5 hover:border-accent shadow-md"
                                 >
-                                  <span className="group-hover/btn:text-primary">{t("nav.discoverServices")}</span>
+                                  <span className="group-hover/btn:text-[#0A2647]">{t("nav.discoverServices")}</span>
                                   <ArrowRight className="w-4 h-4 rtl:rotate-180 transition-transform group-hover/btn:translate-x-1 rtl:group-hover/btn:-translate-x-1" />
                                 </Link>
                               </div>
@@ -256,7 +256,7 @@ export default function Navbar() {
                     <div className="space-y-1">
                       <button
                         onClick={() => setServicesOpen(!servicesOpen)}
-                        className={`w-full flex items-center justify-between px-4 py-4 text-sm font-bold uppercase tracking-widest rounded-2xl transition-all ${servicesOpen ? "bg-accent text-[#0A2647] shadow-lg shadow-accent/20" : "text-white hover:bg-white/5"
+                        className={`w-full flex items-center justify-between px-4 py-3.5 text-sm font-bold uppercase tracking-widest rounded-xl transition-all ${servicesOpen ? "bg-accent text-[#0A2647] shadow-lg shadow-accent/20" : "text-white hover:bg-white/5"
                           }`}
                       >
                         {link.label}
@@ -271,17 +271,17 @@ export default function Navbar() {
                             initial={{ height: 0, opacity: 0 }}
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
-                            className="overflow-hidden bg-white/5 rounded-3xl mt-2"
+                            className="overflow-hidden bg-white/5 rounded-xl border border-white/10 mt-1.5"
                           >
-                            <div className="py-3 px-3 grid grid-cols-1 gap-1.5">
+                            <div className="py-2 px-2 grid grid-cols-1 gap-1">
                               {services.map((service) => (
                                 <Link
                                   key={service.id}
                                   href={`/${locale}/services/${service.id}`}
                                   onClick={() => setIsOpen(false)}
-                                  className="flex items-center gap-4 px-4 py-4 text-[14px] font-bold text-white/70 hover:text-accent transition-all"
+                                  className="flex items-center gap-3.5 px-3.5 py-3 text-[13px] font-bold text-white/80 hover:text-[#0A2647] hover:bg-accent rounded-lg transition-all group/mob"
                                 >
-                                  <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-accent shadow-sm">
+                                  <div className="w-8 h-8 rounded-md bg-white/10 flex items-center justify-center text-accent group-hover/mob:bg-[#0A2647] group-hover/mob:text-accent shadow-sm transition-colors">
                                     {serviceIcons[service.id]}
                                   </div>
                                   {service.shortTitle}
