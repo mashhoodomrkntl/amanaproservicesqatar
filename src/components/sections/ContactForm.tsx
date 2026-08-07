@@ -1,10 +1,11 @@
 "use client";
 
-import { motion, useInView, AnimatePresence } from "framer-motion";
-import { useRef, useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { Send, Phone, Mail, MapPin, Clock, ChevronDown, CheckCircle2 } from "lucide-react";
+import { pushGtmEvent } from "@/lib/gtm";
 import { useTranslations } from "@/lib/i18n";
+import { AnimatePresence, motion, useInView } from "framer-motion";
+import { ChevronDown, Clock, Mail, MapPin, Phone, Send } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 
 export default function ContactForm() {
   const ref = useRef(null);
@@ -36,7 +37,7 @@ export default function ContactForm() {
 
   const serviceDropdownOptions = [
     { value: "", label: t("contact.formService") },
-    ...localizedServices.map((s) => ({ value: s.id, label: s.shortTitle })),
+    ...localizedServices.map((s: any) => ({ value: s.id, label: s.shortTitle })),
     { value: "others", label: locale === "ar" ? "أخرى" : "Others" },
   ];
 
@@ -67,6 +68,18 @@ export default function ContactForm() {
       const data = await response.json();
 
       if (data.success) {
+        pushGtmEvent({
+          event: "generate_lead",
+          event_category: "lead_generation",
+          event_label: "Contact Form Submission",
+          form_name: "contact_form",
+          service_requested: serviceLabel || "General",
+        });
+        pushGtmEvent({
+          event: "contact_form_submit",
+          form_name: "contact_form",
+          service_requested: serviceLabel || "General",
+        });
         router.push(`/${locale}/thank-you`);
       } else {
         setErrorMessage(data.message || t("contact.formError"));

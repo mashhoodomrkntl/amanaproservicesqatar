@@ -1,12 +1,28 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import { useTranslations } from "@/lib/i18n";
+import { pushGtmEvent } from "@/lib/gtm";
 
 export default function ThankYouPage() {
   const { t, locale } = useTranslations();
   const isRtl = locale === "ar";
+
+  useEffect(() => {
+    pushGtmEvent({
+      event: "thank_you_page_view",
+      event_category: "conversion",
+      event_label: "Thank You Page Loaded",
+      page_title: "Thank You",
+      page_location: typeof window !== "undefined" ? window.location.href : "",
+    });
+    pushGtmEvent({
+      event: "conversion_thank_you",
+      event_category: "conversion",
+    });
+  }, []);
 
   return (
     <div className="min-h-[80vh] flex items-center justify-center bg-[#FAFAFA] pt-32 pb-20">

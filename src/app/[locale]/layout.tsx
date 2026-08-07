@@ -110,10 +110,14 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     },
     icons: {
       icon: [
-        { url: "/Amanah Icon.png", media: "(prefers-color-scheme: light)" },
-        { url: "/Amanah Icon.png", media: "(prefers-color-scheme: dark)" },
+        { url: "/icon.png", type: "image/png" },
+        { url: "/icon.png", sizes: "192x192", type: "image/png" },
+        { url: "/icon.png", sizes: "512x512", type: "image/png" },
       ],
-      apple: "/Amanah Icon.png",
+      shortcut: "/icon.png",
+      apple: [
+        { url: "/icon.png", sizes: "180x180", type: "image/png" },
+      ],
     },
   };
 }
@@ -129,6 +133,8 @@ export default async function RootLayout({ children, params }: Readonly<Props>) 
     name: siteConfig.name,
     description: siteConfig.description,
     url: siteConfig.url,
+    logo: "https://amanahbusiness.qa/icon.png",
+    image: "https://amanahbusiness.qa/icon.png",
     telephone: siteConfig.phone,
     email: siteConfig.email,
     address: {
@@ -177,6 +183,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* End Google Tag Manager */}
+        <link rel="icon" href="/icon.png" type="image/png" sizes="any" />
+        <link rel="shortcut icon" href="/icon.png" />
+        <link rel="apple-touch-icon" href="/icon.png" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/silktide/consent-manager@v2.0.0/silktide-consent-manager.css" integrity="sha384-IO1E/jCrQXyH5rwcI0SXP7OXw47JFqQNDQcKhbFvqnL2IunBxxwE2Ne5XyAmCqKs" crossOrigin="anonymous" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>

@@ -52,7 +52,7 @@ export default function BlogPostDetailPage({ post, locale }: BlogPostDetailPageP
       name: "Amanah Business Services",
       logo: {
         "@type": "ImageObject",
-        url: "https://amanahbusiness.qa/Amanah Icon.png",
+        url: "https://amanahbusiness.qa/icon.png",
       },
     },
   };
